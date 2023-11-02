@@ -1,6 +1,6 @@
 {
   "$schema": "https://mintlify.com/schema.json",
-  "name": "Starter Kit",
+  "name": "Wave Terminal",
   "logo": {
     "dark": "/logo/wave-logo_horizontal-coloronblack.svg",
     "light": "/logo/wave-logo_horizontal-coloronwhite.svg"
@@ -17,8 +17,8 @@
   },
   "topbarLinks": [
     {
-      "name": "Support for Wave Terminal",
-      "url": "mailto:hi@mintlify.com"
+      "name": "Support",
+      "url": "mailto:info@commandline.dev"
     }
   ],
   "topbarCtaButton": {
@@ -33,19 +33,19 @@
   ],
   "anchors": [
     {
-      "name": "Documentation",
-      "icon": "book-open-cover",
-      "url": "https://mintlify.com/docs"
+      "name": "Github",
+      "icon": "github",
+      "url": "https://github.com/wavetermdev"
     },
     {
-      "name": "Community",
-      "icon": "slack",
-      "url": "https://mintlify.com/community"
+      "name": "Join our Discord",
+      "icon": "discord",
+      "url": "https://discord.gg/XfvZ334gwU"
     },
     {
       "name": "Blog",
       "icon": "newspaper",
-      "url": "https://mintlify.com/blog"
+      "url": "https://commandline.dev/blog"
     }
   ],
   "navigation": [
