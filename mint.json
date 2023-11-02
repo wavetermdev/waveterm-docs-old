@@ -7,12 +7,12 @@
   },
   "favicon": "/wave-logo_appicon.svg",
   "colors": {
-    "primary": "#0D9373",
-    "light": "#07C983",
-    "dark": "#0D9373",
+    "primary": "#58C142",
+    "light": "#35A118",
+    "dark": "#58C142",
     "anchors": {
-      "from": "#0D9373",
-      "to": "#07C983"
+      "from": "#58C142",
+      "to": "#35A118"
     }
   },
   "topbarLinks": [
