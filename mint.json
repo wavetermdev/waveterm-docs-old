@@ -22,8 +22,8 @@
     }
   ],
   "topbarCtaButton": {
-    "name": "Dashboard",
-    "url": "https://dashboard.mintlify.com"
+    "name": "Download Wave",
+    "url": "https://commandline.dev/download"
   },
   "tabs": [
     {
