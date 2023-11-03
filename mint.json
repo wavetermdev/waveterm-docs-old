@@ -60,10 +60,6 @@
     {
       "group": "Features",
       "pages": [
-        "features/appearance",
-        "features/history",
-        "features/connections",
-        "features/markdown",
         "features/code",
         "features/images",
         "features/settings",
