@@ -67,6 +67,7 @@
       "group": "Reference",
       "pages": [
         "reference/keyboard",
+        "features/navigation",
         "reference/metacommands"
       ]
     },
