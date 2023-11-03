@@ -62,6 +62,7 @@
       "pages": [
         "features/appearance",
         "features/history",
+        "features/images",
         "features/markdown",
         "features/navigation"
       ]
