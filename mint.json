@@ -54,7 +54,7 @@
       "pages": [
         "introduction",
         "quickstart",
-        "development"
+        "releasenotes"
       ]
     },
     {
@@ -73,7 +73,7 @@
         "reference/keyboard",
         "reference/metacommands"
       ]
-    }, 
+    },
     {
       "group": "API Documentation",
       "pages": [
