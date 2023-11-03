@@ -68,6 +68,13 @@
       ]
     },
     {
+      "group": "Reference",
+      "pages": [
+        "reference/keyboard",
+        "reference/metacommands"
+      ]
+    }, 
+    {
       "group": "API Documentation",
       "pages": [
         "api-reference/introduction"
