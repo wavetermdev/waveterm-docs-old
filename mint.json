@@ -60,6 +60,7 @@
     {
       "group": "Features",
       "pages": [
+        "features/appearance",
         "features/navigation"
       ]
     },
@@ -67,7 +68,6 @@
       "group": "Reference",
       "pages": [
         "reference/keyboard",
-        "features/navigation",
         "reference/metacommands"
       ]
     },
