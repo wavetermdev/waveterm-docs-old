@@ -64,6 +64,7 @@
         "features/history",
         "features/images",
         "features/markdown",
+        "features/connections",
         "features/navigation"
       ]
     },
