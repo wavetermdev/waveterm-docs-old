@@ -61,10 +61,10 @@
       "group": "Features",
       "pages": [
         "features/appearance",
+        "features/connections",
         "features/history",
         "features/images",
         "features/markdown",
-        "features/connections",
         "features/navigation"
       ]
     },
