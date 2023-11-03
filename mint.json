@@ -60,9 +60,6 @@
     {
       "group": "Features",
       "pages": [
-        "features/code",
-        "features/images",
-        "features/settings",
         "features/navigation"
       ]
     },
