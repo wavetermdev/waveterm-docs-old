@@ -1,66 +1,32 @@
 ---
 title: 'Connections'
-description: 'The navigation field in mint.json defines the pages that go in the navigation menu'
-icon: 'browser'
+description: 'Run commands on remote machines'
+icon: 'map'
 ---
 
-The navigation menu is the list of links on every website.
+## Connections (Remotes)
 
-You will likely update `mint.json` every time you add a new page. Pages do not show up automatically.
+So far we've been running commands on our local computer.  Wave of course supports regular ssh (as a block) that you can run to log into remote machines but regular ssh connections suffer from two problems -- (1) you can get disconnected, and (2) no universal history.  To get the most out of Wave you need to set up a "remote".  This functions as a virtual SSH connection that can recover from disconnects, save your environment (working directory, environment variables, functions, etc.), and save its history.
 
-## Navigation syntax
+### Security
+> Wave was designed with security in mind.  All authentication to remote machines is done using standard SSH (Prompt does not implement any special authentication scheme of its own).  All communication with a remote is done via stdout and stdin, so the helper that runs on the remote machine will *never* open any ports, or need any additional privledges.
 
-Our navigation syntax is recursive which means you can make nested navigation groups. You don't need to include `.mdx` in page names.
+To do that you need to create a new connection for the machine that you are logging into.  Click "Add Connection" in the bottom-left of the screen and you'll see a small form.  Prompt uses regular SSH to make its connections.  Use the "authmode" dropdown to add an ssh key (equivalent to "-i") and/or a password (note that ssh keys are more secure than passwords, and we recommend that you always use keys to log into your servers and not password authentication).  If your connection is not standard, and requires some other type of authentication or a changing password (OTP), you'll have to select "connectmode" as "manual".
 
-<CodeGroup>
+<Tip>
 
-```json Regular Navigation
-"navigation": [
-    {
-        "group": "Getting Started",
-        "pages": ["quickstart"]
-    }
-]
-```
+To allow for persistent connections, Prompt will install a helper on the remote machine (mshell).  This helper *only* communicates via stdin and stdout to Prompt.  It does not open any ports or network connections, does not need any additional permissions, and will only write to the disk if you are running detached commands (special types of commands that can stay running even when Prompt is disconnected).  The helper program will be open-source.  To re-install the helper run the meta-command ```/remote:install```.
 
-```json Nested Navigation
-"navigation": [
-    {
-        "group": "Getting Started",
-        "pages": [
-            "quickstart",
-            {
-                "group": "Nested Reference Pages",
-                "pages": ["nested-reference-page"]
-            }
-        ]
-    }
-]
-```
+</Tip>
 
-</CodeGroup>
+## Using Connections (Remotes)
 
-## Folders
+Now that we've set up our first remote we can use it.  In any screen you can use the `cr` command.  `cr` will change your remote (like `cd` can change directories).  You just type `cr [remotename-or-alias]` and you'll see your prompt change to reflect that you're now running commands against the selected remote.  Note that a screen can have a mix of commands from local or from a remote (you can see the remote that ran the command to the right of the line number).
 
-Simply put your MDX files in folders and update the paths in `mint.json`.
+Every session and tab can now switch to the newly added remote using `cr`.  Every tab keeps its own remote state, so you might have different current working directories in each tab (just like a local connection).
 
-For example, to have a page at `https://yoursite.com/your-folder/your-page` you would make a folder called `your-folder` containing an MDX file called `your-page.mdx`.
+Let's say I have a remote named "server01".  If I `cr server01` I get a complete virtual environment working on server01.  `cd` or exporting an environment variable are all sticky to that tab.  I can create an additional virtual environment by using a colon: `cr server01:2` will change to the server01 remote to a named session "2".  Any number of virtual environments can be made in a tab for each remote and all will be independent.
 
-<Warning>
+To reset a remote back to its initial login state, use the meta-command `/reset` (useful if you've recently updated your `.bashrc` or `.bash_profile`.
 
-You cannot use `api` for the name of a folder unless you nest it inside another folder. Mintlify uses Next.js which reserves the top-level `api` folder for internal server calls. A folder name such as `api-reference` would be accepted.
-
-</Warning>
-
-```json Navigation With Folder
-"navigation": [
-    {
-        "group": "Group Name",
-        "pages": ["your-folder/your-page"]
-    }
-]
-```
-
-## Hidden Pages
-
-MDX files not included in `mint.json` will not show up in the sidebar but are accessible through the search bar and by linking directly to them.
+Note: You can change the color of a remote's prompt with the meta-command: ```/remote:set color=red```.
