@@ -1,0 +1,122 @@
+---
+title: Release Notes
+---
+
+### v0.4.0 - 10/14/2023
+
+* **New UI!**
+* csvview for viewing CSV files.  Columns are sortable.
+* Other bug fixes
+
+### v0.3.1 - 9/18/2023
+
+* codeedit now has an inline markdown preview!  In codeedit (when language is set to "markdown"), you can click the "preview" button or Cmd-P to open a live markdown preview pane.
+* imageview for viewing image files: `imageview [filename]`
+* mdview for viewing markdown files: `mdview [filename]`
+* Improved terminal rendering performance
+* Improved status icons for showing commands that were successful (exitcode=0), and which are still running
+* Improved error messages for renderers
+* Removed WebSharing functionality (will be back in a future release)
+* Experimental: mustache template renderer.  Can combine a mustache template with JSON output to render inline HTML `[view=mustache template=test.mustache] cat data.json`
+* Bug fix: codeedit now gets focus when run.  Can also use the standard Cmd-L to give it focus when it is the selected line.
+* Bug fix: external links now open in the standard web browser (not in a Prompt window)
+* Bug fix: font sizes are more consistent (and linked to the user selected "Terminal Font Size" setting)
+* Other bug fixes
+
+### v0.3.0 - 9/8/2023
+
+* codeedit for inline editing of local and remote files
+* codeview for viewing text files with syntax highlighting and code folding (replaces JSON viewer)
+* Other bug fixes
+
+### v0.2.2 - 4/17/2023
+
+* Add "json" renderer (react-json-view)
+* Update tab display colors, fix some minor tab layout issues
+* Update line and session settings modals to update immediately
+* Added buttons to delete sessions and screens in their settings windows
+* Fix width of markdown (default column was set too small)
+* Can now use "view" parameter to specifiy the renderer
+* Fixed bug related to large environments
+* Other bug fixes
+
+### v0.2.1 - 4/11/2023
+
+* Show current git branch in prompt
+* Show current python virtual environment (venv) in prompt
+* Alias "connect" to "cr"
+* Fix input focus when switching between sessions and tabs (more consistent)
+* Expanded mode for input when editing long or multi-line commands (Cmd-E)
+* Shift + up/down arrow does not move history (moves cursor in input)
+* Simplify input/command focus model and updates, more consistent input focus
+* Other bug fixes
+
+### v0.2.0 - 4/5/2023
+
+* **Web Sharing** - Quickly share a tab on the web with a secure URL
+* Redesigned connection management screens/settings
+* Updated settings screens
+* Alert/confirm popups for dangerous actions
+* Added Ctrl-Command-[Num] shortcut to switch between sessions
+* Added bindings for Ctrl-N and Ctrl-P (up/down in history)
+* Lots of UI refactoring to allow display of terminal tabs on the web
+* Fix metacmd behavior when resolving numeric IDs that are out of range
+* DB reorganization, screens are now independent of sessions (including lines and commands)
+* Big performance improvements for rendering when a screen contains thousands of commands
+* Other bug fixes and performance improvements
+
+### v0.1.7 - 3/20/2023
+
+* **Renderers** - added a plugin framework for line renderers, added "image" and "markdown" renderers
+* Add settings modals (UI) for sessions, screens, and lines
+* Show some keybinding hints
+* Fix readline bindings for Ctrl-U, Ctrl-W, and Ctrl-Y
+* Bug fix: remotes were always using port 22, not the configured remote SSH port
+* DB reorganization, remove windows, consolidate to screens
+* More orderly local-server shutdown
+* Backup local DB before running DB migrations
+* Fix alert/modal window styling
+* Fix paste limit into command windows
+* Other bug fixes and performance improvements
+
+### v0.1.6 - 3/6/2023
+
+* **History View** - shows all commands with advanced search and inline viewing of command output
+* Bug fixes
+
+### v0.1.5 - 2/27/2023
+
+* Collapsed view for screens (just show commands)
+* Can change the terminal font size
+* Toggle to show the full command when it gets cut off or is multi-line
+
+### v0.1.4 - 2/23/2023
+
+* **Bookmarks** - easily save and recall commands
+* Big performance improvement for screens with hundreds/thousands of blocks
+* Fix terrible scroll bar display for when MacOS is set to "always show scrollbars"
+* Updates to detect and show full MacOS version, and Prompt build times for debugging
+
+### v0.1.3
+
+* Fixes for connection window (interactive input)
+* Customize application menus
+* Save terminal rendered height, big performance improvement
+* Bare [enter] in input will now scroll to the last block in window
+* Update ports to 1619 and 1623 to not conflict with common dev ports
+* /screen:reset resets all remotes for screen/window
+
+### v0.1.2
+
+* Fixed crash when purging lines
+* New application icon
+
+### v0.1.1
+
+* Bug fixes
+* Block rendering performance improvements
+* Added basic telemetry
+
+### v0.1.0
+
+Initial Relase
