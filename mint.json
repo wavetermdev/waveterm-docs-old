@@ -60,6 +60,9 @@
     {
       "group": "Features",
       "pages": [
+        "essentials/appearance",
+        "essentials/history",
+        "essentials/connections",
         "essentials/markdown",
         "essentials/code",
         "essentials/images",
