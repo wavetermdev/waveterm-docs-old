@@ -60,6 +60,7 @@
     {
       "group": "Features",
       "pages": [
+        "features/appearance",
         "features/connections",
         "features/navigation"
       ]
