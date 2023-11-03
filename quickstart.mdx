@@ -1,86 +1,70 @@
 ---
 title: 'Quickstart'
-description: 'Start building awesome documentation in under 5 minutes'
+description: 'After downloading Wave, you can use it immediately'
 ---
 
-## Setup your development
+## Get Started
 
-Learn how to update your docs locally and and deploy them to the public.
+You type commands into the input box at the bottom of the screen like normal, and when you hit [return] the command will be executed. You’ll notice that each command is run in its own block. The block will groups the command with its output in the terminal screen. The block will expand to fill the screen as more output is received.
 
-### Edit and preview
+### Running Commands
 
 <AccordionGroup>
-  <Accordion icon="github" title="Clone your docs locally">
-    During the onboarding process, we created a repository on your Github with
-    your docs content. You can find this repository on our
-    [dashboard](https://dashboard.mintlify.com). To clone the repository
-    locally, follow these
-    [instructions](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository)
-    in your terminal.
+  <Accordion icon="github" title="Command Status">
+    The blocks give information about the command and its status. The box with the number in it shows you the “line number” of the command within the screen. The color of the box that contains the line number shows you the command status, light blue means running, and light gray means the command has terminated.
   </Accordion>
   <Accordion icon="rectangle-terminal" title="Preview changes">
-    Previewing helps you make sure your changes look as intended. We built a
-    command line interface to render these changes locally. 1. Install the
-    [Mintlify CLI](https://www.npmjs.com/package/mintlify) to preview the
-    documentation changes locally with this command: ``` npm i -g mintlify ```
-    2. Run the following command at the root of your documentation (where
-    `mint.json` is): ``` mintlify dev ```
+    When a command is running, you can interact with it like normal when the command has focus. When commands are initially run they get focus by default, and when they terminate they give focus back to the input box. You can easily shift focus between your commands or the input box using the mouse or “Cmd-I” to focus the input box, and “Cmd-L” to focus a command line. Note that Cmd-I will work in any context to focus the input box. To shift the focus between commands you can use the mouse or “Cmd-UpArrow” / “Cmd-DownArrow” (or Cmd-PageUp/Cmd-PageDown) will move the focus between commands.
   </Accordion>
 </AccordionGroup>
 
-### Deploy your changes
+### Sessions and Screens (Tabs)
 
 <AccordionGroup>
 
-<Accordion icon="message-bot" title="Install our Github app">
-  Our Github app automatically deploys your changes to your docs site, so you
-  don't need to manage deployments yourself. You can find the link to install on
-  your [dashboard](https://dashboard.mintlify.com). Once the bot has been
-  successfully installed, there should be a check mark next to the commit hash
-  of the repo.
+<Accordion icon="message-bot" title="Create new Screens">
+  So far we’ve been working in one screen (tab). You can easily create a new screen (tab) by clicking the “+” in the tab bar (right above the input box), or by pressing “Cmd-T”. Switching between tabs can be done with the mouse or by using “Cmd-[digit]” to switch to the nth tab. Cmd-LeftArrow and Cmd-RightArrow will also work to change tabs.
 </Accordion>
-<Accordion icon="rocket" title="Push your changes">
-  [Commit and push your changes to
-  Git](https://docs.github.com/en/get-started/using-git/pushing-commits-to-a-remote-repository#about-git-push)
-  for your changes to update in your docs site. If you push and don't see that
-  the Github app successfully deployed your changes, you can also manually
-  update your docs through our [dashboard](https://dashboard.mintlify.com).
+<Accordion icon="rocket" title="Create New Sessions">
+  Wave also has the concept of sessions. A session is just a set of screens (tabs). You can see your sessions listed in the left column of the UI. You start with 1 session named “default”. You can easily create a new session by clicking on “new session” in the left bar or by using a “meta-command” (we’ll discuss those later). Each session is independent from the others. You can use sessions to set up custom sets of tabs for different projects, common configurations, or different remote machines. In the future, Prompt will support sharing sessions with your team or having a joint shared session that everyone can view and contribute to.
+
+Sessions and screens are persistent. The history and state of each tab is preserved across reboots, network disconnections, remote machine reboots, and time. Any command you’ve ever run in Prompt will be remembered (unless of course you choose to delete it).
 </Accordion>
 
 </AccordionGroup>
 
-## Update your docs
+## Wave Features
 
-Add content directly in your files with MDX syntax and React components. You can use any of our components, or even build your own.
+Wave Terminal has lots of rich features, learn more here
 
 <CardGroup>
 
-<Card title="Style Your Docs" icon="paintbrush" href="/settings/global">
-  Add flair to your docs with personalized branding.
+<Card title="Style Your Terminal" icon="paintbrush" href="/settings/global">
+  Add flair to your terminal with personalized branding.
 </Card>
 
 <Card
-  title="Add API Endpoints"
-  icon="square-code"
-  href="/api-playground/configuration"
->
-  Implement your OpenAPI spec and enable API user interaction.
-</Card>
-
-<Card
-  title="Integrate Analytics"
+  title="History"
   icon="chart-mixed"
   href="/analytics/supported-integrations"
 >
-  Draw insights from user interactions with your documentation.
+  Make the most of Wave's persistent, context rich history. 
 </Card>
 
 <Card
-  title="Host on a Custom Domain"
+  title="Connections (Remotes)"
   icon="browser"
   href="/settings/custom-domain/subdomain"
 >
-  Keep your docs on your own website's subdomain.
+  Use Wave to log into remote machines
+</Card>
+
+<Card
+  title="Extend Wave"
+  icon="square-code"
+  href="/api-playground/configuration"
+>
+  Implement your own renderers with Wave's open API. 
 </Card>
 
 </CardGroup>
