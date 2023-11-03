@@ -61,9 +61,7 @@
       "group": "Features",
       "pages": [
         "features/appearance",
-        "features/connections",
         "features/markdown",
-        "features/images",
         "features/navigation"
       ]
     },
