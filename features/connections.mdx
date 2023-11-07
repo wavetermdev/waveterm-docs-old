@@ -4,29 +4,29 @@ description: 'Run commands on remote machines'
 icon: 'map'
 ---
 
-## Connections (Remotes)
+## Connections
 
-So far we've been running commands on our local computer.  Wave of course supports regular ssh (as a block) that you can run to log into remote machines but regular ssh connections suffer from two problems -- (1) you can get disconnected, and (2) no universal history.  To get the most out of Wave you need to set up a "remote".  This functions as a virtual SSH connection that can recover from disconnects, save your environment (working directory, environment variables, functions, etc.), and save its history.
+So far we've been running commands on our local computer.  Wave of course supports regular ssh (as a block) that you can run to log into remote machines but regular ssh connections suffer from two problems -- (1) you can get disconnected, and (2) no universal history.  To get the most out of Wave you need to set up a Wave "connection".  This functions as a virtual SSH connection that can recover from disconnects, save your environment (working directory, environment variables, functions, etc.), and save its history.
 
 ### Security
-> Wave was designed with security in mind.  All authentication to remote machines is done using standard SSH (Prompt does not implement any special authentication scheme of its own).  All communication with a remote is done via stdout and stdin, so the helper that runs on the remote machine will *never* open any ports, or need any additional privledges.
 
-To do that you need to create a new connection for the machine that you are logging into.  Click "Add Connection" in the bottom-left of the screen and you'll see a small form.  Prompt uses regular SSH to make its connections.  Use the "authmode" dropdown to add an ssh key (equivalent to "-i") and/or a password (note that ssh keys are more secure than passwords, and we recommend that you always use keys to log into your servers and not password authentication).  If your connection is not standard, and requires some other type of authentication or a changing password (OTP), you'll have to select "connectmode" as "manual".
+> Wave was designed with security in mind.  All authentication to remote machines is done using standard SSH (Prompt does not implement any special authentication scheme of its own).  All communication is done via stdout and stdin, so the helper that runs on the remote machine will *never* open any ports, or need any additional privledges.
+
+To do that you need to create a new connection for the machine that you are logging into.  Click "Connections" in the left sidebar.  From there click on "Add Connection".  Prompt uses regular SSH to make its connections.  Use the "authmode" dropdown to add an ssh key (equivalent to "-i") and/or a password (note that ssh keys are more secure than passwords, and we recommend that you always use keys to log into your servers and not password authentication).  If your connection is not standard, and requires some other type of authentication or a changing password (OTP), you'll have to select "connectmode" as "manual".
 
 <Tip>
 
-To allow for persistent connections, Prompt will install a helper on the remote machine (mshell).  This helper *only* communicates via stdin and stdout to Prompt.  It does not open any ports or network connections, does not need any additional permissions, and will only write to the disk if you are running detached commands (special types of commands that can stay running even when Prompt is disconnected).  The helper program will be open-source.  To re-install the helper run the meta-command ```/remote:install```.
+To allow for persistent connections, Wave will install a helper on the remote machine (waveshell).  This helper *only* communicates via stdin and stdout to Wave.  It does not open any ports or network connections, does not need any additional permissions, and will only write to the disk if you are running detached commands (special types of commands that can stay running even when Wave is disconnected).  The helper program is also open-source, written in Go, and can be found in the waveterm GitHub repo in the waveshell directory.  To re-install the helper run the meta-command ```/connection:install```.
 
 </Tip>
 
-## Using Connections (Remotes)
+## Using Connections
 
-Now that we've set up our first remote we can use it.  In any screen you can use the `cr` command.  `cr` will change your remote (like `cd` can change directories).  You just type `cr [remotename-or-alias]` and you'll see your prompt change to reflect that you're now running commands against the selected remote.  Note that a screen can have a mix of commands from local or from a remote (you can see the remote that ran the command to the right of the line number).
+Now that we've set up our first remote connection we can use it.  In any screen you can use the `cr` command.  `cr` will change your connection (like `cd` can change directories).  You just type `cr [remotename-or-alias]` and you'll see your prompt change to reflect that you're now running commands against the selected connection.  Note that a screen can have a mix of commands from local or from a remote connection (you can see the connection that ran the command in the prompt).
 
-Every session and tab can now switch to the newly added remote using `cr`.  Every tab keeps its own remote state, so you might have different current working directories in each tab (just like a local connection).
+Every session and tab can now switch to the newly added connection using `cr`.  Every tab keeps its own remote state, so you might have different current working directories in each tab (just like a local connection).
 
 Let's say I have a remote named "server01".  If I `cr server01` I get a complete virtual environment working on server01.  `cd` or exporting an environment variable are all sticky to that tab.  I can create an additional virtual environment by using a colon: `cr server01:2` will change to the server01 remote to a named session "2".  Any number of virtual environments can be made in a tab for each remote and all will be independent.
 
-To reset a remote back to its initial login state, use the meta-command `/reset` (useful if you've recently updated your `.bashrc` or `.bash_profile`.
+To reset a remote back to its initial login state, use the meta-command `/reset` (or just `reset`) (useful if you've recently updated your `.bashrc` or `.bash_profile`.
 
-Note: You can change the color of a remote's prompt with the meta-command: ```/remote:set color=red```.
