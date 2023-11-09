@@ -23,13 +23,9 @@
   ],
   "topbarCtaButton": {
     "name": "Download Wave",
-    "url": "https://commandline.dev/download"
+    "url": "https://www.waveterm.dev/download"
   },
   "tabs": [
-    {
-      "name": "API Reference",
-      "url": "api-reference"
-    }
   ],
   "anchors": [
     {
@@ -41,11 +37,6 @@
       "name": "Join our Discord",
       "icon": "discord",
       "url": "https://discord.gg/XfvZ334gwU"
-    },
-    {
-      "name": "Blog",
-      "icon": "newspaper",
-      "url": "https://commandline.dev/blog"
     }
   ],
   "navigation": [
@@ -54,7 +45,8 @@
       "pages": [
         "introduction",
         "quickstart",
-        "releasenotes"
+        "releasenotes",
+        "faq"
       ]
     },
     {
@@ -71,7 +63,7 @@
       "group": "Reference",
       "pages": [
         "reference/keyboard",
-        "reference/metacommands"
+        "reference/slashcommands"
       ]
     },
     {
@@ -90,8 +82,8 @@
     }
   ],
   "footerSocials": {
-    "twitter": "https://x.com/commandlinedev",
-    "github": "https://github.com/wavetermdev",
+    "twitter": "https://x.com/wavetermdev",
+    "github": "https://github.com/wavetermdev/waveterm",
     "linkedin": "https://www.linkedin.com/company/commandlinedev"
   }
 }
