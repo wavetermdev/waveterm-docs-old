@@ -65,25 +65,11 @@
         "reference/keyboard",
         "reference/slashcommands"
       ]
-    },
-    {
-      "group": "API Documentation",
-      "pages": [
-        "api-reference/introduction"
-      ]
-    },
-    {
-      "group": "Endpoint Examples",
-      "pages": [
-        "api-reference/endpoint/get",
-        "api-reference/endpoint/create",
-        "api-reference/endpoint/delete"
-      ]
     }
   ],
-  "footerSocials": {
-    "twitter": "https://x.com/wavetermdev",
-    "github": "https://github.com/wavetermdev/waveterm",
-    "linkedin": "https://www.linkedin.com/company/commandlinedev"
+    "footerSocials": {
+      "github": "https://github.com/wavetermdev/waveterm",
+      "twitter": "https://x.com/wavetermdev",
+      "linkedin": "https://www.linkedin.com/company/commandlinedev"
   }
 }
