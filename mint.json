@@ -3,7 +3,7 @@
   "name": "Wave Terminal",
   "logo": {
     "dark": "/logo/wave-dark.png",
-    "light": "/logo/wave-logo_horizontal-coloronwhite.svg"
+    "light": "/logo/wave-light.png"
   },
   "favicon": "/wave-logo_appicon.svg",
   "colors": {
