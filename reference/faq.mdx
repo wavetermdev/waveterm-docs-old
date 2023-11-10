@@ -1,0 +1,15 @@
+---
+title: FAQ
+---
+
+## Where is my data stored?
+
+All of your data, including command history, environment data, and output and all metadata is stored *locally* on your machine in the `~/.waveterm` directory.  None of that information ever leaves your machine.  In the future we may launch cloud features to support terminal sharing, shared workspaces, shared playbooks, and terminal backup/sync.  These will *opt-in*.  We'll never release an update that moves your *private* data off your machine without your explicit consent.
+
+## What telemetry do you collect and send?  Can I opt-out?
+
+Wave telemetry is very minimal, anonymized, completely optional, and you can opt out at any time.  In fact we allow you opt-out in the welcome screen when you first run Wave!  If you'd like to change your telemetry setting after the first run, you can using the Wave settings screen (link in the bottom left of the application).  Please consider leaving telemetry on to support us.  We use the telemetry data to track general usage which helps us keep Wave funded and growing.
+
+## What shells does Wave Terminal support?
+
+We currently only support `bash`.  Your environment (including variables, functions, and aliases) is read from the standard bash startup files (.bash_profile).  In order to customize Wave's environment at startup Wave will set the environment variable `WAVESHELL`.  If you are currently using `zsh`, you might have to transfer some of your `.zprofile` setup into your `.bash_profile` to have Wave pick up your path and other environment settings.  Note that supporting zsh is high on our technical roadmap and we expect to have have at least partial (if not full) zsh support in the next couple of months.

@@ -45,8 +45,7 @@
       "pages": [
         "introduction",
         "quickstart",
-        "releasenotes",
-        "faq"
+        "releasenotes"
       ]
     },
     {
@@ -62,6 +61,7 @@
     {
       "group": "Reference",
       "pages": [
+        "reference/faq",
         "reference/keyboard",
         "reference/slashcommands"
       ]
