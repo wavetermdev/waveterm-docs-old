@@ -2,7 +2,7 @@
   "$schema": "https://mintlify.com/schema.json",
   "name": "Wave Terminal",
   "logo": {
-    "dark": "/logo/wave-logo_horizontal-coloronblack.svg",
+    "dark": "/logo/wave-dark.png",
     "light": "/logo/wave-logo_horizontal-coloronwhite.svg"
   },
   "favicon": "/wave-logo_appicon.svg",
