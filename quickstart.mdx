@@ -5,16 +5,16 @@ description: 'After downloading Wave, you can use it immediately'
 
 ## Get Started
 
-You type commands into the input box at the bottom of the screen like normal, and when you hit [return] the command will be executed. You’ll notice that each command is run in its own block. The block will groups the command with its output in the terminal screen. The block will expand to fill the screen as more output is received.
+You type commands into the input box at the bottom of the screen like normal, and when you hit [return] the command will be executed. You’ll notice that each command is run in its own block. The block groups the command with its output in the terminal screen. The block will expand to fill the screen as more output is received.
 
 ### Running Commands
 
 <AccordionGroup>
   <Accordion icon="github" title="Command Status">
-    The blocks give information about the command and its status. The box with the number in it shows you the “line number” of the command within the screen. The color of the box that contains the line number shows you the command status, light blue means running, and light gray means the command has terminated.
+    The block headers give information about the command and its status. You'll see the line "number" (useful for referring to commands from the CLI), a status indicator, and a timestamp.  The next line shows what server the command was run against (local means your local machine), the current working directory, and then the command.  When you're in a git directory or a python venv you'll also get additional status showing the git branch or the environment name.
   </Accordion>
   <Accordion icon="rectangle-terminal" title="Preview changes">
-    When a command is running, you can interact with it like normal when the command has focus. When commands are initially run they get focus by default, and when they terminate they give focus back to the input box. You can easily shift focus between your commands or the input box using the mouse or “Cmd-I” to focus the input box, and “Cmd-L” to focus a command line. Note that Cmd-I will work in any context to focus the input box. To shift the focus between commands you can use the mouse or “Cmd-UpArrow” / “Cmd-DownArrow” (or Cmd-PageUp/Cmd-PageDown) will move the focus between commands.
+    When a command is running, you can interact with it like normal when the command has focus. When commands are initially run they get focus by default, and when they terminate they give focus back to the input box. You can easily shift focus between your commands or the input box using the mouse or “Cmd-I” to focus the input box, and “Cmd-L” to focus a command line. Note that Cmd-I will work in any context to focus the input box. To shift the focus between commands you can use the mouse or “Cmd-UpArrow” / “Cmd-DownArrow” (or Cmd-PageUp/Cmd-PageDown) will move the focus between commands.  When the input box has focus, pressing "return" will always scroll the screen to the bottom.
   </Accordion>
 </AccordionGroup>
 
@@ -23,12 +23,12 @@ You type commands into the input box at the bottom of the screen like normal, an
 <AccordionGroup>
 
 <Accordion icon="message-bot" title="Create new Screens">
-  So far we’ve been working in one screen (tab). You can easily create a new screen (tab) by clicking the “+” in the tab bar (right above the input box), or by pressing “Cmd-T”. Switching between tabs can be done with the mouse or by using “Cmd-[digit]” to switch to the nth tab. Cmd-LeftArrow and Cmd-RightArrow will also work to change tabs.
+  So far we’ve been working in one screen (tab). You can easily create a new screen (tab) by clicking the “+” in the tab bar, or by pressing “Cmd-T”. Switching between tabs can be done with the mouse or by using “Cmd-[digit]” to switch to the nth tab. Cmd-LeftArrow and Cmd-RightArrow will also work to change tabs.
 </Accordion>
-<Accordion icon="rocket" title="Create New Sessions">
-  Wave also has the concept of sessions. A session is just a set of screens (tabs). You can see your sessions listed in the left column of the UI. You start with 1 session named “default”. You can easily create a new session by clicking on “new session” in the left bar or by using a “meta-command” (we’ll discuss those later). Each session is independent from the others. You can use sessions to set up custom sets of tabs for different projects, common configurations, or different remote machines. In the future, Prompt will support sharing sessions with your team or having a joint shared session that everyone can view and contribute to.
+<Accordion icon="rocket" title="Create New Workspace">
+  Wave also has the concept of workspaces. A workspace is just a set of screens (tabs). You can see your workspaces listed in the left column of the UI. You start with 1 workspace named “default”. You can easily create a new workspace by clicking on the "+" left bar next to the label "Workspaces" or by using a “slash-command” (we’ll discuss those later). Each workspace is independent from the others. You can use workspaces to set up custom sets of tabs for different projects, common configurations, or different remote machines. In the future, Wave will support sharing workspaces with your team or having a joint shared workspace that everyone can view and contribute to.
 
-Sessions and screens are persistent. The history and state of each tab is preserved across reboots, network disconnections, remote machine reboots, and time. Any command you’ve ever run in Prompt will be remembered (unless of course you choose to delete it).
+Workspaces and screens are persistent. The history and state of each tab is preserved across reboots, network disconnections, remote machine reboots, and time. Any command you’ve ever run in Wave will be remembered (unless of course you choose to delete it).
 </Accordion>
 
 </AccordionGroup>
