@@ -43,8 +43,8 @@
     {
       "group": "Get Started",
       "pages": [
-        "quickstart",
         "introduction",
+        "quickstart",
         "releasenotes"
       ]
     },
