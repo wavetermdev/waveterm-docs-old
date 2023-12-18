@@ -55,7 +55,8 @@
         "features/connections",
         "features/history",
         "features/images",
-        "features/markdown"
+        "features/markdown",
+	"features/chatGPT"
       ]
     },
     {
