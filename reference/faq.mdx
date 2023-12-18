@@ -21,3 +21,9 @@ It is a known issue that Wave Terminal does not support international unicode ch
 ## How do I specify SSH options such as PubkeyAcceptedKeyTypes?
 
 Currently there is no way to specify these option in the Connections UI. A workaround is to add the options to your ~/.ssh/config file. Wave Terminal uses ssh natively under the hood and so any options set in your ssh config will be picked up by Wave directly.
+
+## How can I disable automatic update checks?
+
+By default, Wave will query our GitHub releases feed to determine if any new releases have been published. This check happens once on launch and then again every 8 hours. We use the unauthenticated GitHub REST API and while we do not collect any telemetry on these calls, we cannot guarantee that GitHub will not collect its own telemetry.
+
+If you would like to disable the automatic update checks, you can toggle the "Check for Updates" button in the Settings to the off position (the white circle should be on the left and the button should be grey).
