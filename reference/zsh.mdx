@@ -2,11 +2,9 @@
 title: Using Wave Terminal with zsh
 ---
 
-## Where is my data stored?
+Wave Terminal currently only supports `bash`. Your environment (including variables, functions, and aliases) is read from the standard bash startup files (.bash_profile). In order to customize Wave's environment at startup Wave will set the environment variable `WAVESHELL`. If you are currently using `zsh`, you might have to transfer some of your `.zprofile` setup into your `.bash_profile have Wave pick up your path and other environment settings.  
 
-Your environment (including variables, functions, and aliases) is read from the standard bash startup files (.bash_profile).  
-
-> In order to customize Wave's environment at startup Wave will set the environment variable `WAVESHELL`. If you are currently using `zsh`, you might have to transfer some of your `.zprofile` setup into your `.bash_profile have Wave pick up your path and other environment settings.  Note that supporting zsh is high on our technical roadmap and we expect to have have at least partial (if not full) zsh support in the next couple of months.
+> Note that supporting zsh is high on our technical roadmap and we expect to have have at least partial (if not full) zsh support in the next couple of months.
 
 ## How do I get brew commands to work?
 
