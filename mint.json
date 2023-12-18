@@ -63,7 +63,8 @@
       "pages": [
         "reference/faq",
         "reference/keyboard",
-        "reference/slashcommands"
+        "reference/slashcommands",
+        "reference/zsh"
       ]
     }
   ],
