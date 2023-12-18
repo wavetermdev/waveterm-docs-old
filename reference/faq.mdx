@@ -17,3 +17,7 @@ We currently only support `bash`.  Your environment (including variables, functi
 ## Why do international characters appear as question marks?
 
 It is a known issue that Wave Terminal does not support international unicode characters yet. We are investigating a solution and tracking the issue [here](https://github.com/wavetermdev/waveterm/issues/88)
+
+## How do I specify SSH options such as PubkeyAcceptedKeyTypes?
+
+Currently there is no way to specify these option in the Connections UI. A workaround is to add the options to your ~/.ssh/config file. Wave Terminal uses ssh natively under the hood and so any options set in your ssh config will be picked up by Wave directly.
