@@ -342,6 +342,42 @@ Update client settings, currently only supports termfont size.  This will update
 
 `Usage: /client:set termfontsize=10`
 
+## /sidebar
+
+### /sidebar:open
+
+Opens the sidebar.  Takes an optional width param that specifies the preferred width of sidebar (can be either in percentage or px units).  Note that the sidebar will not shrink past 200px, also note that percentage must be between 10-90%.
+
+```
+Usage:
+/sidebar:open
+/sidebar:open width=40%
+/sidebar:open width=600px
+```
+
+### /sidebar:close
+
+Closes the sidebar
+
+`Usage: /sidebar:close`
+
+### /sidebar:add
+
+Adds a line to the sidebar.  Width can also be specified with this call (functions the same as for /sidebar:open).  Line is required (can be a line number or a line id).
+
+```
+Usage:
+/sidebar:add line=22
+/sidebar:add line=a78de32c
+/sidebar:add line=5 width=600px
+```
+
+### /sidebar:remove
+
+Removes the current line from the sidebar.
+
+`Usage: /sidebar:remove`
+
 ## /telemetry
 
 Commands that deal with client telemetry.

@@ -2,6 +2,25 @@
 title: Release Notes
 ---
 
+Download the latest build here: https://waveterm.dev/download
+
+### v0.5.2 - 12/18/2023
+
+* **ChatGPT Support** - run `/chat [question]` in your terminal to get quick answers to questions right inline in your terminal
+* Drag and drop tabs to reorder them within a workspace
+* Experimental sidebar support: move any command to the sidebar by clicking the right arrow icon.
+* Run commands directly in the sidebar by prefixing them with `[sidebar=1] ...`
+* Automatic update checking: Wave now pings the github releases page to see if there is a newer build available
+* Always show new tab "+" icon even when there are a large number of tabs open
+* Improvement: allow users to override OpenAI baseurl [github #133](https://github.com/wavetermdev/waveterm/issues/133)
+* Bug fix: ssh keys with passphrases should now work properly [github #128](https://github.com/wavetermdev/waveterm/issues/128)
+* Bug fix: allow '@' signs in ssh user names [github #127](https://github.com/wavetermdev/waveterm/issues/127)
+* Bug fix: ignore spurious ssh output when connecting [github #99](https://github.com/wavetermdev/waveterm/issues/99)
+* Bug fix: use user configured bash shell on MacOS [github #137](https://github.com/wavetermdev/waveterm/issues/137)
+* Bug fix: fix rtnstate detection for complex commands and conda [github #163](https://github.com/wavetermdev/waveterm/issues/163)
+# Bug fix: fix the ability to change the port number of a new connection on certain keyboards [github #162](https://github.com/wavetermdev/waveterm/issues/162)
+* Other minor UI improvements and bug fixes
+
 ### v0.5.1 - 12/5/2023
 
 * **Big update to Connections UI** (Connections Screen)
