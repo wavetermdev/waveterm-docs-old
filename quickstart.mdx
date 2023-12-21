@@ -15,6 +15,21 @@ description: 'After downloading Wave, get up and running quickly'
     2. Change to the Wave directory ```cd waveterm-linux-* ```
     3. Run the application:  ```./Wave```
   </Accordion>
+  <Accordion icon="windows" title="WSL Setup">
+ .  Wave has support for WSL, tested on Ubuntu and Kali distros
+    1. [Download Wave for Linux](https://www.commandline.dev/download) and extract file 
+		* (on terminal, use ```curl -L "<DOWNLOAD URL>" > Waveterm-Linux.zip```)
+    2. Change to the Wave directory ```cd waveterm-linux-* ```
+    3. Run the application:  ```./Wave```
+
+    if you run into issues, try running the following 2 commands:
+    ```
+    sudo apt install libgconf-2-4 libatk1.0-0 libatk-bridge2.0-0 \
+    libgdk-pixbuf2.0-0 libgtk-3-0 libgbm-dev libnss3-dev libxss-dev
+    export DISPLAY=:0 
+    ```
+
+  </Accordion>
 </AccordionGroup>
 
 ## Get Started
