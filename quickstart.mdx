@@ -17,6 +17,7 @@ description: 'After downloading Wave, get up and running quickly'
     
     While we work on improving the packaging for Linux, you can optionally create a `.desktop` file, allowing you to launch Wave directly.
     After doing the above steps, create a file named `Wave.desktop`, and add the following, modifying the `Exec` and `Icon` paths to point to your Wave installation:
+
     ```
     [Desktop Entry]
     Type=Application
@@ -26,9 +27,10 @@ description: 'After downloading Wave, get up and running quickly'
     # setting this to true will launch an extra terminal to run the Wave command
     Terminal=false
     ```
+
     Run `desktop-file-validate Wave.desktop` to validate that the desktop entry is correct, then run `sudo cp Wave.desktop ~/.local/share/applications/Wave.desktop` to copy the entry into your application list.
-    After restarting your desktop environment (or your computer), Wave should be visible in application list, and should be launched by clicking the icon.
-    The `.desktop` file scheme is supported by most commonly used desktop environments such as GNOME, KDE, XFCE, etc. If encounter issues, please consider opening an issue on the GitHub repository.
+    After restarting your desktop environment (or your computer), Wave should be visible in your desktop application list. You can now launch Wave directly from your desktop environment.
+    The `.desktop` file scheme is supported by the most commonly used desktop environments such as GNOME, KDE, XFCE, etc. If you encounter issues, you can get help in our Discord or by opening an issue on Github.
   </Accordion>
   <Accordion icon="windows" title="WSL Setup">
  .  Wave has support for WSL, tested on Ubuntu and Kali distros
