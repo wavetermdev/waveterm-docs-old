@@ -39,3 +39,21 @@ Right now we don't support changing the font. We plan on supporting this in the 
 ## Are ligatures supported in Wave?
 
 Wave Terminal uses the JetBrains Mono font which includes 142 code-specific ligatures. These ligatures are supported in the command prompt area and in the terminal output.
+
+## I've changed my .bashrc / .bash_profile files, how can I reload them?
+
+To reload your configuration files and reset the environment of a tab, you should run the command `reset` or (`/reset`).
+
+Wave loads your bash configuration by executing bash with the -l and -i options (so it is an interactive login shell).  That means any changes need to be in your .bash_profile to take effect (unless your .bash_profile also sources your .bashrc).  Note that sessions are persistent in Wave, so even if you change your startup files the changes won't take effect in any currently open tabs (unless you explicitly run `reset`).
+
+## Do I need to install mshell/waveshell on remote machines to use Wave Terminal?
+
+No, it is not required.  You can use Wave as a normal terminal by just executing a traditional `ssh` command at the Wave prompt.  That will create a command block that runs your remote ssh session.  When running ssh like this mshell/waveshell will not be installed on your remote machine.
+
+Note that when you run Wave in this configuration you lose some of the great features that Wave Connections brings.  Commands that are executed in the ssh process will not be added to Wave's universal history, command blocks will not be split out, and your ssh session will not be persistent or be able to seamlessly reconnect.
+
+## What is mshell/waveshell, why does it need to be installed on machines I connect to?
+
+waveshell (aka mshell) is a small [open-source](https://github.com/wavetermdev/waveterm/tree/main/waveshell) program that is installed on remote machines when you create a Wave Terminal "connection".  It is used to facilitate communication with the remote running commands, store/restore shell state, and allow multiple commands to be run in parallel via a single SSH connection.  It enables Wave Terminal to provide the advanced terminal features like command blocks, persistent sessions, and detailed universal command history.
+
+Note that waveshell is does *not* communicate with any external services, does not open any ports, and does *not* send any information or telemetry to Wave Terminal or Command Line Inc servers.  It communicates exclusively with the local Wave Terminal running on your machine via a standard SSH connection over stdin/stdout.  It does not require or try to acquire any additional privledges on the remote computer (unless of course you explicitly request it run with sudo privledges to execute sudo commands).  It is run only when Wave Terminal establishes a connection to the remote machine, and does not stay resident (as a daemon) when the connection is not active.
