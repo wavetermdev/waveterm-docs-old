@@ -57,3 +57,13 @@ Note that when you run Wave in this configuration you lose some of the great fea
 waveshell (aka mshell) is a small [open-source](https://github.com/wavetermdev/waveterm/tree/main/waveshell) program that is installed on remote machines when you create a Wave Terminal "connection".  It is used to facilitate communication with the remote running commands, store/restore shell state, and allow multiple commands to be run in parallel via a single SSH connection.  It enables Wave Terminal to provide the advanced terminal features like command blocks, persistent sessions, and detailed universal command history.
 
 Note that waveshell is does *not* communicate with any external services, does not open any ports, and does *not* send any information or telemetry to Wave Terminal or Command Line Inc servers.  It communicates exclusively with the local Wave Terminal running on your machine via a standard SSH connection over stdin/stdout.  It does not require or try to acquire any additional privledges on the remote computer (unless of course you explicitly request it run with sudo privledges to execute sudo commands).  It is run only when Wave Terminal establishes a connection to the remote machine, and does not stay resident (as a daemon) when the connection is not active.
+
+## Can I switch my shell type within an already running tab?
+
+Yes (must have Wave v0.6.0 or later). If you run `/reset shell=zsh` or `/reset shell=bash` the shell will be changed.  Note that your cwd and environment will be reset as if this were a new session.  You can tell if the shell switch was successful by checking the shell type flag that appears at the bottom right hand corner of the command input box.
+
+## "The shell state for this tab is invalid", what's going on?
+
+When building v0.6.0 we noticed some irregularities in how we were storing bash shell state.  Specifically if your rcfiles produced any spurious output (invalid aliases was a common culprit), the shell state might be saved, but in a broken way.  While migrating to v0.6.0 we flagged any of these invalid states and show this message.
+
+Clicking "reset shell state" (or running the slash command `/reset`) will force Wave to re-read your bash config files and produce a new valid state.  Note that after running the reset, your cwd and environment will be reset as if this was a new session.
