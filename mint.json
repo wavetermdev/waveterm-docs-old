@@ -37,6 +37,11 @@
       "name": "Join our Discord",
       "icon": "discord",
       "url": "https://discord.gg/XfvZ334gwU"
+    },
+    {
+      "name": "WaveTerm Blog",
+      "icon": "square-up-right",
+      "url": "https://blog.waveterm.dev"
     }
   ],
   "navigation": [
