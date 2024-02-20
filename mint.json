@@ -1,88 +1,89 @@
 {
-  "$schema": "https://mintlify.com/schema.json",
-  "name": "Wave Terminal",
-  "logo": {
-    "dark": "/logo/wave-dark.png",
-    "light": "/logo/wave-light.png"
-  },
-  "favicon": "/wave-logo_appicon.svg",
-  "colors": {
-    "primary": "#58C142",
-    "light": "#35A118",
-    "dark": "#58C142",
-    "anchors": {
-      "from": "#58C142",
-      "to": "#35A118"
-    }
-  },
-  "topbarLinks": [
-    {
-      "name": "Support",
-      "url": "mailto:info@commandline.dev"
-    }
-  ],
-  "topbarCtaButton": {
-    "name": "Download Wave",
-    "url": "https://www.waveterm.dev/download"
-  },
-  "tabs": [
-  ],
-  "anchors": [
-    {
-      "name": "Github",
-      "icon": "github",
-      "url": "https://github.com/wavetermdev/waveterm"
-    },
-    {
-      "name": "Join our Discord",
-      "icon": "discord",
-      "url": "https://discord.gg/XfvZ334gwU"
-    },
-    {
-      "name": "WaveTerm Blog",
-      "icon": "square-up-right",
-      "url": "https://blog.waveterm.dev"
-    }
-  ],
-  "navigation": [
-    {
-      "group": "Get Started",
-      "pages": [
-        "introduction",
-        "quickstart",
-        "releasenotes"
-      ]
-    },
-    {
-      "group": "Features",
-      "pages": [
-        "features/appearance",
-        "features/connections",
-        "features/history",
-        "features/images",
-        "features/markdown",
-        "features/chatGPT"
-      ]
-    },
-    {
-      "group": "Reference",
-      "pages": [
-        "reference/faq",
-        "reference/keyboard",
-        "reference/slashcommands",
-        "reference/zsh",
-        "reference/waveshell"
-      ]
-    }
-  ],
-    "footerSocials": {
-      "github": "https://github.com/wavetermdev/waveterm",
-      "twitter": "https://x.com/wavetermdev",
-      "linkedin": "https://www.linkedin.com/company/commandlinedev"
-  },
-    "analytics": {
-      "plausible": {
-        "domain": "docs.waveterm.dev"
-  }
-}
+   "$schema":"https://mintlify.com/schema.json",
+   "name":"Wave Terminal",
+   "logo":{
+      "dark":"/logo/wave-dark.png",
+      "light":"/logo/wave-light.png"
+   },
+   "favicon":"/wave-logo_appicon.svg",
+   "colors":{
+      "primary":"#58C142",
+      "light":"#35A118",
+      "dark":"#58C142",
+      "anchors":{
+         "from":"#58C142",
+         "to":"#35A118"
+      }
+   },
+   "topbarLinks":[
+      {
+         "name":"Support",
+         "url":"mailto:info@commandline.dev"
+      }
+   ],
+   "topbarCtaButton":{
+      "name":"Download Wave",
+      "url":"https://www.waveterm.dev/download"
+   },
+   "tabs":[
+      
+   ],
+   "anchors":[
+      {
+         "name":"Github",
+         "icon":"github",
+         "url":"https://github.com/wavetermdev/waveterm"
+      },
+      {
+         "name":"Join our Discord",
+         "icon":"discord",
+         "url":"https://discord.gg/XfvZ334gwU"
+      },
+      {
+         "name":"WaveTerm Blog",
+         "icon":"square-up-right",
+         "url":"https://blog.waveterm.dev"
+      }
+   ],
+   "navigation":[
+      {
+         "group":"Get Started",
+         "pages":[
+            "introduction",
+            "quickstart",
+            "releasenotes"
+         ]
+      },
+      {
+         "group":"Features",
+         "pages":[
+            "features/appearance",
+            "features/connections",
+            "features/history",
+            "features/images",
+            "features/markdown",
+            "features/chatGPT"
+         ]
+      },
+      {
+         "group":"Reference",
+         "pages":[
+            "reference/faq",
+            "reference/keyboard",
+            "reference/slashcommands",
+            "reference/zsh",
+            "reference/waveshell"
+         ]
+      }
+   ],
+   "footerSocials":{
+      "github":"https://github.com/wavetermdev/waveterm",
+      "twitter":"https://x.com/wavetermdev",
+      "linkedin":"https://www.linkedin.com/company/commandlinedev"
+   },
+   "analytics":{
+      "plausible":{
+         "domain":"docs.waveterm.dev"
+      }
+   }
 }
