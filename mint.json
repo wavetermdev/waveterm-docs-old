@@ -61,7 +61,7 @@
         "features/history",
         "features/images",
         "features/markdown",
-	"features/chatGPT"
+        "features/chatGPT"
       ]
     },
     {
@@ -79,5 +79,10 @@
       "github": "https://github.com/wavetermdev/waveterm",
       "twitter": "https://x.com/wavetermdev",
       "linkedin": "https://www.linkedin.com/company/commandlinedev"
+  },
+    "analytics": {
+      "plausible": {
+        "domain": "docs.waveterm.dev"
   }
+}
 }
