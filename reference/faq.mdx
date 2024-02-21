@@ -14,10 +14,6 @@ Wave telemetry is very minimal, anonymized, completely optional, and you can opt
 
 We currently only support `bash`.  Your environment (including variables, functions, and aliases) is read from the standard bash startup files (.bash_profile).  In order to customize Wave's environment at startup Wave will set the environment variable `WAVESHELL`.  If you are currently using `zsh`, you might have to transfer some of your `.zprofile` setup into your `.bash_profile`. See [Using Wave Terminal with zsh](https://docs.waveterm.dev/reference/zsh) for more information.
 
-## Why do international characters appear as question marks?
-
-It is a known issue that Wave Terminal does not support international unicode characters yet. We are investigating a solution and tracking the issue [here](https://github.com/wavetermdev/waveterm/issues/88)
-
 ## How do I specify SSH options such as PubkeyAcceptedKeyTypes?
 
 Currently there is no way to specify these option in the Connections UI. A workaround is to add the options to your ~/.ssh/config file. Wave Terminal uses ssh natively under the hood and so any options set in your ssh config will be picked up by Wave directly.
@@ -50,7 +46,7 @@ Wave loads your bash configuration by executing bash with the -l and -i options 
 
 No, it is not required.  You can use Wave as a normal terminal by just executing a traditional `ssh` command at the Wave prompt.  That will create a command block that runs your remote ssh session.  When running ssh like this mshell/waveshell will not be installed on your remote machine.
 
-For more information see [WaveShell Helper](/reference/waveshell)    
+For more information see [WaveShell Helper](/reference/waveshell)
 
 ## What is mshell/waveshell, why does it need to be installed on machines I connect to?
 
