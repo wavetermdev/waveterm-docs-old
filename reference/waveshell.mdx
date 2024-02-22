@@ -1,0 +1,17 @@
+---
+title: WaveShell Helper
+---
+
+WaveShell (also known as MShell) is a small open-source helper program that facilitiates advanced communication between your local Wave Terminal instance and a remote machine.  It enables Wave Terminal to provide advanced terminal features like command blocks, persistent sessions, and detailed universal command history.
+
+Note that waveshell is does *not* communicate with any external services, does not open any ports, and does *not* send any information or telemetry to Wave Terminal or Command Line Inc servers.  It communicates exclusively with the local Wave Terminal running on your machine via a standard SSH connection over stdin/stdout.  It does not require or try to acquire any additional privledges on the remote computer (unless of course you explicitly request it run with sudo privledges to execute sudo commands).  It is run only when Wave Terminal establishes a connection to the remote machine, and does not stay resident (as a daemon) when the connection is not active.
+
+WaveShell Source (Apache 2.0 Licensed) is available here: https://github.com/wavetermdev/waveterm/tree/main/waveshell
+
+## Do I need to install mshell/waveshell on remote machines to use Wave Terminal?
+
+No, it is not required.  You can run a traditional `ssh` command at the Wave prompt.  That will create a single command block that runs your remote ssh session.  When running ssh like this mshell/waveshell will not be installed on your remote machine.
+
+## What remote architectures does WaveShell support?
+
+MacOS (x64 and arm64), and Linux (x64 and arm64).

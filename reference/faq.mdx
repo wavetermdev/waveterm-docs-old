@@ -12,11 +12,7 @@ Wave telemetry is very minimal, anonymized, completely optional, and you can opt
 
 ## What shells does Wave Terminal support?
 
-We currently only support `bash`.  Your environment (including variables, functions, and aliases) is read from the standard bash startup files (.bash_profile).  In order to customize Wave's environment at startup Wave will set the environment variable `WAVESHELL`.  If you are currently using `zsh`, you might have to transfer some of your `.zprofile` setup into your `.bash_profile`. See [Using Wave Terminal with zsh](https://docs.waveterm.dev/reference/zsh) for more information.
-
-## Why do international characters appear as question marks?
-
-It is a known issue that Wave Terminal does not support international unicode characters yet. We are investigating a solution and tracking the issue [here](https://github.com/wavetermdev/waveterm/issues/88)
+We currently support `bash` and `zsh`. Your environment (including variables, functions, and aliases) is read from the standard bash and zsh startup files (.bash_profile and .zshrc). In order to customize Wave's environment at startup Wave will set the environment variable `WAVESHELL`.
 
 ## How do I specify SSH options such as PubkeyAcceptedKeyTypes?
 
@@ -39,3 +35,29 @@ Right now we don't support changing the font. We plan on supporting this in the 
 ## Are ligatures supported in Wave?
 
 Wave Terminal uses the JetBrains Mono font which includes 142 code-specific ligatures. These ligatures are supported in the command prompt area and in the terminal output.
+
+## I've changed my .bashrc / .bash_profile files, how can I reload them?
+
+To reload your configuration files and reset the environment of a tab, you should run the command `reset` or (`/reset`).
+
+Wave loads your bash configuration by executing bash with the -l and -i options (so it is an interactive login shell).  That means any changes need to be in your .bash_profile to take effect (unless your .bash_profile also sources your .bashrc).  Note that sessions are persistent in Wave, so even if you change your startup files the changes won't take effect in any currently open tabs (unless you explicitly run `reset`).
+
+## Do I need to install mshell/waveshell on remote machines to use Wave Terminal?
+
+No, it is not required.  You can use Wave as a normal terminal by just executing a traditional `ssh` command at the Wave prompt.  That will create a command block that runs your remote ssh session.  When running ssh like this mshell/waveshell will not be installed on your remote machine.
+
+For more information see [WaveShell Helper](/reference/waveshell)
+
+## What is mshell/waveshell, why does it need to be installed on machines I connect to?
+
+Content Moved.  See [WaveShell Helper](/reference/waveshell)
+
+## Can I switch my shell type within an already running tab?
+
+Yes (must have Wave v0.6.0 or later). If you run `/reset shell=zsh` or `/reset shell=bash` the shell will be changed.  Note that your cwd and environment will be reset as if this were a new session.  You can tell if the shell switch was successful by checking the shell type flag that appears at the bottom right hand corner of the command input box.
+
+## "The shell state for this tab is invalid", what's going on?
+
+When building v0.6.0 we noticed some irregularities in how we were storing bash shell state.  Specifically if your rcfiles produced any spurious output (invalid aliases was a common culprit), the shell state might be saved, but in a broken way.  While migrating to v0.6.0 we flagged any of these invalid states and show this message.
+
+Clicking "reset shell state" (or running the slash command `/reset`) will force Wave to re-read your bash config files and produce a new valid state.  Note that after running the reset, your cwd and environment will be reset as if this was a new session.

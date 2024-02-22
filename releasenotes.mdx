@@ -4,6 +4,52 @@ title: Release Notes
 
 Download the latest build here: https://waveterm.dev/download
 
+### v0.6.3 - 02/19/2024
+
+Patch release to fix [github #302](https://github.com/wavetermdev/waveterm/issues/302) which caused the last line of terminal output to be cut off for certain screen zoom settings (system zoom/resolution or in-app zooming.)
+
+### v0.6.2 - 02/14/2024
+
+Quick patch release for a large zsh performance bug where we were re-running the interactive zsh configs for every command execution causing a notable slowdown in performance.
+
+* Bug fix: fixed slow zsh command performance and overeager zsh re-initialization
+* Bug fix: fixed ssh config import
+
+### v0.6.1 - 01/31/2024
+
+* Tab/workspace indicators now show if commands are running
+* Keybindings fixes for international keyboards and linux. Keybindings now use the same letter key on non-US keyboards. MacOS keybindings that use the "Cmd" key now map to "Alt" (instead of the "Windows" key) on Linux and Windows.
+* Restart Command -- use the restart icon, or Cmd-R to restart the selected command.  Restarted commands run with the same directory and environment as when they were first launched.
+* Cmd-Shift-R will always restart the most recent command in the tab (no matter which command is selected).
+* Can use the mouse to resize and collapse the left sidebar.
+* Other bug fixes and improvements
+
+### v0.6.0 - 01/23/2024
+
+* **zsh support**
+* Bug fix: International Characters (and emojis!) now display properly in the terminal and when using AI features. [github #88](https://github.com/wavetermdev/waveterm/issues/88) [github #190](https://github.com/wavetermdev/waveterm/issues/190)
+* ChatGPT help with writing commands, use Ctrl-Space from the command prompt.
+* Cmd-P tab switcher.  Quickly switch to tabs and workspaces by name (like VSCode's Cmd-P file switcher)
+* Zoom - use Cmd +/- to zoom UI in and out (for smaller or larger monitors)
+* Clickable Links in Terminal Output (hold Cmd while clicking)
+* Tab Indicators - gray/green/red indicator lights show on tabs when running commands have additional output (gray), complete successfully (green), or fail (red).
+* Import button added to the Connections Screen to quickly add connections to hosts defined in your .ssh/config file.
+* Cmd-D keyboard shortcut to delete the selected command block (also added a trash icon to allow deletion using the mouse)
+* Cmd-W keyboard shortcut to close a tab [github #181](https://github.com/wavetermdev/waveterm/issues/181)
+* Settings is now its own main screen (no longer in a modal)
+* A popup now informs users that waveshell (aka mshell) will be installed on remote machines when adding Wave connections
+* Allow dots and underscores in connection aliases, allow backslash in ssh usernames, and allow multiple connections to the same machine if they are using different ports.
+* Big update to screen/command deletion and history to make it more intuitive.  Clearing or deleting a tab, or deleting a command block no longer removes the affected commands from history.
+* New UI for open-source license acknowledgements
+* Bug fix: Escape should now close modals and screens
+* Bug fix: fixed issue with new connection login screens "flashing" making it impossible to login using passwords and OTPs for certain users [github #213](https://github.com/wavetermdev/waveterm/issues/213)
+* Bug fix: quote paths to go backends to allow install paths with spaces or special characters
+* More useful "Disconnected" Modal that shows the last 50 lines of wavesrv.log for easier error reporting
+* Other bug fixes and performance improvements [github #188](https://github.com/wavetermdev/waveterm/issues/188)
+* Dropped support for linux-arm64 (still supported as a remote connection, but not for the Wave Terminal desktop app)
+
+Note: if you get errors while using zsh, please report them on [github](https://github.com/wavetermdev/waveterm/issues) or in our Discord.  To switch shells in an already open tab run: `reset shell=bash` or `reset shell=zsh`. To reload your rc/init files after editing them (to to just reset your terminal state) run `reset`.
+
 ### v0.5.3 - 12/21/2023
 
 * Minor release, fixes workspace deletion bug [github #174](https://github.com/wavetermdev/waveterm/issues/174)
