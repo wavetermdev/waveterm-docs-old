@@ -12,7 +12,7 @@ Wave telemetry is very minimal, anonymized, completely optional, and you can opt
 
 ## What shells does Wave Terminal support?
 
-We currently only support `bash` and `zsh`.  Your environment (including variables, functions, and aliases) is read from the standard bash and zsh startup files (.bash_profile and .zshrc). In order to customize Wave's environment at startup Wave will set the environment variable `WAVESHELL`.
+We currently support `bash` and `zsh`. Your environment (including variables, functions, and aliases) is read from the standard bash and zsh startup files (.bash_profile and .zshrc). In order to customize Wave's environment at startup Wave will set the environment variable `WAVESHELL`.
 
 ## How do I specify SSH options such as PubkeyAcceptedKeyTypes?
 
@@ -61,46 +61,3 @@ Yes (must have Wave v0.6.0 or later). If you run `/reset shell=zsh` or `/reset s
 When building v0.6.0 we noticed some irregularities in how we were storing bash shell state.  Specifically if your rcfiles produced any spurious output (invalid aliases was a common culprit), the shell state might be saved, but in a broken way.  While migrating to v0.6.0 we flagged any of these invalid states and show this message.
 
 Clicking "reset shell state" (or running the slash command `/reset`) will force Wave to re-read your bash config files and produce a new valid state.  Note that after running the reset, your cwd and environment will be reset as if this was a new session.
-
-## How do I get brew commands to work?
-
-If using brew, get brew commands to work by running the `brew shellenv` command in a Wave Terminal tab session. This will update the current tab session. To update all sessions in Wave Terminal, add the `shellenv` command to your .bashrc file. See below for further instructions.
-
-<AccordionGroup>
-  <Accordion icon="scroll" title="Update .bashrc or .zshrc with codeedit">
-    Use codeedit inside Wave Terminal to modify your bashrc or zshrc.
-
-    **Bash:**
-    ```
-    /codeedit ~/.bashrc
-    ```
-    **Zsh:**
-    ```
-    /codeedit ~/.zshrc
-    ```
-    copy and paste this into your .bashrc or .zshrc then save the file.
-    ```
-    eval "$(/opt/homebrew/bin/brew shellenv)
-    ```
-  </Accordion>
-  <Accordion icon="rectangle-terminal" title="Update .bashrc or .zshrc at the command line">
-    Run the following command in a terminal to update your .bashrc
-
-    **Bash:**
-    ```
-    echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.bashrc
-    ```
-    **Zsh:**
-    ```
-    echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zshrc
-    ```
-  </Accordion>
-</AccordionGroup>
-
-<Tip>
-  Run brew command ```brew help shellenv``` for more information on managing brew setup.
-</Tip>
-
-## How do I get nvim to work in Wave Terminal?
-
-Any applications installed with brew will likely need a PATH update, see the previous FAQ for further details on how to do this. 
