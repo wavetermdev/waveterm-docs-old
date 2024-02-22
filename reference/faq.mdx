@@ -12,7 +12,7 @@ Wave telemetry is very minimal, anonymized, completely optional, and you can opt
 
 ## What shells does Wave Terminal support?
 
-We currently only support `bash`.  Your environment (including variables, functions, and aliases) is read from the standard bash startup files (.bash_profile).  In order to customize Wave's environment at startup Wave will set the environment variable `WAVESHELL`.  If you are currently using `zsh`, you might have to transfer some of your `.zprofile` setup into your `.bash_profile`. See [Using Wave Terminal with zsh](https://docs.waveterm.dev/reference/zsh) for more information.
+We currently support `bash` and `zsh`. Your environment (including variables, functions, and aliases) is read from the standard bash and zsh startup files (.bash_profile and .zshrc). In order to customize Wave's environment at startup Wave will set the environment variable `WAVESHELL`.
 
 ## How do I specify SSH options such as PubkeyAcceptedKeyTypes?
 
