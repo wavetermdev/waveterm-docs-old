@@ -4,6 +4,17 @@ title: Release Notes
 
 Download the latest build here: https://waveterm.dev/download
 
+### v0.6.3 - 02/19/2024
+
+Patch release to fix [github #302](https://github.com/wavetermdev/waveterm/issues/302) which caused the last line of terminal output to be cut off for certain screen zoom settings (system zoom/resolution or in-app zooming.)
+
+### v0.6.2 - 02/14/2024
+
+Quick patch release for a large zsh performance bug where we were re-running the interactive zsh configs for every command execution causing a notable slowdown in performance.
+
+* Bug fix: fixed slow zsh command performance and overeager zsh re-initialization
+* Bug fix: fixed ssh config import
+
 ### v0.6.1 - 01/31/2024
 
 * Tab/workspace indicators now show if commands are running
