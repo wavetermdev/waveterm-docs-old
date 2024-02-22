@@ -62,7 +62,8 @@
             "features/history",
             "features/images",
             "features/markdown",
-            "features/chatGPT"
+            "features/chatGPT",
+            "features/sshconfig-imports"
          ]
       },
       {
