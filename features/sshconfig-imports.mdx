@@ -10,11 +10,11 @@ You have the ability to import your SSH Configuration in two ways.
 - The **Import** Button on the **Connections** page
 
 ## Limitations
-- Remotes that have previously been created and not been deleted cannot be overwritten by an import with the same canonical name or alias. Any conflicts will be skipped when attempting an import. If you wish to replace the manually entered version, you may do so by deleting the existing remote and importing your config file afterward.
-- Imported Remotes cannot be edited in the app. To edit these, you must edit the config file and import it again.
-- You can only have one identity file per remote.
-- Imported Remotes can be deleted in the app, but they will come back upon importing again. They will stay removed if you follow the [procedure below](#waveoptions-keyword).
-- Imported Remotes will default to the **Auto Connect Mode** if an identity file is provided. This can be overwritten to **Manual Connect Mode** if you follow the [procedure below](#waveoptions-keyword).
+- Connections that have previously been created and not been deleted cannot be overwritten by an import with the same canonical name or alias. Any conflicts will be skipped when attempting an import. If you wish to replace the manually entered version, you may do so by deleting the existing remote and importing your config file afterward.
+- Most properties of Imported Connections cannot be edited in the app (only the shell preference can). To edit the others, you must edit the config file and import it again.
+- Imported Connections can be deleted in the app, but they will revert upon importing again. They will stay removed if you follow the [procedure below](#waveoptions-keyword).
+- Imported Connections will default to the **Auto Connect Mode** if an identity file is provided. This can be overwritten to **Manual Connect Mode** if you follow the [procedure below](#waveoptions-keyword).
+- Imported Connections will default to **Detect shell preference** rather than specifying a specific shell prefererence. This can be overwritten by editing the connection in the app, but this change will revert after importing again. This change will persist if you follow the [procedure below](#waveoptions-keyword).
 
 ## WaveOptions Keyword
 Waveterm allows a special keyword to be used in your ssh config to override the default behavior. In order to use this, you first must add the following at the top of your ssh config file (~/.ssh/config):
@@ -22,7 +22,10 @@ Waveterm allows a special keyword to be used in your ssh config to override the 
 Host *
     IgnoreUnknown WaveOptions
 ```
-This will allow you to use the `WaveOptions` keyword for all of your hosts without ssh complaining about a keyword it doesn't understand. This alone will not do anything, but it gives you the option to use the features below.
+This will allow you to use the `WaveOptions` keyword for all of your hosts without ssh complaining about a keyword it doesn't understand. This alone will not do anything, but it gives you the option to use the features specific to wave terminal. Currently, the waveterm-specific keywords are:
+- Ignore
+- ConnectMode
+- ShellPref
 
 #### Ignore
 `Ignore` allows you to completely skip a host in your SSH config file. Upon import, waveterm will delete any previously imported remote with that name and will not create a new one. It is used as follows:
@@ -36,7 +39,7 @@ Host <host.com>
 Note that this requires the use of `IgnoreUnknown` described above. Once this has been added to your SSH config file, you must import again for it to take effect.
 
 #### ConnectMode
-By default, Waveterm will set up auto connection for an imported remote if an identity file is provided. This behavior can be overwritten to force manual connect mode with the following entry:
+By default, Waveterm will set up auto connect for an imported connection if an identity file is provided. This behavior can be overwritten to force manual connect mode with the following entry:
 ```
 Host <host.com>
     User <user>
@@ -45,3 +48,36 @@ Host <host.com>
     WaveOptions ConnectMode=manual
 ```
 Note that this requires the use of `IgnoreUnknown` described above. Once this has been added to your SSH config file, you must import again for it to take effect.
+
+#### ShellPref
+By default, Waveterm will set up your connection to automatic detect a shell. This behavior can be overwritten to force a specific shell preference with the following entries:
+##### To Force Bash
+```
+Host <host.com>
+    User <user>
+    IdentityFile <file>
+    ...
+    WaveOptions ShellPref=bash
+```
+
+##### To Force Zsh
+```
+Host <host.com>
+    User <user>
+    IdentityFile <file>
+    ...
+    WaveOptions ShellPref=zsh
+```
+Note that both of these require the use of `IgnoreUnknown` described above. Once this has been added to your SSH config file, you must import again for it to take effect.
+
+#### Multiple WaveOptions
+If you wish to use multiple WaveOptions for the same connection, they must be specified on the same line. For instance, if you would like to set ConnectMode to manual and force the shell to be bash, you could use an entry similar to this:
+```
+Host <host.com>
+    User <user>
+    IdentityFile <file>
+    ...
+    WaveOptions ConnectMode=manual ShellPref=zsh
+```
+
+They can be put in any order in the line, but only the first line will be parsed for each host.
