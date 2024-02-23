@@ -2,16 +2,13 @@
 title: SlashCommand Reference
 ---
 ## /bookmarks
-
-Commands that effect bookmarks
-
-### /bookmarks:set
-
-Add a bookmark.
+Commands that effect bookmarks.
 
 ### /bookmarks:delete
-
 Remove a bookmark.
+
+### /bookmarks:set
+Add a bookmark.
 
 ## /clear
 
@@ -27,15 +24,17 @@ Both with and without the slash are allowed.  Clear takes no arguments.
 
 ## /client
 
-### /client:show
-
-Shows client version information and settings
+Commands that allow you to change and show client settings and information.
 
 ### /client:set
 
 Update client settings, currently only supports termfont size.  This will update the font size used in the terminal, can be set from 8-15 (px).
 
 `Usage: /client:set termfontsize=10`
+
+### /client:show
+
+Shows client version information and settings.
 
 ## /codeedit
 
@@ -91,6 +90,35 @@ Change remote for current window (alias for /connect).
 
 Updates lines in the current window.
 
+### /line:archive
+
+Archives (hides) the line.  Remains in history (can be unarchived by passing "0" as the 2nd argument).
+
+```
+Usage:
+/line:archive [line-arg]
+/line:archive [line-arg] [1|0]
+```
+### /line:purge
+
+Deletes the line from the screen and from history (including output).
+
+`Usage: /line:purge [line-arg]`
+
+### /line:set
+
+Updates line settings
+
+`Usage: /line:set [line-arg] [renderer=renderer]`
+
+[line-arg] can be a line number or line id.  One argument, sets the renderer for the given line.  Empty renderer will default to "terminal".
+
+### /line:setheight
+
+Stores the height of the line.  For terminals this is the number of "rows".  For renderers it is the pixel height.
+
+`Usage: /line:setheight [line-arg] [height]`
+
 ### /line:show
 
 Shows metadata for the given line.
@@ -107,29 +135,6 @@ Stars the given line
 
 [line-arg] can be a line number or line id.  [star-val] defaults to 1, but can be set to 0-5.
 
-### /line:set
-
-Updates line settings
-
-`Usage: /line:set [line-arg] [renderer=renderer]`
-
-[line-arg] can be a line number or line id.  One argument, sets the renderer for the given line.  Empty renderer will default to "terminal".
-
-### /line:purge
-
-Deletes the line from the screen and from history (including output).
-
-`Usage: /line:purge [line-arg]`
-
-### /line:archive
-
-Archives (hides) the line.  Remains in history (can be unarchived by passing "0" as the 2nd argument).
-
-```
-Usage:
-/line:archive [line-arg]
-/line:archive [line-arg] [1|0]
-```
 
 ### /line:view
 
@@ -137,28 +142,58 @@ Switches to the given session, screen, and line.  Scrolls UI to the given line.
 
 `Usage: /line:view [session] [screen] [line]`
 
-### /line:setheight
-
-Stores the height of the line.  For terminals this is the number of "rows".  For renderers it is the pixel height.
-
-`Usage: /line:setheight [line-arg] [height]`
-
 ## /releasecheck
 
 Queries the GitHub release feed to determine if a new release is available for download.
-
-### /releasecheck:autoon
-
-Turns on automatic checking for new releases. This will happen every 8 hours and on launch.
 
 ### /releasecheck:autooff
 
 Turns off automatic checking for new releases.
 
+### /releasecheck:autoon
+
+Turns on automatic checking for new releases. This will happen every 8 hours and on launch.
 
 ## /remote
 
 Commands that create, manage, or update remotes (connections).  Note that all /remote commands can also be accessed using /connection.
+
+### /remote:archive
+
+Archives the current remote
+
+`Usage: /remote:archive`
+
+### /remote:connect
+
+Connects the current remote
+
+### /remote:disconnect
+
+Disconnects the current remote.
+
+`Usage: /remote:disconnect [force=1]`
+
+If force=1 is passed it will force the remote to be disconnected even if there are running commnads.  The commands will be passed SIGHUP.
+
+### /remote:install
+
+Installs the latest version of mshell to the remote.
+
+### /remote:installcancel
+
+Cancels an install if it is hanging
+
+### /remote:new
+
+Will create a new remote.  Arguments can be passed to create the remote completely from the command-line, or if visual=1 is passed it will
+open the create remote info window.
+
+`Usage: /remote:new [user@host] [visual=1] [sudo=1] [port=portnum] [alias=alias] [connectmode=connectmode] [autoinstall=1] [key=ssh-key-file] [password=ssh-password]`
+
+### /remote:set
+
+Updates remote parameters
 
 ### /remote:show
 
@@ -171,43 +206,6 @@ Will open the remote info window for the current remote
 Will open an info window showing information about all of the registered remotes
 
 `Usage: /remote:showall`
-
-### /remote:new
-
-Will create a new remote.  Arguments can be passed to create the remote completely from the command-line, or if visual=1 is passed it will
-open the create remote info window.
-
-`Usage: /remote:new [user@host] [visual=1] [sudo=1] [port=portnum] [alias=alias] [connectmode=connectmode] [autoinstall=1] [key=ssh-key-file] [password=ssh-password]`
-
-### /remote:archive
-
-Archives the current remote
-
-`Usage: /remote:archive`
-
-### /remote:set
-
-Updates remote parameters
-
-### /remote:disconnect
-
-Disconnects the current remote.
-
-`Usage: /remote:disconnect [force=1]`
-
-If force=1 is passed it will force the remote to be disconnected even if there are running commnads.  The commands will be passed SIGHUP.
-
-### /remote:connect
-
-Connects the current remote
-
-### /remote:install
-
-Installs the latest version of mshell to the remote.
-
-### /remote:installcancel
-
-Cancels an install if it is hanging
 
 ## /reset
 
@@ -230,12 +228,6 @@ Usage: /screen [screen-arg]
 
 [screen-arg] can be a screen number, name, id, or relative number.
 
-### /screen:open
-
-Creates a new screen
-
-`Usage: /screen:open`
-
 ### /screen:archive
 
 Hides a screen (tab).  Retains output and history.
@@ -246,21 +238,17 @@ Usage: /screen:archive [screenid] [0|1]
 
 With no arguments will archive the *current* screen (tab).  Otherwise a screen id can be specified to archive.  The second argument, if "0" means the screen should be unarchived.
 
+### /screen:open
+
+Creates a new screen
+
+`Usage: /screen:open`
+
 ### /screen:purge
 
 Deletes the current screen (tab).  Purges all output and history.  Will also stop web-sharing.
 
 To purge a non-active screen, pass the screen-id as the first argument.
-
-### /screen:webshare
-
-```
-Usage:
-  /screen:webshare
-  /screen:webshare 0
-```
-
-Starts/stops screen web sharing.  The first argument can be "1" to start or "0" to stop (defaults to "1").
 
 ### /screen:set
 
@@ -294,6 +282,16 @@ Resets the screen by re-initializing all remotes.
 
 Tells the backend the new size of the screen.  This size is used to change the terminal size for running commands (SIGWINCH).
 
+### /screen:webshare
+
+```
+Usage:
+  /screen:webshare
+  /screen:webshare 0
+```
+
+Starts/stops screen web sharing.  The first argument can be "1" to start or "0" to stop (defaults to "1").
+
 ## /session
 
 Commands that change or modify the Prompt session.  The bare command will switch the session.
@@ -303,6 +301,16 @@ Usage: /session [session-arg]
 ```
 
 [session-arg] can be a session number, name, id, or relative number.
+
+### /session:archive
+
+Archives a session.
+
+```
+Usage: /session:archive [sessionid] [0|1]
+```
+
+With no arguments will archive the current session.  Otherwise a session id can be specified to archive.  The second argument, if "0" means the session should be unarchived.
 
 ### /session:open
 
@@ -325,24 +333,6 @@ Usage: /session:purge [sessionid]
 
 If sessionid is not specified will purge the *current* session.
 
-### /session:archive
-
-Archives a session.
-
-```
-Usage: /session:archive [sessionid] [0|1]
-```
-
-With no arguments will archive the current session.  Otherwise a session id can be specified to archive.  The second argument, if "0" means the session should be unarchived.
-
-### /session:showall
-
-Show all sessions (including archived ones).
-
-### /session:show
-
-Show metadata about current session.
-
 ### /session:set
 
 ```
@@ -351,24 +341,17 @@ Usage: /session:set [name=name]
 
 One option is supported: name.  It sets the name of the session.
 
+### /session:show
+
+Show metadata about current session.
+
+
+### /session:showall
+
+Show all sessions (including archived ones).
+
 ## /sidebar
 
-### /sidebar:open
-
-Opens the sidebar.  Takes an optional width param that specifies the preferred width of sidebar (can be either in percentage or px units).  Note that the sidebar will not shrink past 200px, also note that percentage must be between 10-90%.
-
-```
-Usage:
-/sidebar:open
-/sidebar:open width=40%
-/sidebar:open width=600px
-```
-
-### /sidebar:close
-
-Closes the sidebar
-
-`Usage: /sidebar:close`
 
 ### /sidebar:add
 
@@ -379,6 +362,23 @@ Usage:
 /sidebar:add line=22
 /sidebar:add line=a78de32c
 /sidebar:add line=5 width=600px
+```
+### /sidebar:close
+
+Closes the sidebar
+
+`Usage: /sidebar:close`
+
+
+### /sidebar:open
+
+Opens the sidebar.  Takes an optional width param that specifies the preferred width of sidebar (can be either in percentage or px units).  Note that the sidebar will not shrink past 200px, also note that percentage must be between 10-90%.
+
+```
+Usage:
+/sidebar:open
+/sidebar:open width=40%
+/sidebar:open width=600px
 ```
 
 ### /sidebar:remove
