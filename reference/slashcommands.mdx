@@ -1,6 +1,7 @@
 ---
 title: SlashCommand Reference
 ---
+
 ## /bookmarks
 Commands that effect bookmarks.
 
@@ -81,7 +82,6 @@ Usage:
 connect [remote]
 /connect [remote]
 ```
-
 ## /cr
 
 Change remote for current window (alias for /connect).
@@ -134,7 +134,6 @@ Stars the given line
 `Usage: /line:star [line-arg] [star-val]`
 
 [line-arg] can be a line number or line id.  [star-val] defaults to 1, but can be set to 0-5.
-
 
 ### /line:view
 
@@ -213,14 +212,14 @@ Resets the current remote state back to defaults.
 
 ```
 Usage:
-reset
+reset 
 /reset
 ```
-The remote will re-run a login (e.g. .bashrc or .bash_profile) and reset the remote state (cwd, environment, functions, etc.) to match the initial login state.  This can be useful to run if you make changes to your bash initialization files and want those changes to be picked up.
+
+The remote will re-run a login (e.g. `bashrc` or `bash_profile`) and reset the remote state (CWD, environment, functions, etc.) to match the initial login state. This can be useful to run if you make changes to your bash initialization files and want those changes to be picked up.
 
 ## /screen
-
-Commands that change or modify the Prompt screen (tab).  The bare command will switch the screen (tab).
+Commands that change or modify the Prompt screen (tab). The bare command will switch the screen (tab).
 
 ```
 Usage: /screen [screen-arg]
@@ -338,20 +337,18 @@ If sessionid is not specified will purge the *current* session.
 ```
 Usage: /session:set [name=name]
 ```
-
-One option is supported: name.  It sets the name of the session.
+One option is supported: name. It sets the name of the session.
 
 ### /session:show
 
 Show metadata about current session.
-
 
 ### /session:showall
 
 Show all sessions (including archived ones).
 
 ## /sidebar
-
+Commands related to managing the right sidebar.
 
 ### /sidebar:add
 
@@ -395,10 +392,14 @@ Send a signal to a running command.
 Usage: /signal [line-arg] [signame]
 ```
 
-[line-arg] can be a line number or line id.
+`[line-arg]`can be a line number or line id.
 
-[signame] is the name of a signal.  e.g. KILL, INT, HUP, TERM, etc.  Can also prefix with SIG (e.g. SIGKILL).
-You can also specify a signal by number (e.g. ```/signal [line-arg] 9```).
+`[signame]` is the name of a signal.  e.g. KILL, INT, HUP, TERM, etc.  Can also prefix with SIG (e.g. SIGKILL).
+You can also specify a signal by number like this:
+
+```
+/signal [line-arg] 9
+```
 
 ## /telemetry
 
