@@ -43,13 +43,14 @@ View and edit a text file inline using rich native UI.  Includes syntax highligh
 
 ```
 Usage:
-/codeedit [filename]
 codeedit [filename]
+/codeedit [filename]
 [lang=javascript] codeedit [filename]
 [lang=json] codeedit hello.json
 ```
+Both with and without the slash are allowed. Filename resolves against the current remote and current working directory.  Once you are editing, you can save the file using `Cmd-S`.  Closing the editor (using `Cmd-D`) will prevent future saves (and shrink the editor to fit the current size of the content).
 
-Both with and without the slash are allowed.  Filename resolves against the current remote and current working directory.  Once you are editing, you can save the file using Cmd-S.  Closing the editor (using Cmd-D) will prevent future saves (and shrink the editor to fit the current size of the content).
+**Note:** A live preview of Markdown files can also be found in codedit by clicking the `show preview` button in the top right of the editor. This allows you to edit and render Markdown content in real-time, displaying the output adjacent to the code editor for convenient and immediate visual feedback.
 
 ## /codeview
 
@@ -57,8 +58,8 @@ View a text file inline using rich native UI.  Includes syntax highlighting and 
 
 ```
 Usage:
-/codeview [filename]
 codeview [filename]
+/codeview [filename]
 [lang=javascript] codeview [filename]
 [lang=json] codeview hello.json
 ```
@@ -85,6 +86,23 @@ connect [remote]
 ## /cr
 
 Change remote for current window (alias for /connect).
+
+## /csvview
+Utility for viewing CSV files (with sortable columns) in the terminal.
+
+```
+Usage:
+csvview [filename]
+/csvview [filename]
+```
+## /imageview
+Utility for viewing image files in the terminal. Currently supported formats include `png`, `jpg`, `bmp` and `gif`.
+
+```
+Usage:
+imageview [filename]
+/imageview [filename]
+```
 
 ## /line
 
@@ -141,6 +159,17 @@ Switches to the given session, screen, and line.  Scrolls UI to the given line.
 
 `Usage: /line:view [session] [screen] [line]`
 
+## /mdview
+
+Utility for viewing Markdown files in the terminal.
+
+```
+Usage:
+mdview [filename]
+/mdview [filename]
+```
+**Note:** A live preview of Markdown files can also be found in [codeedit](#codeedit) by clicking the "show preview" button in the top right of the editor. This allows you to edit and render Markdown content in real-time, displaying the output adjacent to the code editor for convenient and immediate visual feedback.
+
 ## /releasecheck
 
 Queries the GitHub release feed to determine if a new release is available for download.
@@ -188,7 +217,20 @@ Cancels an install if it is hanging
 Will create a new remote.  Arguments can be passed to create the remote completely from the command-line, or if visual=1 is passed it will
 open the create remote info window.
 
-`Usage: /remote:new [user@host] [visual=1] [sudo=1] [port=portnum] [alias=alias] [connectmode=connectmode] [autoinstall=1] [key=ssh-key-file] [password=ssh-password]`
+```
+Usage:
+/remote:new [user@host] [visual=1] [sudo=1] [port=portnum] [alias=alias] [connectmode=connectmode] [autoinstall=1] [key=ssh-key-file] [password=ssh-password]
+```
+Options:
+* `host` - Specifies the remote username and hostname or IP address to connect to.
+* `visual` - Determines whether or not a remote info window is displayed (bool)
+* `sudo` - Allows the command to be executed with superuser privileges on the remote system. (bool)
+* `port` - Specifies the port number to use for the SSH connection.
+* `alias` - Sets a short name or alias for the remote connection, for easier reference.
+* `connectmode` - Determines whether Waveterm will autoconnect for a new connection. Supported options are `startup`, `auto`, and `manual.`
+* `autoinstall` - Determines wether of not the WaveShell helper is installed on the remote host (bool)
+* `key` - Specifies the path to the SSH key file to use for authentication.
+* `password` - Provides the SSH password for authentication (use with caution, as this may be insecure).
 
 ### /remote:set
 
@@ -285,8 +327,8 @@ Tells the backend the new size of the screen.  This size is used to change the t
 
 ```
 Usage:
-  /screen:webshare
-  /screen:webshare 0
+/screen:webshare
+/screen:webshare 0
 ```
 
 Starts/stops screen web sharing.  The first argument can be "1" to start or "0" to stop (defaults to "1").
