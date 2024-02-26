@@ -1,0 +1,18 @@
+### This configuration file is for typos-cli, a command-line tool designed to detect and correct typos in text files. (Install here: https://github.com/crate-ci/typos)
+### Use this file to override false flags.
+### Documentation: https://github.com/crate-ci/typos/blob/master/docs/reference.md
+
+# Ignore words
+[default.extend-words]
+OTP = "OTP"
+OTPs = "OTPs"
+
+# Ignore identifiers
+[default.extend-identifiers]
+OTP = "OTP"
+OTPs = "OTPs"
+
+#Ignore filetype example
+[type.po]
+extend-glob = ["*.po"]
+check-file = false
