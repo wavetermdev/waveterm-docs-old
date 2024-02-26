@@ -1,6 +1,6 @@
-### This configuration file is for typos-cli, a command-line tool designed to detect and correct typos in text files. (Install here: https://github.com/crate-ci/typos)
-### Use this file to override false flags.
-### Documentation: https://github.com/crate-ci/typos/blob/master/docs/reference.md
+### This configuration file is for typos-cli, a command-line tool designed to detect and correct typos in text files. (Install typos-cli here: https://github.com/crate-ci/typos)
+### Add words, identiifers, and regex patterns to this file to be ignored.
+### Reference: https://github.com/crate-ci/typos/blob/master/docs/reference.md
 
 # Ignore words
 [default.extend-words]
