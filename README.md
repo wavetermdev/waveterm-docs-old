@@ -13,14 +13,24 @@ We welcome contributions to Wave docs!
 
 ### Development Environment
 
-Wave documentation is built on Mintlify. To develop, install the [Mintlify CLI](https://www.npmjs.com/package/mintlify) to preview the documentation changes locally. To install, use the following command
+Wave documentation is built on [Mintlify](https://mintlify.com/). To develop, install the [Mintlify CLI](https://www.npmjs.com/package/mintlify) to preview the documentation changes locally.
+
+**Step 1:**
+Install Mintlify:
 
 ```
 npm i -g mintlify
 ```
 
-Run the following command at the root of your waveterm-docs repo (where mint.json is)
+**Step 2:**
+Navigate to the docs directory (where the mint.json file is located) and execute the following command:
 
 ```
 mintlify dev
 ```
+
+A local preview of your documentation will be available at http://localhost:3000.
+
+### Additional Info
+
+For comprehensive details on configuring your development environment, as well as a complete reference guide, please refer to [Mintlify's documentation](https://mintlify.com/docs/development).
