@@ -1,2 +1,14 @@
+# This file is utilized by the Lychee link checker to identify which URLs or URL patterns should be omitted during checks.
+# Enter each URL or pattern you wish to exclude on a separate line, employing regular expressions for targeted exclusions or glob-style patterns for broader matches.
+#
+# Usage:
+# - Write full URLs to ignore specific links.
+# - Use asterisks (*) as wildcards to match any number of characters.
+#
+# Example:
+# https://example.com/specific-page
+# *.example.com/*
+
+# Ignore localhost url from README
 README.md
-http://localhost:3000/
+http://localhost*
