@@ -1,17 +1,20 @@
 ---
-title: SlashCommand Reference
+title: SlashCommand Reference New
 ---
 
 Welcome to our Slash Command Reference Guide, a comprehensive resource designed to streamline your workflow in Wave using intuitive commands.
 Here, you'll find detailed explanations on how to manage various settings and configurations in Wave related to sessions and windows, client settings, editing and viewing files inline, and much more.
 
 ## /bookmarks
+
 Commands that effect bookmarks.
 
 ### /bookmarks:delete
+
 Remove a bookmark.
 
 ### /bookmarks:set
+
 Add a bookmark.
 
 ## /clear
@@ -51,6 +54,7 @@ codeedit [filename]
 [lang=javascript] codeedit [filename]
 [lang=json] codeedit hello.json
 ```
+
 Both with and without the slash are allowed. Filename resolves against the current remote and current working directory. Once you are editing, you can save the file using `Cmd-S`. Closing the editor (using `Cmd-D`) will prevent future saves (and shrink the editor to fit the current size of the content).
 
 **Note:** A live preview of Markdown files can also be found in codedit by clicking the `show preview` button in the top right of the editor. This allows you to edit and render Markdown content in real-time, displaying the output adjacent to the code editor for convenient and immediate visual feedback.
@@ -86,11 +90,13 @@ Usage:
 connect [remote]
 /connect [remote]
 ```
+
 ## /cr
 
 Change remote for current window (alias for `/connect`).
 
 ## /csvview
+
 Utility for viewing CSV files (with sortable columns) in the terminal.
 
 ```
@@ -98,7 +104,9 @@ Usage:
 csvview [filename]
 /csvview [filename]
 ```
+
 ## /imageview
+
 Utility for viewing image files in the terminal. Currently supported formats include `png`, `jpg`, `bmp` and `gif`.
 
 ```
@@ -120,6 +128,7 @@ Usage:
 /line:archive [line-arg]
 /line:archive [line-arg] [1|0]
 ```
+
 ### /line:purge
 
 Deletes the line from the screen and from history (including output).
@@ -132,11 +141,11 @@ Updates line settings.
 
 `Usage: /line:set [line-arg] [renderer=renderer]`
 
-The option `[line-arg]`can be a *line number* or *line id*. One argument, sets the renderer for the given line. If `renderer` is empty, it will default to `terminal`.
+The option `[line-arg]`can be a _line number_ or _line id_. One argument, sets the renderer for the given line. If `renderer` is empty, it will default to `terminal`.
 
 ### /line:setheight
 
-Stores the height of the line. For terminals this is the number of "rows". For renderers it is the *pixel height*.
+Stores the height of the line. For terminals this is the number of "rows". For renderers it is the _pixel height_.
 
 `Usage: /line:setheight [line-arg] [height]`
 
@@ -146,7 +155,7 @@ Shows metadata for the given line.
 
 `Usage: /line:show [line-arg]`
 
-The option `[line-arg]` can be a *line number* or *line id*.
+The option `[line-arg]` can be a _line number_ or _line id_.
 
 ### /line:star
 
@@ -154,11 +163,11 @@ Stars the given line.
 
 `Usage: /line:star [line-arg] [star-val]`
 
-The option `[line-arg]` can be a *line number* or *line id*. `[star-val]` defaults to `1`, but can be set to 0-5.
+The option `[line-arg]` can be a _line number_ or _line id_. `[star-val]` defaults to `1`, but can be set to 0-5.
 
 ### /line:view
 
-Switches to the given *session*, *screen*, and *line*. Scrolls UI to the given *line*.
+Switches to the given _session_, _screen_, and _line_. Scrolls UI to the given _line_.
 
 `Usage: /line:view [session] [screen] [line]`
 
@@ -171,6 +180,7 @@ Usage:
 mdview [filename]
 /mdview [filename]
 ```
+
 **Note:** A live preview of Markdown files can also be found in [codeedit](#codeedit) by clicking the "show preview" button in the top right of the editor. This allows you to edit and render Markdown content in real-time, displaying the output adjacent to the code editor for convenient and immediate visual feedback.
 
 ## /releasecheck
@@ -224,16 +234,18 @@ open the create remote info window.
 Usage:
 /remote:new [user@host] [visual=1] [sudo=1] [port=portnum] [alias=alias] [connectmode=connectmode] [autoinstall=1] [key=ssh-key-file] [password=ssh-password]
 ```
+
 Options:
-* `host` - Specifies the remote username and hostname or IP address to connect to.
-* `visual` - Determines whether or not a remote info window is displayed (bool)
-* `sudo` - Allows the command to be executed with superuser privileges on the remote system. (bool)
-* `port` - Specifies the port number to use for the SSH connection.
-* `alias` - Sets a short name or alias for the remote connection, for easier reference.
-* `connectmode` - Determines whether Waveterm will autoconnect for a new connection. Supported options are `startup`, `auto`, and `manual.`
-* `autoinstall` - Determines whether of not the WaveShell helper is installed on the remote host (bool)
-* `key` - Specifies the path to the SSH key file to use for authentication.
-* `password` - Provides the SSH password for authentication (use with caution, as this may be insecure).
+
+- `host` - Specifies the remote username and hostname or IP address to connect to.
+- `visual` - Determines whether or not a remote info window is displayed (bool)
+- `sudo` - Allows the command to be executed with superuser privileges on the remote system. (bool)
+- `port` - Specifies the port number to use for the SSH connection.
+- `alias` - Sets a short name or alias for the remote connection, for easier reference.
+- `connectmode` - Determines whether Waveterm will autoconnect for a new connection. Supported options are `startup`, `auto`, and `manual.`
+- `autoinstall` - Determines whether of not the WaveShell helper is installed on the remote host (bool)
+- `key` - Specifies the path to the SSH key file to use for authentication.
+- `password` - Provides the SSH password for authentication (use with caution, as this may be insecure).
 
 ### /remote:set
 
@@ -264,13 +276,14 @@ reset
 The remote will re-run a login (e.g. `bashrc` or `bash_profile`) and reset the remote state (CWD, environment, functions, etc.) to match the initial login state. This can be useful to run if you make changes to your bash initialization files and want those changes to be picked up.
 
 ## /screen
+
 Commands that change or modify the Prompt screen (tab). The bare command will switch the screen (tab).
 
 ```
 Usage: /screen [screen-arg]
 ```
 
-The option `[screen-arg]` can be a *screen number*, *name*, *id*, or *relative number*.
+The option `[screen-arg]` can be a _screen number_, _name_, _id_, or _relative number_.
 
 ### /screen:archive
 
@@ -280,7 +293,7 @@ Hides a screen (tab). Retains output and history.
 Usage: /screen:archive [screenid] [0|1]
 ```
 
-With no arguments will archive the *current* screen (tab). Otherwise a *screen id* can be specified to archive. The second argument, if `0` means the screen should be unarchived.
+With no arguments will archive the _current_ screen (tab). Otherwise a _screen id_ can be specified to archive. The second argument, if `0` means the screen should be unarchived.
 
 ### /screen:open
 
@@ -306,12 +319,12 @@ Usage:
 
 Options:
 
-* `name` - set the name of the screen in the tab bar
-* `tabcolor` - set the color of the tab
-* `tabicon` - set the icon of the tab
-* `anchor` - sets the current scroll anchor position (used by client)
-* `focus` - sets the focus type for the screen (used by client) (Options: `input` or `cmd`)
-* `line` - sets the currently selected line
+- `name` - set the name of the screen in the tab bar
+- `tabcolor` - set the color of the tab
+- `tabicon` - set the icon of the tab
+- `anchor` - sets the current scroll anchor position (used by client)
+- `focus` - sets the focus type for the screen (used by client) (Options: `input` or `cmd`)
+- `line` - sets the currently selected line
 
 ### /screen:showall
 
@@ -333,7 +346,7 @@ Commands that change or modify the Prompt session. The bare command will switch 
 Usage: /session [session-arg]
 ```
 
-The option `[session-arg]` can be a *session number*, *name*, *id*, or *relative number*.
+The option `[session-arg]` can be a _session number_, _name_, _id_, or _relative number_.
 
 ### /session:archive
 
@@ -343,7 +356,7 @@ Archives a session.
 Usage: /session:archive [sessionid] [0|1]
 ```
 
-With no arguments will archive the current session. Otherwise a session id can be specified to archive. The second argument, if `0` means the session should be *unarchived*.
+With no arguments will archive the current session. Otherwise a session id can be specified to archive. The second argument, if `0` means the session should be _unarchived_.
 
 ### /session:open
 
@@ -363,14 +376,16 @@ Deletes a session. This will call purge on all of the screens (tabs) within the 
 Usage: /session:purge [sessionid]
 ```
 
-If `sessionid` is not specified will purge the *current* session.
+If `sessionid` is not specified will purge the _current_ session.
 
 ### /session:set
 
 Sets the name of a session.
+
 ```
 Usage: /session:set [name=name]
 ```
+
 One option is supported: `name`.
 
 ### /session:show
@@ -382,11 +397,12 @@ Show metadata about current session.
 Show all sessions (including archived ones).
 
 ## /sidebar
+
 Commands related to managing the right sidebar.
 
 ### /sidebar:add
 
-Adds a line to the sidebar. Width can also be specified with this call (functions the same as for `/sidebar:open`). The option `line` is required (can be a *line number* or a *line id*).
+Adds a line to the sidebar. Width can also be specified with this call (functions the same as for `/sidebar:open`). The option `line` is required (can be a _line number_ or a _line id_).
 
 ```
 Usage:
@@ -394,12 +410,12 @@ Usage:
 /sidebar:add line=a78de32c
 /sidebar:add line=5 width=600px
 ```
+
 ### /sidebar:close
 
 Closes the sidebar.
 
 `Usage: /sidebar:close`
-
 
 ### /sidebar:open
 
@@ -426,7 +442,7 @@ Send a signal to a running command.
 Usage: /signal [line-arg] [signame]
 ```
 
-The option `[line-arg]`can be a *line number* or *line id*.
+The option `[line-arg]`can be a _line number_ or _line id_.
 
 The option `[signame]` is the name of a signal. e.g. KILL, INT, HUP, TERM, etc. Can also prefix with SIG (e.g. SIGKILL).
 You can also specify a signal by number like this:
@@ -455,18 +471,17 @@ Force a send of current telemetry to server.
 
 Show current telemetry (on/off) setting.
 
-
 ## Other Internal Commands
 
-### /_killserver
+### /\_killserver
 
 Kills the local prompt server (and restarts it). Used for debugging.
 
-### /_compgen
+### /\_compgen
 
 Handles command completion.
 
-### /_history
+### /\_history
 
 Handles history window.
 
