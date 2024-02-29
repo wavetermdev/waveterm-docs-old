@@ -5,17 +5,33 @@ title: SlashCommand Reference
 Welcome to our Slash Command Reference Guide, a comprehensive resource designed to streamline your workflow in Wave using intuitive commands.
 Here, you'll find detailed explanations on how to manage various settings and configurations in Wave related to sessions and windows, client settings, editing and viewing files inline, and much more.
 
-## /bookmarks
+## /bookmark
 
-Commands that effect bookmarks.
+Commands that allow you to set and delete single bookmarks.
 
-### /bookmarks:delete
+### /bookmark:delete
 
 Remove a bookmark.
 
-### /bookmarks:set
+### /bookmark:set
 
 Add a bookmark.
+
+## /bookmarks
+
+Commands that allow you to manage multiple bookmarks.
+
+### /bookmarks:show
+
+Show all bookmarks.
+
+## /chat
+Ask the AI-assistant a question from the terminal.
+
+```
+/chat How do I resolve a merge conflict?
+```
+
 
 ## /clear
 
@@ -104,6 +120,10 @@ Usage:
 csvview [filename]
 /csvview [filename]
 ```
+
+## /history
+
+Opens history window.
 
 ## /imageview
 
@@ -275,6 +295,14 @@ reset
 
 The remote will re-run a login (e.g. `bashrc` or `bash_profile`) and reset the remote state (CWD, environment, functions, etc.) to match the initial login state. This can be useful to run if you make changes to your bash initialization files and want those changes to be picked up.
 
+## /run
+
+Runs a command.
+
+```
+Usage: /run cat test.sh
+```
+
 ## /screen
 
 Commands that change or modify the Prompt screen (tab). The bare command will switch the screen (tab).
@@ -307,6 +335,14 @@ Deletes the current screen (tab). Purges all output and history.
 
 To purge a non-active screen, pass the `screenid` as the first argument.
 
+### /screen:reset
+
+Resets the screen by re-initializing all remotes.
+
+### /screen:resize
+
+Tells the backend the new size of the screen. This size is used to change the terminal size for running commands (SIGWINCH).
+
 ### /screen:set
 
 Updates screen parameters.
@@ -329,14 +365,6 @@ Options:
 ### /screen:showall
 
 Show all screens in the current session (including archived screens).
-
-### /screen:reset
-
-Resets the screen by re-initializing all remotes.
-
-### /screen:resize
-
-Tells the backend the new size of the screen. This size is used to change the terminal size for running commands (SIGWINCH).
 
 ## /session
 
@@ -470,21 +498,3 @@ Force a send of current telemetry to server.
 ### /telemetry:show
 
 Show current telemetry (on/off) setting.
-
-## Other Internal Commands
-
-### /\_killserver
-
-Kills the local prompt server (and restarts it). Used for debugging.
-
-### /\_compgen
-
-Handles command completion.
-
-### /\_history
-
-Handles history window.
-
-### /run
-
-Runs a command.
