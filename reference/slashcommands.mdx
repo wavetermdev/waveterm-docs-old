@@ -149,12 +149,6 @@ Usage:
 /line:archive [line-arg] [1|0]
 ```
 
-### /line:purge
-
-Deletes the line from the screen and from history (including output).
-
-`Usage: /line:purge [line-arg]`
-
 ### /line:set
 
 Updates line settings.
@@ -329,12 +323,6 @@ Creates a new screen.
 
 `Usage: /screen:open`
 
-### /screen:purge
-
-Deletes the current screen (tab). Purges all output and history.
-
-To purge a non-active screen, pass the `screenid` as the first argument.
-
 ### /screen:reset
 
 Resets the screen by re-initializing all remotes.
@@ -396,15 +384,6 @@ Usage: /session:open [name=name]
 
 A name can be passed to set the session's name.
 
-### /session:purge
-
-Deletes a session. This will call purge on all of the screens (tabs) within the session. All command history and output will be completely deleted.
-
-```
-Usage: /session:purge [sessionid]
-```
-
-If `sessionid` is not specified will purge the _current_ session.
 
 ### /session:set
 
@@ -498,3 +477,13 @@ Force a send of current telemetry to server.
 ### /telemetry:show
 
 Show current telemetry (on/off) setting.
+
+## Other
+
+### /_killserver
+
+Kills the local prompt server (and restarts it). Used for debugging.
+
+### /_compgen
+
+Handles command completion.
