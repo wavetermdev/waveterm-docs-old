@@ -32,7 +32,6 @@ Ask the AI-assistant a question from the terminal.
 /chat How do I resolve a merge conflict?
 ```
 
-
 ## /clear
 
 Clear all commands from the current window.
@@ -123,7 +122,11 @@ csvview [filename]
 
 ## /history
 
-Opens history window.
+Opens up the history viewer for the current tab.
+
+### /history:viewall
+
+Opens up the history viewer for all workspaces and tabs. Gives the user the ability to search by _string_, filter by _workspaces_, _session type_ (_local_ or _remote_), _start date_, and the ability to "_Filter Cmds_", which filters common commands like `ls` and `cd` from the results.
 
 ## /imageview
 
@@ -134,7 +137,6 @@ Usage:
 imageview [filename]
 /imageview [filename]
 ```
-
 ## /line
 
 Updates lines in the current window.
@@ -479,6 +481,7 @@ Force a send of current telemetry to server.
 Show current telemetry (on/off) setting.
 
 ## Other
+Miscellaneous commands for debugging, behind-the-scenes tasks, typically beyond regular workflow usage.
 
 ### /_killserver
 
