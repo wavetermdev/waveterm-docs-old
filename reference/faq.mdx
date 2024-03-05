@@ -20,7 +20,9 @@ Currently there is no way to specify these option in the Connections UI. A worka
 
 ## How can I disable automatic update checks?
 
-By default, Wave will query our GitHub releases feed to determine if any new releases have been published. This check happens once on launch and then again every 8 hours. We use the unauthenticated GitHub REST API and while we do not collect any telemetry on these calls, we cannot guarantee that GitHub will not collect its own telemetry.
+By default, Wave will query our download feed to check for new releases. This check happens once on launch and then again every hour. If a new release is found, it will be downloaded automatically and you will be notified when it is ready to install.
+
+To provide the fastest experience when downloading updates, we host our own download feed in AWS. We do not collect our own access logs for this feed and we will not use this feed to identify you for tracking purposes. As with all sites, we cannot guarantee other peers between you and our servers will not collect their own data.
 
 If you would like to disable the automatic update checks, you can toggle the "*Check for Updates*" button in the Settings to the off position (the white circle should be on the left and the button should be grey).
 
@@ -30,7 +32,7 @@ We are committed to offering Wave free to all developers (free as in speech and 
 
 ## How can I change the font in Wave?
 
-Right now we don't support changing the font. We plan on supporting this in the future, along with other font settings. Please see [Issue #83](https://github.com/wavetermdev/waveterm/issues/83) and feel free to leave feedback on your specific usecase. 
+Right now we don't support changing the font. We plan on supporting this in the future, along with other font settings. Please see [Issue #83](https://github.com/wavetermdev/waveterm/issues/83) and feel free to leave feedback on your specific usecase.
 
 ## Are ligatures supported in Wave?
 
