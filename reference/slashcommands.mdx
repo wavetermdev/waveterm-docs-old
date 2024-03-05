@@ -69,8 +69,13 @@ codeedit [filename]
 [lang=javascript] codeedit [filename]
 [lang=json] codeedit hello.json
 ```
+Both with and without the slash are allowed. Filename resolves against the current remote and current working directory.
 
-Both with and without the slash are allowed. Filename resolves against the current remote and current working directory. Once you are editing, you can save the file using `Cmd-S`. Closing the editor (using `Cmd-D`) will prevent future saves (and shrink the editor to fit the current size of the content).
+Shortcuts:
+
+- `Cmd-S` - Saves current file
+- `Cmd-D` - Closes the editor. Note, this will prevent future saves (and shrink the editor to fit the current size of the content).
+- `Cmd-F` - Search the current file for a string using _whole word_, _regex_ and _match case_ options. `Cmd-F` also supports _find and replace_ by simply clicking the green dropdown arrow in the find box.
 
 **Note:** A live preview of Markdown files can also be found in codedit by clicking the `show preview` button in the top right of the editor. This allows you to edit and render Markdown content in real-time, displaying the output adjacent to the code editor for convenient and immediate visual feedback.
 
