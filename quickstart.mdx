@@ -1,16 +1,17 @@
 ---
 title: 'Quickstart'
-description: 'After downloading Wave, get up and running quickly'
+description: 'Welcome to the Quickstart Guide for Wave! Here, you''ll find everything you need to get Wave installed on your system, set up your environment, and dive into the basics of using Wave to enhance your command line experience.'
 ---
 
+## Installation
 <AccordionGroup>
-  <Accordion icon="apple" title="MacOS Setup">
+  <Accordion icon="apple" title="MacOS">
     1. There are two ways to get Wave:
        * [Download Wave](https://www.commandline.dev/download) and drag it into your Application folder. 
        * For Homebrew users, run ```brew install -cask wave```
     2. If using brew, get brew commands to work by adding the shellenv command to your *.bashrc* or *.zshrc*, e.g. ```echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.bashrc```
   </Accordion>
-  <Accordion icon="linux" title="Linux Setup">
+  <Accordion icon="linux" title="Linux">
     1. [Download Wave](https://www.commandline.dev/download) and extract the file
     2. Change to the Wave directory ```cd waveterm-linux-* ```
     3. Run the application:  ```./Wave```
@@ -32,7 +33,7 @@ description: 'After downloading Wave, get up and running quickly'
     After restarting your desktop environment (or your computer), Wave should be visible in your desktop application list. You can now launch Wave directly from your desktop environment.
     The `.desktop` file scheme is supported by the most commonly used desktop environments such as GNOME, KDE, XFCE, etc. If you encounter issues, you can get help in our Discord or by opening an issue on Github.
   </Accordion>
-  <Accordion icon="windows" title="WSL Setup">
+  <Accordion icon="windows" title="WSL">
  .  Wave has support for WSL, tested on Ubuntu and Kali distros
     1. [Download Wave for Linux](https://www.commandline.dev/download) and extract file 
 		* (on terminal, use ```curl -L "<DOWNLOAD URL>" > Waveterm-Linux.zip```)
@@ -69,48 +70,11 @@ You type commands into the input box at the bottom of the screen like normal, an
 <AccordionGroup>
 
 <Accordion icon="message-bot" title="Create New Tabs">
-  So far we’ve been working in one tab. You can easily create a new tab by clicking the “+” in the tab bar, or by pressing “Cmd-T”. Switching between tabs can be done with the mouse or by using “Cmd-[digit]” to switch to the nth tab. Cmd-LeftArrow and Cmd-RightArrow will also work to change tabs.
+  So far we've been working in one tab. You can easily create a new tab by clicking the “+” in the tab bar, or by pressing “Cmd-T”. Switching between tabs can be done with the mouse or by using “Cmd-[digit]” to switch to the nth tab. Cmd-LeftArrow and Cmd-RightArrow will also work to change tabs.
 </Accordion>
 <Accordion icon="rocket" title="Create New Workspace">
   Wave also has the concept of workspaces. A workspace is just a set of tabs. You can see your workspaces listed in the left column of the UI. You start with 1 workspace named “default”. You can easily create a new workspace by clicking on the "+" left bar next to the label "Workspaces" or by using a “slash-command” (we’ll discuss those later). Each workspace is independent from the others. You can use workspaces to set up custom sets of tabs for different projects, common configurations, or different remote machines. In the future, Wave will support sharing workspaces with your team or having a joint shared workspace that everyone can view and contribute to.
 
 Workspaces and tabs are persistent. The history and state of each tab is preserved across reboots, network disconnections, remote machine reboots, and time. Any command you’ve ever run in Wave will be remembered (unless of course you choose to delete it).
-</Accordion>
-
+  </Accordion>
 </AccordionGroup>
-
-## Wave Features
-
-Wave Terminal has lots of rich features, learn more here
-
-<CardGroup>
-
-<Card title="Style Your Terminal" icon="paintbrush" href="/features/appearance">
-  Add flair to your terminal with personalized branding.
-</Card>
-
-<Card
-  title="History"
-  icon="scroll"
-  href="/features/history"
->
-  Make the most of Wave's persistent, context rich history. 
-</Card>
-
-<Card
-  title="Connections (Remotes)"
-  icon="browser"
-  href="/features/connections"
->
-  Use Wave to log into remote machines
-</Card>
-
-<Card
-  title="Extend Wave"
-  icon="square-code"
-  href="/reference/keyboard"
->
-  Implement your own renderers with Wave's open API. 
-</Card>
-
-</CardGroup>
