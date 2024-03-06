@@ -57,12 +57,12 @@
       {
          "group":"Features",
          "pages":[
-            "features/appearance",
-            "features/connections",
+            "features/chatGPT",
+            "features/codeedit",
             "features/history",
             "features/images",
-            "features/markdown",
-            "features/chatGPT",
+            "features/connections",
+            "features/appearance",
             "features/sshconfig-imports"
          ]
       },
