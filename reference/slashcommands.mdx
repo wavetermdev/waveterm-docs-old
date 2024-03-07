@@ -150,16 +150,32 @@ imageview [filename]
 ```
 ## /line
 
-Updates lines in the current window.
+Updates lines (also called, "_command blocks_") in the current window.
 
 ### /line:archive
 
-Archives (hides) the line. Remains in history (can be unarchived by passing `0` as the 2nd argument).
+Archives (hides) a specified line number. Remains in history (can be unarchived by passing `0` as the 2nd argument).
 
 ```
 Usage:
 /line:archive [line-arg]
 /line:archive [line-arg] [1|0]
+```
+
+### /line:bookmark
+Adds a specified line number to bookmarks.
+
+```
+Usage:
+/line:bookmark [line-arg]
+```
+### /line:delete
+
+Deletes a specified line from the current tab. Note, the line will still show up in history.
+
+```
+Usage:
+/line:delete [line-arg]
 ```
 
 ### /line:set
@@ -172,9 +188,18 @@ The option `[line-arg]`can be a _line number_ or _line id_. One argument, sets t
 
 ### /line:setheight
 
-Stores the height of the line. For terminals this is the number of "rows". For renderers it is the _pixel height_.
+Stores the height of the specified line. For terminals this is the number of "rows". For renderers it is the _pixel height_.
 
 `Usage: /line:setheight [line-arg] [height]`
+
+### /line:restart
+
+Restarts the command in a given line.
+
+```
+Usage:
+/line:restart [line-arg]
+```
 
 ### /line:show
 
@@ -274,9 +299,39 @@ Options:
 - `key` - Specifies the path to the SSH key file to use for authentication.
 - `password` - Provides the SSH password for authentication (use with caution, as this may be insecure).
 
+### /remote:parse
+Imports a users ssh config. By default, it imports both local (`~/.ssh/config`) and system (`/etc/ssh/config`) ssh configs.
+
+```
+Usage:
+/remote:parse
+```
+
+### /remote:reset
+
+Resets the current shell state. Can be used with, or without, the `shell` argument which supports common shells like _bash_, _zsh_, etc. Useful for troubleshooting transient issues with current shell states.
+
+```
+Usage:
+/reset
+/reset shell=[shell type]
+```
+
 ### /remote:set
 
-Updates remote parameters.
+Updates remote parameters. Set `visual=1` to edit in the UI.
+
+```
+Usage:
+/remote:set [alias] [key] [password] [autoinstall=1]
+```
+
+Options:
+
+- `alias` - Sets a short name or alias for the remote connection, for easier reference.
+- `key` - Specifies the path to the SSH key file to use for authentication.
+- `password` - Provides the SSH password for authentication (use with caution, as this may be insecure).
+- `autoinstall` - Determines whether of not the WaveShell helper is installed on the remote host (bool)
 
 ### /remote:show
 
@@ -329,6 +384,16 @@ Usage: /screen:archive [screenid] [0|1]
 ```
 
 With no arguments will archive the _current_ screen (tab). Otherwise a _screen id_ can be specified to archive. The second argument, if `0` means the screen should be unarchived.
+
+### /screen:delete
+
+Deletes the current screen, or specified screen when using `[screen-id].` Note, this will not remove the screens commands from history.
+
+```
+Usage:
+/screen:delete
+/screen:delete [screen-id]
+```
 
 ### /screen:open
 
@@ -385,6 +450,16 @@ Usage: /session:archive [sessionid] [0|1]
 ```
 
 With no arguments will archive the current session. Otherwise a session id can be specified to archive. The second argument, if `0` means the session should be _unarchived_.
+
+### /session:delete
+
+Deletes the current session, or specified session when using `[session-id].` Note, this will not remove the sessions commands from history.
+
+```
+Usage:
+/session:delete
+/session:delete [session-id]
+```
 
 ### /session:open
 
