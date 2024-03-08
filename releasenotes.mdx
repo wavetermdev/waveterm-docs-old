@@ -4,6 +4,32 @@ title: Release Notes
 
 Download the latest build here: https://waveterm.dev/download
 
+### v0.7.0 - 03/7/2024
+
+Major Release of Wave Terminal, featuring a new UI, new connections backend, optional auto-update, Linux packages, light mode, and a *lot* of smaller features, fixups, and bug fixes.  Over 100 pull-requests were merged since v0.6.  We have the groundwork in place for customizable themes, full terminal font customization, and custom keybindings which all should arrive shortly in the v0.7.x series.  The new connection framework will also enable us to deliver a new set of productivity features.
+
+As always, we appreciate all feedback and suggestions.  Please let us know what you think in Discord, file bugs/enhancements on Github, and give us a star on Github if you'd like to support us!
+
+* **New UI** - Moved to a cleaner, flat design.  Less visual clutter, and updated colors to help you focus on the commands and output.
+    * Left sidebar is now fully collapsable (for those who would like a cleaner terminal experience)
+    * Command Input now extends the full width of the terminal.  Moved hints/actions into icons at the top-right to keep more pixels for writing commands.
+    * UI updates to "Wave AI" panel, and to our inline history search
+    * Light Mode Theme (beta)
+    * UI Updates for CodeEdit
+    * Ability to change between "JetBrains Mono" and "Hack" font for terminal
+* **Connections Overhaul** - Connections have entirely been reworked to use Go's standard crypto/ssh library instead of relying on the system's ssh program. This means more predictable behavior across systems and fewer corner cases to handle. This fixes multiple connection related issues, and allows us to handle interactive logins in a much cleaner way using popups for password entry, OTPs, and other server input.
+* **Auto-Update** - Wave will now detect and download updates for MacOS and Linux (can be disabled in settings) 
+* **Linux Packages** - New packages built for Linux, including .deb, .rpm, AppImage, and pacman
+* Bug fix: [github #368](https://github.com/wavetermdev/waveterm/issues/368), MacOS paths were getting reordered by MacOS's "path_helper" program.  Fixed zsh session restore sequence to properly exclude global RCS files.
+* Bug fix: [github #304](https://github.com/wavetermdev/waveterm/issues/304), show Conda environment in prompt
+* Bug fix: [github #285](https://github.com/wavetermdev/waveterm/issues/285), fixed full-screen mode
+* Bug fix: [github #278](https://github.com/wavetermdev/waveterm/issues/278), show a warning, and add new slashcommand `/reset:cwd` to help fix the terminal state when your cwd is deleted
+* Bug fix: [github #330](https://github.com/wavetermdev/waveterm/issues/330), fixed history dropdowns (using new dropdown code)
+* Bug fix: [github #150](https://github.com/wavetermdev/waveterm/issues/150), commands which exited with non-zero exit codes are now clearly shown with a red background
+* Bug fixes related to connections: [github #179](https://github.com/wavetermdev/waveterm/issues/179), [github #300](https://github.com/wavetermdev/waveterm/issues/300), [github #289](https://github.com/wavetermdev/waveterm/issues/289), [github #145](https://github.com/wavetermdev/waveterm/issues/145), [github #95](https://github.com/wavetermdev/waveterm/issues/95), [github #286](https://github.com/wavetermdev/waveterm/issues/286)
+* Other assorted bug fixes, enhancements, and performance improvements
+
+
 ### v0.6.3 - 02/19/2024
 
 Patch release to fix [github #302](https://github.com/wavetermdev/waveterm/issues/302) which caused the last line of terminal output to be cut off for certain screen zoom settings (system zoom/resolution or in-app zooming.)
