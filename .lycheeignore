@@ -2,6 +2,8 @@
 # Enter each URL or pattern you wish to exclude on a separate line, employing regular expressions for targeted exclusions or glob-style patterns for broader matches.
 # Reference: https://github.com/lycheeverse/lychee?tab=readme-ov-file#ignoring-links
 #
+# NOTE: For file exclusions, please use ".lychee.toml"
+#
 # Usage:
 # - Write full URLs to ignore specific links.
 # - Use asterisks (*) as wildcards to match any number of characters.

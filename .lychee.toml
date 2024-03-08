@@ -7,6 +7,5 @@
 # Add specific exclusions below that have been erroneously flagged
 
 exclude = [
-    'file:///Users/knox/Repos/waveterm-docs/reference/slashcommands#remote-parse',
-    'file:///Users/knox/Repos/waveterm-docs/features/sshconfig-imports'
+    'file:///Users/example/example.md',
 ]
