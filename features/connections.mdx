@@ -3,19 +3,20 @@ title: 'Connections'
 description: 'Run commands on remote machines'
 icon: 'map'
 ---
-
 ## Connections
 Wave enhances SSH by offering connections that stay alive across sessions, maintaining your environment and history, unlike traditional SSH that might disconnect and lacks universal command history. Setting up a Wave connection creates a resilient virtual SSH connection, preserving your session details and command logs.
 
 ### Security
-
 > Wave was designed with security in mind. It uses standard SSH for all remote machine authentication, without relying on any proprietary authentication schemes. Communication is exclusively handled through stdout and stdin, ensuring that the helper running on the remote machine _never_ has to open any ports or require additional privileges.
 
-To set up a new connection, navigate to "Connections" on the left sidebar and click "New Connection". Fill out the required _user_ and _host details_, then select your "Auth Mode". Wave utilizes standard SSH, offering the choice of an SSH key (akin to "-i") or a password for authentication—SSH keys are favored for their increased security. For unique authentication needs or OTP, switch "connectmode" to "manual".
+To set up a new connection, navigate to "Connections" on the left sidebar and click "New Connection". Fill out the required _user_ and _host details_, then select your "Auth Mode".
+
+<img height="200" src="/images/connections.gif" />
+
+Wave utilizes standard SSH, offering the choice of an SSH key (akin to "-i") or a password for authentication—SSH keys are favored for their increased security. For unique authentication needs or OTP, switch "connectmode" to "manual".
+
 <Tip>
-
-To allow for persistent connections, Wave will install a helper on the remote machine (waveshell).  This helper *only* communicates via stdin and stdout to Wave.  It does not open any ports or network connections, does not need any additional permissions, and will only write to the disk if you are running detached commands (special types of commands that can stay running even when Wave is disconnected).  The helper program is also open-source, written in Go, and can be found in the waveterm GitHub repo in the waveshell directory.  To re-install the helper run the meta-command ```/connection:install```.
-
+To ensure persistent connections, Wave installs a helper (waveshell) on the remote machine. This helper communicates with Wave via _stdin_ and _stdout_, requiring no extra permissions, opening no ports, and writing to disk only for detached commands. Waveshell is open-source, written in Go, and can be found in the waveterm [GitHub repo](https://github.com/wavetermdev/waveterm/tree/main/waveshell) in the _waveshell_ directory. To reinstall, use `/connection:install`.
 </Tip>
 
 ## Importing SSH Configurations
