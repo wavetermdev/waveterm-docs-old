@@ -1,0 +1,12 @@
+# This configuration file is used by the Lychee link checker to manage settings, including the exclusion of specific directories and files from being checked.
+# Directories and file paths to be excluded are specified under the 'exclude' setting, utilizing glob patterns for matching. This allows for more precise control over the scope of the link checking process.
+# Reference: https://github.com/lycheeverse/lychee?tab=readme-ov-file#ignoring-links
+
+# NOTE: For URL and URL pattern exclusions, please use ".lycheeignore"
+
+# Add specific exclusions below that have been erroneously flagged
+
+exclude = [
+    'file:///Users/knox/Repos/waveterm-docs/reference/slashcommands#remote-parse',
+    'file:///Users/knox/Repos/waveterm-docs/features/sshconfig-imports'
+]
