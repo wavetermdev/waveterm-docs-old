@@ -20,6 +20,15 @@ To allow for persistent connections, Wave will install a helper on the remote ma
 
 </Tip>
 
+## Importing SSH Configurations
+
+To simplify setting up your connections, Wave offers two powerful features:
+
+- **Import Config**: Wave allows you to your existing SSH configurations directly into Wave using the [Import Config](/features/sshconfig-imports) feature, avoiding the need to manually recreate connections. To access this feature, select the "Connections" button in the left-hand sidebar and then select "Import Config."
+
+- **Remote:parse**: In addition, the [remote:parse](/reference/slashcommands#remote-parse) command can automatically parse and import connections based on your current SSH configuration. To use it, simply execute `remote:parse` in the command line, and Wave will handle the rest.
+
+
 ## Using Connections
 
 Now that we've set up our first remote connection we can use it.  In any screen you can use the `cr` command.  `cr` will change your connection (like `cd` can change directories).  You just type `cr [remotename-or-alias]` and you'll see your prompt change to reflect that you're now running commands against the selected connection.  Note that a screen can have a mix of commands from local or from a remote connection (you can see the connection that ran the command in the prompt).
@@ -29,4 +38,3 @@ Every session and tab can now switch to the newly added connection using `cr`.  
 Let's say I have a remote named "server01".  If I `cr server01` I get a complete virtual environment working on server01.  `cd` or exporting an environment variable are all sticky to that tab.  I can create an additional virtual environment by using a colon: `cr server01:2` will change to the server01 remote to a named session "2".  Any number of virtual environments can be made in a tab for each remote and all will be independent.
 
 To reset a remote back to its initial login state, use the meta-command `/reset` (or just `reset`) (useful if you've recently updated your `.bashrc` or `.bash_profile`.
-
