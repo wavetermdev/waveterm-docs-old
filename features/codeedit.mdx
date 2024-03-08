@@ -10,21 +10,23 @@ Codeedit is built using [Monaco](https://microsoft.github.io/monaco-editor/) (th
 
 ## Using Codeedit
 ```
-Usage:
 codeedit [filename]
 /codeedit [filename]
 
 [lang=javascript] codeedit [filename]
 [lang=json] codeedit hello.json
 ```
-Both with and without the slash are allowed. Filename resolves against the current remote and current working directory.
+Both with and without the slash are allowed. The option `filename` resolves against the current remote and current working directory.
 
 ## Shortcuts
-Below is a list of the currently available keyboard shortcuts for Codeedit. We are committed to enhancing Codeedit's capabilities and will update this list as new functionalities become available. Please revisit this page for the latest updates.
+Below is a list of the currently available keyboard shortcuts for Codeedit.
 - `Cmd-S` - Saves current file
 - `Cmd-D` - Closes the editor. Note, users will be prompted with whether or not they'd like to save before closing.
 - `Cmd-F` - Search the current file for a string using _whole word_, _regex_ and _match case_ options. `Cmd-F` also supports _find and replace_ by simply clicking the green dropdown arrow in the find box.
 
-**Note:** Codeedit also includes a live preview feature for Markdown files. To activate, open a Markdown file in Codeedit and click the `show preview` button located in the top right corner. This feature enables simultaneous editing and rendering, offering a side-by-side view of your Markdown source and its live output for efficient and immediate feedback.
+We are committed to enhancing Codeedit's capabilities and will update this list as new functionalities become available. Please revisit this page for the latest updates.
+<Tip>
+Codeedit also includes a live preview feature for Markdown files. To activate, open a Markdown file in Codeedit and click the `show preview` button located in the top right corner. This feature enables simultaneous editing and rendering, offering a side-by-side view of your Markdown source and its live output for efficient and immediate feedback.
+</Tip>
 
-**Note:** See [codeview](#codeview) to view files in a _view only_ mode using the same native UI.
+**Note:** See [codeview](/reference/slashcommands#codeview) to view files in a _view only_ mode using the same native UI.
