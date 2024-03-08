@@ -21,11 +21,9 @@ To ensure persistent connections, Wave installs a helper (waveshell) on the remo
 
 ## Importing SSH Configurations
 
-To simplify setting up your connections, Wave offers two ways to import your SSH configuration:
+To simplify setting up your connections, Wave let's you import your existing SSH configurations using the [Import Config](/features/sshconfig-imports) feature, avoiding the need to manually recreate connections. To access this feature, select the "Connections" button in the left-hand sidebar and then select "Import Config."
 
-- **Import Config**: Wave let's you import your existing SSH configurations using the [Import Config](/features/sshconfig-imports) feature, avoiding the need to manually recreate connections. To access this feature, select the "Connections" button in the left-hand sidebar and then select "Import Config."
-
-- **Remote:parse**: In addition, the [remote:parse](/reference/slashcommands#remote-parse) command can automatically parse and import connections based on your current SSH configuration. To use it, simply execute `remote:parse` in the command line, and Wave will handle the rest.
+Note this feature can also be invoked from the CLI directly by running `/remote:parse` ([reference](/reference/slashcommands#remote-parse))
 
 ### Using Connections
 
