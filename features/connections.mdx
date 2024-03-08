@@ -3,30 +3,34 @@ title: 'Connections'
 description: 'Run commands on remote machines'
 icon: 'map'
 ---
-
 ## Connections
-
-So far we've been running commands on our local computer.  Wave of course supports regular ssh (as a block) that you can run to log into remote machines but regular ssh connections suffer from two problems -- (1) you can get disconnected, and (2) no universal history.  To get the most out of Wave you need to set up a Wave "connection".  This functions as a virtual SSH connection that can recover from disconnects, save your environment (working directory, environment variables, functions, etc.), and save its history.
+Wave enhances SSH by offering connections that stay alive across sessions, maintaining your environment and history, unlike traditional SSH that might disconnect and lacks universal command history. Setting up a Wave connection creates a resilient virtual SSH connection, preserving your session details and command logs.
 
 ### Security
+> Wave was designed with security in mind. It uses standard SSH for all remote machine authentication, without relying on any proprietary authentication schemes. Communication is exclusively handled through stdout and stdin, ensuring that the helper running on the remote machine _never_ has to open any ports or require additional privileges.
 
-> Wave was designed with security in mind.  All authentication to remote machines is done using standard SSH (Prompt does not implement any special authentication scheme of its own).  All communication is done via stdout and stdin, so the helper that runs on the remote machine will *never* open any ports, or need any additional privledges.
+To set up a new connection, navigate to "Connections" on the left sidebar and click "New Connection". Fill out the required _user_ and _host details_, then select your "Auth Mode".
 
-To do that you need to create a new connection for the machine that you are logging into.  Click "Connections" in the left sidebar.  From there click on "Add Connection".  Prompt uses regular SSH to make its connections.  Use the "authmode" dropdown to add an ssh key (equivalent to "-i") and/or a password (note that ssh keys are more secure than passwords, and we recommend that you always use keys to log into your servers and not password authentication).  If your connection is not standard, and requires some other type of authentication or a changing password (OTP), you'll have to select "connectmode" as "manual".
+<img height="200" src="/images/connections.gif" />
+
+Wave utilizes standard SSH, offering the choice of an SSH key (akin to "-i") or a password for authentication—SSH keys are favored for their increased security. For unique authentication needs or OTP, switch "connectmode" to "manual".
 
 <Tip>
-
-To allow for persistent connections, Wave will install a helper on the remote machine (waveshell).  This helper *only* communicates via stdin and stdout to Wave.  It does not open any ports or network connections, does not need any additional permissions, and will only write to the disk if you are running detached commands (special types of commands that can stay running even when Wave is disconnected).  The helper program is also open-source, written in Go, and can be found in the waveterm GitHub repo in the waveshell directory.  To re-install the helper run the meta-command ```/connection:install```.
-
+To ensure persistent connections, Wave installs a helper (waveshell) on the remote machine. This helper communicates with Wave via _stdin_ and _stdout_, requiring no extra permissions, opening no ports, and writing to disk only for detached commands. Waveshell is open-source, written in Go, and can be found in the waveterm [GitHub repo](https://github.com/wavetermdev/waveterm/tree/main/waveshell) in the _waveshell_ directory. To reinstall, use `/connection:install`.
 </Tip>
 
-## Using Connections
+## Importing SSH Configurations
 
-Now that we've set up our first remote connection we can use it.  In any screen you can use the `cr` command.  `cr` will change your connection (like `cd` can change directories).  You just type `cr [remotename-or-alias]` and you'll see your prompt change to reflect that you're now running commands against the selected connection.  Note that a screen can have a mix of commands from local or from a remote connection (you can see the connection that ran the command in the prompt).
+To simplify setting up your connections, Wave let's you import your existing SSH configurations using the [Import Config](/features/sshconfig-imports) feature, avoiding the need to manually recreate connections. To access this feature, select the "Connections" button in the left-hand sidebar and then select "Import Config."
 
-Every session and tab can now switch to the newly added connection using `cr`.  Every tab keeps its own remote state, so you might have different current working directories in each tab (just like a local connection).
+Note this feature can also be invoked from the CLI directly by running `/remote:parse` ([reference](/reference/slashcommands#remote-parse))
 
-Let's say I have a remote named "server01".  If I `cr server01` I get a complete virtual environment working on server01.  `cd` or exporting an environment variable are all sticky to that tab.  I can create an additional virtual environment by using a colon: `cr server01:2` will change to the server01 remote to a named session "2".  Any number of virtual environments can be made in a tab for each remote and all will be independent.
+### Using Connections
 
-To reset a remote back to its initial login state, use the meta-command `/reset` (or just `reset`) (useful if you've recently updated your `.bashrc` or `.bash_profile`.
+Once a Wave connection is established, switching between connections is simple. Use the `cr` command, akin to `cd` in functionality, by typing `cr [remotename-or-alias]`. Your prompt updates, indicating you’re executing commands on the selected connection, allowing for a blend of local and remote commands.
 
+Each session and tab can switch to new connections with `cr`, maintaining their unique remote states—including different working directories—mirroring local session behavior.
+
+For instance, executing `cr server01` places you in server01's environment. Operations like `cd` or setting variables are specific to that tab. To initiate another environment within the tab, `cr server01:2` generates a separate workspace "2". This setup permits multiple, isolated environments for each remote within a tab.
+
+To reset a remote to its initial login state use the `/reset` command. This can be useful after updating your `.bashrc`, `.zshrc` or similar.

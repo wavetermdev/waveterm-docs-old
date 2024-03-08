@@ -4,9 +4,23 @@ description: 'Make the most of persistent, context rich history'
 icon: 'scroll'
 ---
 
-## Command History
-To access standard command history, you can press UpArrow just like in your normal terminal. These commands are filtered to be from the current screen and the current remote.
+## Introduction
 
-But Wave keeps command history across all remotes, all tabs, and all sessions so you can easily recall a command you may have run in a separate tab or on a different machine to run. You enter history search using “Ctrl-R” or “Cmd-H”. From there you can still hit up or down arrow to navigate your history, but there are additional filters. You can toggle search to include all remotes, everything in your current session, or your global history.
+Navigating your command history efficiently is crucial for productivity in any terminal environment. Wave's advanced history features allow you to seamlessly access and manage your past commands not just within the current session but across all workspaces and devices.
 
-> Wave keeps metadata for *all* commands that you run through it, including current working directory, status code, command duration, time, remote, etc.
+## History for Current Tab (CTRL + R)
+
+To access the command history specific to your current tab, you can utilize the `CTRL + R` shortcut. This action opens a history search mode where previously executed commands in the current tab are available. Simply start typing to filter through the command history based on your input, and use the Up and Down Arrow keys to navigate through the filtered results. 
+
+Users can also easily toggle history for the current tab, current workspace, or globally by using the `CMD + S` shortcut while using the using this feature.
+
+<img height="200" src="/images/history_ctrlr.gif" />
+
+## History for All Tabs and Workspaces (CMD + H)
+
+For a more extensive search across all remotes, tabs, and sessions, use the `CMD + H` shortcut. This powerful feature brings up a global history search, allowing you to access any command you've previously run, regardless of the tab or workspace it was executed in. Similar to the tab-specific history search, you can filter through your entire command history with ease. 
+
+Additionally, Wave provides filters to narrow down your search to include commands from all remotes, the current session, or your entire global history, enhancing your ability to quickly find and reuse complex commands.
+
+<img height="200" src="/images/history_cmdh.gif" />
+Wave's commitment to improving command line efficiency is evident in its robust history features. By storing metadata for each command—including the working directory, status code, duration, time, and associated remote—Wave ensures that every command you need is just a few keystrokes away, complete with the context you need to use them effectively.

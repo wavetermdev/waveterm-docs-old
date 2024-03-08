@@ -62,8 +62,7 @@
             "features/history",
             "features/images",
             "features/connections",
-            "features/appearance",
-            "features/sshconfig-imports"
+            "features/appearance"
          ]
       },
       {
