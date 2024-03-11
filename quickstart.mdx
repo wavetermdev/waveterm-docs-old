@@ -11,12 +11,54 @@ description: 'Welcome to the Quickstart Guide for Wave! Here, you''ll find every
        * For Homebrew users, run ```brew install -cask wave```
     2. If using brew, get brew commands to work by adding the shellenv command to your *.bashrc* or *.zshrc*, e.g. ```echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.bashrc```
   </Accordion>
-  <Accordion icon="linux" title="Linux">
+  <Accordion icon="linux" title="Linux (.deb, .rpm, .pacman, .AppImage)">
+    1. [Download Wave](https://www.commandline.dev/download).
+    2. Install the appropriate package for your system.
+
+
+      <Card title=".deb" icon="ubuntu">
+         To install Wave Debian-based systems (Ubuntu, Debian, etc.), use one of the following commands.
+      
+        `sudo apt install ./Wave-linux-amd64-<version>.deb`
+
+        or
+
+        `sudo dpkg -i Wave-linux-amd64-<version>.deb`
+       </Card>
+      <Card title=".rpm" icon="fedora">
+        On RPM-based Linux distributions (Fedora, CentOS, etc.), Wave can be installed using the `rpm` command (or `dnf` in Fedora).
+      
+        `sudo rpm -i Wave-linux-x86_64-<version>.rpm`
+        
+          or
+
+        `sudo dnf install Wave-linux-x86_64-<version>.rpm`
+
+       </Card>
+      <Card title=".pacman" icon="linux">
+        For Arch Linux and derivatives, Wave can be installed using the pacman package manager.
+
+        `sudo pacman -U Wave-linux-<arch>-<version>.pacman`
+
+       </Card>
+      <Card title=".AppImage" icon="linux">
+        AppImage allows you to run the Wave application on any Linux distribution without installing it. 
+        
+        First, make the AppImage file executable
+        `chmod +x Wave-linux-x86_64-<version>.AppImage`
+
+        2. Next, Run Wave
+        `./Wave-linux-x86_64-<version>.AppImage`
+       </Card>
+
+  </Accordion>
+
+  <Accordion icon="linux" title="Linux (.zip)">
     1. [Download Wave](https://www.commandline.dev/download) and extract the file
     2. Change to the Wave directory ```cd waveterm-linux-* ```
     3. Run the application:  ```./Wave```
     
-    While we work on improving the packaging for Linux, you can optionally create a `.desktop` file, allowing you to launch Wave directly.
+    Optionally, you can create a `.desktop` file, allowing you to launch Wave directly.
     After doing the above steps, create a file named `Wave.desktop`, and add the following, modifying the `Exec` and `Icon` paths to point to your Wave installation:
 
     ```
@@ -48,6 +90,7 @@ description: 'Welcome to the Quickstart Guide for Wave! Here, you''ll find every
     ```
 
   </Accordion>
+
 </AccordionGroup>
 
 ## Get Started
