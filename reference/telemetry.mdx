@@ -38,8 +38,8 @@ When telemetry is active, we collect the following data. It is stored in the `ss
 | FgMinutes | The number of minutes that Waveterm has been in the foreground on a given day. This requires the terminal window to be in focus regardless of user interaction.|
 | OpenMinutes |The number of minutes that Waveterm has been open on a given day. This only requires that the terminal is open, even if the window is out of focus.|
 | ClickShared | See [Deprecated Telemetry References](#deprecated-telemetry-references) |
-| HistoryView | The number of times the user has used the **History** command on a given day. This count includes uses from both the GUI and command line. |
-| BookmarksView | The number of times the user has used the **Bookmarks** command on a given day. |
+| HistoryView | The number of times the user has used the _History_ command on a given day. This count includes uses from both the GUI and command line. |
+| BookmarksView | The number of times the user has used the _Bookmarks_ command on a given day. |
 | NumConns | The total number of connections created on this Waveterm installation. This count includes connections that have been deleted and includes all of the various ways a user can make a connection. Unlike the other data, this always includes the total number of commands that have been created&mdash;not just the ones created each day. |
 | WebShareLimit | See [Deprecated Telemetry References](#deprecated-telemetry-references) |
 | ReinitBashErrors | The number of re-initialization errors that have happened in a bash shell on a given day. |
@@ -57,7 +57,7 @@ In addition to the telemetry data collected, the following is also reported. It 
 | ClientVersion | Which version of Waveterm is installed. |
 | ClientArch | This includes the user's operating system (e.g. linux or darwin) and architecture (e.g. x86_64 or arm64). It does not include data for any Connections at this time. |
 | BuildTime | This serves as a more accurate version number that keeps track of when we built the version. It has no bearing on when that version was installed by you.|
-| DefaultShell | This lists the shell type that Waveterm automatically detects. (e.g. bash or zsh) This is a duplicate entry (also in Telemetry Metadata) that will likely be removed in the future. |
+| DefaultShell | This lists the shell type that Waveterm automatically detects (e.g. bash or zsh). This is a duplicate entry (also in Telemetry Metadata) that will likely be removed in the future. |
 | OSRelease | This lists the version of the operating system the user has installed. |
 
 ## Telemetry Metadata
@@ -74,7 +74,7 @@ Lastly, some data is sent along with the telemetry that describes how to classif
 
 ## When Telemetry is Turned Off
 
-When a user disables telemetry, Waveterm sends a notification that their anonymous Client ID has had its telemetry disabled. This is done with the `pcloud.NoTelemetryInputType` type in the source code. Beyond that, no further information is sent unless telemetry is turned on again. If it is turned on again, the previous 30 days of telemetry will be sent.
+When a user disables telemetry, Waveterm sends a notification that their anonymous _ClientId_ has had its telemetry disabled. This is done with the `pcloud.NoTelemetryInputType` type in the source code. Beyond that, no further information is sent unless telemetry is turned on again. If it is turned on again, the previous 30 days of telemetry will be sent.
 
 ---
 
@@ -83,7 +83,7 @@ When a user disables telemetry, Waveterm sends a notification that their anonymo
 | Name | Description |
 |------|-------------|
 | WebShareLimit | This piece of telemetry existed for a feature from early development that was deprecated before the initial launch. While it is possible that this feature will come back in the future, there are no plans to bring it back at this time. As such, it is currently unused. |
-| ClickShared | The number of times the user has used the **Shared** command on a given day. While the command still exists, it does not actually do anything, so it is marked as deprecated. |
+| ClickShared | The number of times the user has used the _Shared_ command on a given day. While the command still exists, it does not actually do anything, so it is marked as deprecated. |
 | UserId | This is an anonymous UUID created when Waveterm is first launched. It is still sent along with the _ClientId_ when sending regular telemetry messages, but is not used when telemetry is turned off. It as marked as deprecated since it is not used and will be removed from the code in a future update. |
 
 ---
