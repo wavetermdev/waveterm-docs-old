@@ -3,7 +3,9 @@ title: Telemetry
 description: As of v0.7.0
 ---
 
-Waveterm collects some telemetry that we use to generate metrics for funding. The data collected is fairly minimal and can be opted out of at any time. If you would like to turn telemetry on or off, the first opportunity is a button on the initial welcome page. After this, you can find a similar button by opening the settings menu (located at the bottom of the left sidebar). It can alternatively be turned on with the `/telemetry:on` command and turned off with the `/telemetry:off` command.
+Wave Terminal collects telemetry data to help us track feature use, direct future product efforts, and generate aggregate metrics on Wave's popularity and usage.  We do not collect or store any PII (personal identifiable information) and all metric data is only associated with and aggregated using your randomly generated _ClientId_.  You may opt out of collection at any time.
+
+If you would like to turn telemetry on or off, the first opportunity is a button on the initial welcome page. After this, you can find a similar button by opening the settings menu (located at the bottom of the left sidebar). It can alternatively be turned on with the `/telemetry:on` command and turned off with the `/telemetry:off` command.
 
 ---
 
@@ -62,6 +64,7 @@ In addition to the telemetry data collected, the following is also reported. It 
 Lastly, some data is sent along with the telemetry that describes how to classify it. It is stored in the `pcloud.TelemetryInputType` in the source code.
 
 | Name | Description |
+|------|-------------|
 | UserId | See [Deprecated Telemetry References](#deprecated-telemetry-references) |
 | Client Id | This is an anonymous UUID created when Waveterm is first launched. It is used for telemetry and sending prompts to Open AI.
 | CurDay | The current day (in your time zone) when telemetry is sent. It does not include the time of day.
@@ -81,14 +84,19 @@ When a user disables telemetry, Waveterm sends a notification that their anonymo
 |------|-------------|
 | WebShareLimit | This piece of telemetry existed for a feature from early development that was deprecated before the initial launch. While it is possible that this feature will come back in the future, there are no plans to bring it back at this time. As such, it is currently unused. |
 | ClickShared | The number of times the user has used the **Shared** command on a given day. While the command still exists, it does not actually do anything, so it is marked as deprecated. |
-| UserId | This is an anonymous UUID created when Waveterm is first launched. It is still sent along with the ClientId when sending regular telemetry messages, but is not used when telemetry is turned off. It as marked as deprecated since it is not used and will be removed from the code in a future update. |
+| UserId | This is an anonymous UUID created when Waveterm is first launched. It is still sent along with the _ClientId_ when sending regular telemetry messages, but is not used when telemetry is turned off. It as marked as deprecated since it is not used and will be removed from the code in a future update. |
 
 ---
 
 ## A Note on IP Addresses
-As telemetry is sent via http, your IP address will be sent with it as well. We do not collect your IP address or any data associated with it. This admittedly does require an element of trust on your part, but we hope that our level of transparency will convince you that we are being honest about this.
+Telemetry is uploaded via https, which means your IP address is known to the telemetry server.  We **do not** store your IP address in our telemetry table and **do not** associate it with your _ClientId_.
 
 ---
 
 ## Previously Collected Telemetry Data
-While we believe the data we collect with telemetry is fairly minimal, we cannot make that decision for every user. If you ever change your mind about what has been collected previously, you may request that your data be deleted by emailing us at [support@waveterm.dev](mailto:support@waveterm.dev). If you do, we will need your UserId and ClientId to remove it.
+While we believe the data we collect with telemetry is fairly minimal, we cannot make that decision for every user. If you ever change your mind about what has been collected previously, you may request that your data be deleted by emailing us at [support@waveterm.dev](mailto:support@waveterm.dev). If you do, we will need your _ClientId_ to remove it.
+
+---
+
+## Privacy Policy
+For a summary of the above, you can take a look at our [Privacy Policy](https://www.waveterm.dev/privacy).
