@@ -4,6 +4,21 @@ title: Release Notes
 
 Download the latest build here: https://waveterm.dev/download
 
+### v0.7.1 - 03/15/2024
+
+Minor release, mostly focused on cleanup for bugs and quirks that came up in the v0.7.0 release. It also contains two new plugins `pdfview` and `mediaview` which allow you to preview PDF files and play audio/video files inline right inside the terminal.
+
+* Light Mode -- Fixes multiple bugs and quirks found and reported in v0.7.0 (including text selection and cursor color)
+* Various SSH/Connection bug fixes (error handling, non-secret interactive prompts, and made the 'user' optional)
+* `pdfview [filename]` allows inline viewing of PDF files
+* `mediaview [filename]` allows inline playing of audio or video files
+* Fix when red error highlight shows on blocks (no longer showing for commands that are killed with Ctrl-C (SIGINT) or from a SIGPIPE).  Also fixes exit code displayed for commands that were killed via a signal
+* Converted more keybindings to use the new keybind manager. Any commands that have been migrated to the new keybind manager can have their keyboard shortcuts customized
+* Bug fix: fix the Bookmarks view (layout was broken)
+* Bug fix: some modals / main screens weren't closing correctly when "ESC" was pressed
+* Bug fix: fix LANG environment variable on MacOS when user has a region selected
+* Other assorted typos, bug fixes, and improvements
+
 ### v0.7.0 - 03/7/2024
 
 Major Release of Wave Terminal, featuring a new UI, new connections backend, optional auto-update, Linux packages, light mode, and a *lot* of smaller features, fixups, and bug fixes.  Over 100 pull-requests were merged since v0.6.  We have the groundwork in place for customizable themes, full terminal font customization, and custom keybindings which all should arrive shortly in the v0.7.x series.  The new connection framework will also enable us to deliver a new set of productivity features.
