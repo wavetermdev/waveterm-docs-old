@@ -26,15 +26,16 @@ Commands that allow you to manage multiple bookmarks.
 Show all bookmarks.
 
 ## /chat
-Ask the AI-assistant a question from the terminal.
+Ask the AI-assistant an [ad-hoc] question from the terminal.
 
 ```
 /chat How do I resolve a merge conflict?
 ```
+<Tip>
+For interactive sessions, use the "Wave AI" button in the command box, or use the shortcut `ctrl + space`.
+</Tip>
 
 ## /clear
-
-Clear all commands from the current window.
 
 ```
 Usage:
@@ -78,9 +79,11 @@ Shortcuts:
 - `Cmd-D` - Closes the editor. Note, this will prevent future saves (and shrink the editor to fit the current size of the content).
 - `Cmd-F` - Search the current file for a string using _whole word_, _regex_ and _match case_ options. `Cmd-F` also supports _find and replace_ by simply clicking the green dropdown arrow in the find box.
 
-**Note:** Codeedit also includes a live preview feature for Markdown files. To activate, open a Markdown file in Codeedit and click the `show preview` button located in the top right corner. This feature enables simultaneous editing and rendering, offering a side-by-side view of your Markdown source and its live output for efficient and immediate feedback.
+Codeedit also includes a live preview feature for Markdown files. To activate, open a Markdown file in Codeedit and click the `show preview` button located in the top right corner. This feature enables simultaneous editing and rendering, offering a side-by-side view of your Markdown source and its live output for efficient and immediate feedback.
 
-**Note:** See [codeview](#codeview) to view files in a _view only_ mode using the same native UI.
+<Tip>
+See [codeview](#codeview) to open files in a _view only_ mode using the same native UI.
+</Tip>
 
 ## /codeview
 
@@ -96,8 +99,9 @@ codeview [filename]
 
 Both with and without the slash are allowed. Filename resolves against the current remote and current working directory.
 
-**Note:** See [codeedit](#codeedit) to edit files using the same native UI.
-
+<Tip>
+See [codeedit](#codeedit) to edit files using the same native UI.
+</Tip>
 
 ## /comment
 
@@ -141,7 +145,7 @@ Opens up the history viewer for all workspaces and tabs. Gives the user the abil
 
 ## /imageview
 
-Utility for viewing image files in the terminal. Currently supported formats include `png`, `jpg`, `svg`, `bmp` and `gif`.
+Utility for viewing image files in the terminal. Currently supported formats include `png`, `jpg`, `bmp` and `gif`.
 
 ```
 Usage:
@@ -171,12 +175,14 @@ Usage:
 ```
 ### /line:delete
 
-Deletes a specified line from the current tab. Note, the line will still show up in history.
+Deletes a specified line from the current tab.
 
 ```
 Usage:
 /line:delete [line-arg]
 ```
+**Note:** When a line is deleted using `/line:delete` it will still show up in history.
+
 
 ### /line:set
 
@@ -225,7 +231,9 @@ mdview [filename]
 /mdview [filename]
 ```
 
-**Note:** A live preview of Markdown files can also be found in [codeedit](#codeedit) by clicking the "show preview" button in the top right of the editor. This allows you to edit and render Markdown content in real-time, displaying the output adjacent to the code editor for convenient and immediate visual feedback.
+<Tip>
+A live preview of Markdown files can also be found in [codeedit](#codeedit) by clicking the "show preview" button in the top right of the editor. This allows you to edit and render Markdown content in real-time, displaying the output adjacent to the code editor for convenient and immediate visual feedback.
+</Tip>
 
 ## /releasecheck
 
@@ -241,7 +249,9 @@ Turns on automatic checking for new releases. This will happen every 8 hours and
 
 ## /remote
 
-Commands that create, manage, or update remotes (connections). Note that all `/remote` commands can also be accessed using `/connection`.
+Commands that create, manage, or update remotes (connections).
+
+**Note:** All `/remote` commands can also be accessed using `/connection`.
 
 ### /remote:archive
 
@@ -379,13 +389,13 @@ With no arguments will archive the _current_ screen (tab). Otherwise a _screen i
 
 ### /screen:delete
 
-Deletes the current screen, or specified screen when using `[screen-id].` Note, this will not remove the screens commands from history.
-
+Deletes the current screen, or specified screen when using `[screen-id].`
 ```
 Usage:
 /screen:delete
 /screen:delete [screen-id]
 ```
+**Note:** This will not remove the screens commands from history.
 
 ### /screen:open
 
@@ -445,13 +455,15 @@ With no arguments will archive the current session. Otherwise a session id can b
 
 ### /session:delete
 
-Deletes the current session, or specified session when using `[session-id].` Note, this will not remove the sessions commands from history.
+Deletes the current session, or specified session when using `[session-id].` 
 
 ```
 Usage:
 /session:delete
 /session:delete [session-id]
 ```
+
+**Note:** This will not remove the sessions commands from history.
 
 ### /session:open
 
@@ -505,7 +517,7 @@ Closes the sidebar.
 
 ### /sidebar:open
 
-Opens the sidebar. Takes an optional width param that specifies the preferred width of sidebar (can be either in percentage or px units). Note that the sidebar will not shrink past 200px, also note that percentage must be between 10-90%.
+Opens the sidebar. Takes an optional width param that specifies the preferred width of sidebar (can be either in percentage or px units).
 
 ```
 Usage:
@@ -513,6 +525,9 @@ Usage:
 /sidebar:open width=40%
 /sidebar:open width=600px
 ```
+
+**Note:** The sidebar will not shrink past 200px, also note that percentage must be between 10-90%.
+
 
 ### /sidebar:remove
 

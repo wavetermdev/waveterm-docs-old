@@ -1,0 +1,48 @@
+---
+title: 'Wave AI'
+description: 'Talk to ChatGPT in the terminal'
+icon: 'robot'
+---
+
+Wave AI is our native ChatGPT integration that allows you to ask questions and receive answers directly from your terminal. This feature streamlines your workflow by providing AI assistance without the need to switch between multiple tools or applications.
+
+## Using Wave AI
+​
+There are currently two ways to use Wave AI.
+
+### Interactive
+
+The first way is by clicking the "Wave AI" button in the command box or using the shortcut `ctrl + space`. This will open an interactive chat session where you can have a continuous conversation with the AI assistant.
+
+<img height="200" src="/images/waveai.gif" />
+
+In the interactive mode, you can ask follow-up questions, provide additional context, and engage in a more dynamic dialogue with Wave AI. This is particularly useful when you need to iterate on a problem or explore a topic in more depth.
+
+### Chat command
+Alternatively, you can use the [chat](/reference/slashcommands#chat) command followed by your question to get a quick answer from the terminal.
+```
+Usage:
+/chat How do I resolve a merge conflict?
+```
+
+This method is ideal for one-off queries or when you need a straightforward answer without the need for a back-and-forth conversation.
+
+**Note:** Invoking Wave AI via the "/chat" command will result in an ad-hoc query, as each command in Wave gets its own command box. If you anticipate needing to ask follow-up questions or provide more context, it's recommended to use the interactive mode.
+
+## Customization
+
+Wave AI comes with default settings that work out of the box. However, you can customize your experience by modifying the following settings:
+
+- **API Key**: If you prefer to use your own OpenAI API key, you can set it up in the Wave settings. This allows you to have more control over your API usage and billing.
+- **Model Selection**: Wave AI uses the ChatGPT "gpt-3.5-turbo" model by default, but you can choose a different model that suits your needs. Simply update the model settings in the Wave configuration.
+- **API Base URL**: If you want to use Azure models or other 3rd party APIs compatible with the OpenAI API, you can change the base URL using the following command:
+
+```
+/client:set openaibaseurl="<BASE URL>"
+```
+Make sure that the API you specify has the same endpoints and protocol as the OpenAI API.
+
+**Note:** In order to prevent abuse, telemetry must be enabled to use the cloud servers. There is currently a rate limit of 200 requests per day.
+
+## Future Plans
+We're excited about the future of Wave AI and have plans to expand its capabilities. In the near future, we'll be introducing BYOLLM (Bring Your Own Large Language Model), which will enable users to connect Wave with any LLM they prefer. Possible integrations include Anthropic's Claude, Google's Gemini, or even local LLMs like OpenLLAMA. This reflects our commitment to user choice, allowing you to tailor your AI experience to your specific needs and concerns, whether they're related to privacy, ethics, or accessing the latest technology. 

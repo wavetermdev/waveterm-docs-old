@@ -57,7 +57,7 @@
       {
          "group":"Features",
          "pages":[
-            "features/chatGPT",
+            "features/waveAI",
             "features/codeedit",
             "features/history",
             "features/images",
