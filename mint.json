@@ -59,8 +59,8 @@
          "pages":[
             "features/waveAI",
             "features/codeedit",
+            "features/fileViewers",
             "features/history",
-            "features/images",
             "features/connections",
             "features/appearance"
          ]
