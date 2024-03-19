@@ -32,10 +32,12 @@ Ask the AI-assistant an [ad-hoc] question from the terminal.
 /chat How do I resolve a merge conflict?
 ```
 <Tip>
-For interactive sessions, use the "Wave AI" button in the command box, or use the shortcut `ctrl + space`.
+For interactive sessions, use the "Wave AI" button in the command box, or use the shortcut `ctrl + space
 </Tip>
 
 ## /clear
+
+Clear all commands from the current window.
 
 ```
 Usage:
@@ -79,10 +81,10 @@ Shortcuts:
 - `Cmd-D` - Closes the editor. Note, this will prevent future saves (and shrink the editor to fit the current size of the content).
 - `Cmd-F` - Search the current file for a string using _whole word_, _regex_ and _match case_ options. `Cmd-F` also supports _find and replace_ by simply clicking the green dropdown arrow in the find box.
 
-Codeedit also includes a live preview feature for Markdown files. To activate, open a Markdown file in Codeedit and click the `show preview` button located in the top right corner. This feature enables simultaneous editing and rendering, offering a side-by-side view of your Markdown source and its live output for efficient and immediate feedback.
+**Note:** Codeedit also includes a live preview feature for Markdown files. To activate, open a Markdown file in Codeedit and click the `show preview` button located in the top right corner. This feature enables simultaneous editing and rendering, offering a side-by-side view of your Markdown source and its live output for efficient and immediate feedback.
 
 <Tip>
-See [codeview](#codeview) to open files in a _view only_ mode using the same native UI.
+See [codeview](#codeview) to view files in a _view only_ mode using the same native UI.
 </Tip>
 
 ## /codeview
@@ -102,6 +104,7 @@ Both with and without the slash are allowed. Filename resolves against the curre
 <Tip>
 See [codeedit](#codeedit) to edit files using the same native UI.
 </Tip>
+
 
 ## /comment
 
@@ -145,7 +148,7 @@ Opens up the history viewer for all workspaces and tabs. Gives the user the abil
 
 ## /imageview
 
-Utility for viewing image files in the terminal. Currently supported formats include `png`, `jpg`, `bmp` and `gif`.
+Utility for viewing image files in the terminal. Currently supported formats include *png*, *jpg*, *svg*, *bmp* and *gif*.
 
 ```
 Usage:
@@ -182,7 +185,6 @@ Usage:
 /line:delete [line-arg]
 ```
 **Note:** When a line is deleted using `/line:delete` it will still show up in history.
-
 
 ### /line:set
 
@@ -230,11 +232,30 @@ Usage:
 mdview [filename]
 /mdview [filename]
 ```
-
 <Tip>
 A live preview of Markdown files can also be found in [codeedit](#codeedit) by clicking the "show preview" button in the top right of the editor. This allows you to edit and render Markdown content in real-time, displaying the output adjacent to the code editor for convenient and immediate visual feedback.
 </Tip>
 
+## /mediaview
+
+Mediaview is a command that allows you to view and play audio and video files directly within the terminal.
+
+```
+Usage:
+mediaview [filename]
+/mediaview [filename]
+```
+
+Mediaview supports a wide range of media formats, including *MP4*, *WebM*, *Ogg*, *MP3*, *WAV*, *Ogg Vorbis*, *AAC*, and *FLAC*.
+
+## /pdfview
+Utility for viewing PDF files in the terminal.
+
+```
+Usage:
+pdfview [filename]
+/pdfview [filename]
+```
 ## /releasecheck
 
 Queries the GitHub release feed to determine if a new release is available for download.
@@ -390,12 +411,14 @@ With no arguments will archive the _current_ screen (tab). Otherwise a _screen i
 ### /screen:delete
 
 Deletes the current screen, or specified screen when using `[screen-id].`
+
 ```
 Usage:
 /screen:delete
 /screen:delete [screen-id]
 ```
 **Note:** This will not remove the screens commands from history.
+
 
 ### /screen:open
 
@@ -455,14 +478,12 @@ With no arguments will archive the current session. Otherwise a session id can b
 
 ### /session:delete
 
-Deletes the current session, or specified session when using `[session-id].` 
-
+Deletes the current session, or specified session when using `[session-id].`
 ```
 Usage:
 /session:delete
 /session:delete [session-id]
 ```
-
 **Note:** This will not remove the sessions commands from history.
 
 ### /session:open
@@ -525,9 +546,7 @@ Usage:
 /sidebar:open width=40%
 /sidebar:open width=600px
 ```
-
 **Note:** The sidebar will not shrink past 200px, also note that percentage must be between 10-90%.
-
 
 ### /sidebar:remove
 
