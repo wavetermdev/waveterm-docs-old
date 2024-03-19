@@ -41,11 +41,8 @@ Clear all commands from the current window.
 
 ```
 Usage:
-clear
 /clear
 ```
-
-Both with and without the slash are allowed. Clear takes no arguments.
 
 ## /client
 
@@ -55,7 +52,10 @@ Commands that allow you to change and show client settings and information.
 
 Update client settings, currently only supports termfont size. This will update the font size used in the terminal, can be set from 8-15 (px).
 
-`Usage: /client:set termfontsize=10`
+```
+Usage:
+/client:set termfontsize=10
+```
 
 ### /client:show
 
@@ -67,13 +67,12 @@ View and edit files inline using rich native UI. Includes syntax highlighting, c
 
 ```
 Usage:
-codeedit [filename]
 /codeedit [filename]
 
 [lang=javascript] codeedit [filename]
 [lang=json] codeedit hello.json
 ```
-Both with and without the slash are allowed. Filename resolves against the current remote and current working directory.
+The option `filename` resolves against the current remote and current working directory.
 
 Shortcuts:
 
@@ -93,13 +92,12 @@ View a text file inline using rich native UI. Includes syntax highlighting and c
 
 ```
 Usage:
-codeview [filename]
 /codeview [filename]
-[lang=javascript] codeview [filename]
-[lang=json] codeview hello.json
+[lang=javascript] /codeview [filename]
+[lang=json] /codeview hello.json
 ```
 
-Both with and without the slash are allowed. Filename resolves against the current remote and current working directory.
+The option `filename` resolves against resolves against the current remote and current working directory.
 
 <Tip>
 See [codeedit](#codeedit) to edit files using the same native UI.
@@ -110,7 +108,10 @@ See [codeedit](#codeedit) to edit files using the same native UI.
 
 Add a text comment into the current window.
 
-`Usage: /comment [text]`
+```
+Usage:
+/comment [text]
+```
 
 The text after `/comment` is not processed and will be posted as-is.
 
@@ -120,7 +121,6 @@ Change remote for current window.
 
 ```
 Usage:
-connect [remote]
 /connect [remote]
 ```
 
@@ -134,7 +134,6 @@ Utility for viewing CSV files (with sortable columns) in the terminal.
 
 ```
 Usage:
-csvview [filename]
 /csvview [filename]
 ```
 
@@ -152,7 +151,6 @@ Utility for viewing image files in the terminal. Currently supported formats inc
 
 ```
 Usage:
-imageview [filename]
 /imageview [filename]
 ```
 ## /line
@@ -190,7 +188,10 @@ Usage:
 
 Updates line settings.
 
-`Usage: /line:set [line-arg] [renderer=renderer]`
+```
+Usage:
+/line:set [line-arg] [renderer=renderer]
+```
 
 The option `[line-arg]`can be a _line number_ or _line id_. One argument, sets the renderer for the given line. If `renderer` is empty, it will default to `terminal`.
 
@@ -198,7 +199,10 @@ The option `[line-arg]`can be a _line number_ or _line id_. One argument, sets t
 
 Stores the height of the specified line. For terminals this is the number of "rows". For renderers it is the _pixel height_.
 
-`Usage: /line:setheight [line-arg] [height]`
+```
+Usage:
+/line:setheight [line-arg] [height]
+```
 
 ### /line:restart
 
@@ -213,7 +217,10 @@ Usage:
 
 Shows metadata for the given line.
 
-`Usage: /line:show [line-arg]`
+```
+Usage:
+/line:show [line-arg]
+```
 
 The option `[line-arg]` can be a _line number_ or _line id_.
 
@@ -221,7 +228,10 @@ The option `[line-arg]` can be a _line number_ or _line id_.
 
 Switches to the given _session_, _screen_, and _line_. Scrolls UI to the given _line_.
 
-`Usage: /line:view [session] [screen] [line]`
+```
+Usage:
+/line:view [session] [screen] [line]
+```
 
 ## /mdview
 
@@ -229,7 +239,6 @@ Utility for viewing Markdown files in the terminal.
 
 ```
 Usage:
-mdview [filename]
 /mdview [filename]
 ```
 <Tip>
@@ -242,7 +251,6 @@ Mediaview is a command that allows you to view and play audio and video files di
 
 ```
 Usage:
-mediaview [filename]
 /mediaview [filename]
 ```
 
@@ -253,7 +261,6 @@ Utility for viewing PDF files in the terminal.
 
 ```
 Usage:
-pdfview [filename]
 /pdfview [filename]
 ```
 ## /releasecheck
@@ -278,7 +285,10 @@ Commands that create, manage, or update remotes (connections).
 
 Archives the current remote.
 
-`Usage: /remote:archive`
+```
+Usage:
+/remote:archive
+```
 
 ### /remote:connect
 
@@ -288,7 +298,10 @@ Connects the current remote.
 
 Disconnects the current remote.
 
-`Usage: /remote:disconnect [force=1]`
+```
+Usage:
+/remote:disconnect [force=1]
+```
 
 If the option `force=1` is passed it will force the remote to be disconnected even if there are running commands. The commands will be passed SIGHUP.
 
@@ -360,13 +373,19 @@ Options:
 
 Will open the remote info window for the current remote session.
 
-`Usage: /remote:show`
+```
+Usage:
+/remote:show
+```
 
 ### /remote:showall
 
 Will open an info window showing information about all of the registered remote sessions.
 
-`Usage: /remote:showall`
+```
+Usage:
+/remote:showall
+```
 
 ## /reset
 
@@ -374,7 +393,6 @@ Resets the current remote state back to defaults.
 
 ```
 Usage:
-reset
 /reset
 ```
 
@@ -385,7 +403,8 @@ The remote will re-run a login (e.g. `bashrc` or `bash_profile`) and reset the r
 Runs a command.
 
 ```
-Usage: /run cat test.sh
+Usage:
+/run cat test.sh
 ```
 
 ## /screen
@@ -393,7 +412,8 @@ Usage: /run cat test.sh
 Commands that change or modify the Prompt screen (tab). The bare command will switch the screen (tab).
 
 ```
-Usage: /screen [screen-arg]
+Usage:
+/screen [screen-arg]
 ```
 
 The option `[screen-arg]` can be a _screen number_, _name_, _id_, or _relative number_.
@@ -403,7 +423,8 @@ The option `[screen-arg]` can be a _screen number_, _name_, _id_, or _relative n
 Hides a screen (tab). Retains output and history.
 
 ```
-Usage: /screen:archive [screenid] [0|1]
+Usage:
+/screen:archive [screenid] [0|1]
 ```
 
 With no arguments will archive the _current_ screen (tab). Otherwise a _screen id_ can be specified to archive. The second argument, if `0` means the screen should be unarchived.
@@ -424,7 +445,10 @@ Usage:
 
 Creates a new screen.
 
-`Usage: /screen:open`
+```
+Usage:
+/screen:open
+```
 
 ### /screen:reset
 
@@ -461,7 +485,8 @@ Show all screens in the current session (including archived screens).
 Commands that change or modify the Prompt session. The bare command will switch the session.
 
 ```
-Usage: /session [session-arg]
+Usage:
+/session [session-arg]
 ```
 
 The option `[session-arg]` can be a _session number_, _name_, _id_, or _relative number_.
@@ -471,7 +496,8 @@ The option `[session-arg]` can be a _session number_, _name_, _id_, or _relative
 Archives a session.
 
 ```
-Usage: /session:archive [sessionid] [0|1]
+Usage:
+/session:archive [sessionid] [0|1]
 ```
 
 With no arguments will archive the current session. Otherwise a session id can be specified to archive. The second argument, if `0` means the session should be _unarchived_.
@@ -491,7 +517,8 @@ Usage:
 Creates a new session.
 
 ```
-Usage: /session:open [name=name]
+Usage:
+/session:open [name=name]
 ```
 
 A name can be passed to set the session's name.
@@ -502,7 +529,8 @@ A name can be passed to set the session's name.
 Sets the name of a session.
 
 ```
-Usage: /session:set [name=name]
+Usage:
+/session:set [name=name]
 ```
 
 One option is supported: `name`.
@@ -534,7 +562,10 @@ Usage:
 
 Closes the sidebar.
 
-`Usage: /sidebar:close`
+```
+Usage:
+/sidebar:close
+```
 
 ### /sidebar:open
 
@@ -552,14 +583,18 @@ Usage:
 
 Removes the current line from the sidebar.
 
-`Usage: /sidebar:remove`
+```
+Usage:
+/sidebar:remove
+```
 
 ## /signal
 
 Send a signal to a running command.
 
 ```
-Usage: /signal [line-arg] [signame]
+Usage:
+/signal [line-arg] [signame]
 ```
 
 The option `[line-arg]`can be a _line number_ or _line id_.
@@ -568,6 +603,7 @@ The option `[signame]` is the name of a signal. e.g. KILL, INT, HUP, TERM, etc. 
 You can also specify a signal by number like this:
 
 ```
+
 /signal [line-arg] 9
 ```
 
