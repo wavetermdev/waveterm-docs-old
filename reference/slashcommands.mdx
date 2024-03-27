@@ -50,12 +50,22 @@ Commands that allow you to change and show client settings and information.
 
 ### /client:set
 
-Update client settings, currently only supports termfont size. This will update the font size used in the terminal, can be set from 8-15 (px).
+Update client settings.
 
 ```
 Usage:
-/client:set termfontsize=10
+/client:set [termfontsize=fontsize] [termfontfamily=fontfamily] [openaiapitoken=token] [openaimodel=modelname] [openapibaseurl=url] [openaimaxtokens=tokens] [openaimaxchoices=choices]
 ```
+Options:
+- `openaiapitoken` - Set your OpenAI API token to use the OpenAI API directly instead of the Wave cloud servers.
+- `openaibaseurl` - Set the base URL for the OpenAI API if you want to use a different endpoint or a third-party API compatible with the OpenAI API.
+- `openaimaxchoices` -  Specify the maximum number of choices to generate when using the OpenAI API. Note that this option only applies when using your own API token. If you're using Wave's proxy, this value is predetermined.
+- `openaimaxtokens` - Set the maximum number of tokens to use when generating a response from the OpenAI API. Note that this option is only effective when using your own API token. If you're using Wave's proxy, the maxtokens value is preconfigured.
+- `openaimodel` - Choose the OpenAI language model to use for generating responses. Default is *gpt-3.5-turbo*.
+- `termfontfamily` - Update the font family used in the terminal. Wave supports *JetBrains Mono*, *Hack*, and *Fira Code* out of the box. You can also use any fixed-width font installed on your local machine by specifying its exact name. Be cautious when setting a custom font, as mistyping the font name or using a non-fixed-width font may result in visual inconsistencies.
+- `termfontsize` - Update the font size used in the terminal. You can set the font size from 8 to 15 pixels (px).
+
+**Note:** The `openaimaxtokens` and `openaimaxchoices` options are only applicable when using your own OpenAI API token. If you're using Wave's built-in proxy for API requests, these values are predetermined to ensure optimal performance and compatibility.
 
 ### /client:show
 
