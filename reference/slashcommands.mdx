@@ -127,16 +127,26 @@ The text after `/comment` is not processed and will be posted as-is.
 
 ## /connect
 
-Change remote for current window.
+Change the connection for the current window.
 
 ```
 Usage:
-/connect [remote]
+/connect [connection-name]
 ```
+
+**Note:** Issuing `/connect` with no arguments will provide a list of available connections.
+
 
 ## /cr
 
-Change remote for current window (alias for `/connect`).
+Change the connection for the current window (alias for [/connect](#connect)).
+
+```
+Usage:
+/cr [connection-name]
+```
+
+**Note:** Issuing `/cr` with no arguments will provide a list of activate connections.
 
 ## /csvview
 
