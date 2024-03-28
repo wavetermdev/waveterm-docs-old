@@ -50,49 +50,49 @@ Commands that allow you to change and show client settings and information.
 
 ### /client:set
 
-Update client settings.
+This command is used to update client settings.
 
 ```
 Usage:
-/client:set [termfontsize=fontsize] [termfontfamily=fontfamily] [openaiapitoken=token] [openaimodel=modelname] [openaibaseurl=url] [openaimaxtokens=tokens] [openaimaxchoices=choices]
+/client:set [openaiapitoken=token] [openaibaseurl=url] [openaimaxchoices=choices] [openaimaxtokens=tokens] [openaimodel=modelname] [termfontfamily=fontfamily] [termfontsize=fontsize]
 ```
 Options:
-- `termfontsize` - Update the font size used in the terminal. You can set the font size from 8 to 15 pixels (px).
-- `termfontfamily` - Update the font family used in the terminal. Wave supports *JetBrains Mono*, *Hack*, and *Fira Code* out of the box. You can also use any fixed-width font installed on your local machine by specifying its exact name. Be cautious when setting a custom font, as mistyping the font name or using a non-fixed-width font may result in visual inconsistencies.
+
 - `openaiapitoken` - Set your OpenAI API token to use the OpenAI API directly instead of the Wave cloud servers.
-- `openaimodel` - Choose the OpenAI language model to use for generating responses. Default is *gpt-3.5-turbo*.
 - `openaibaseurl` - Set the base URL for the OpenAI API if you want to use a different endpoint or a third-party API compatible with the OpenAI API.
-- `openaimaxtokens` - Set the maximum number of tokens to use when generating a response from the OpenAI API. Note that this option is only effective when using your own API token. If you're using Wave's proxy, the maxtokens value is preconfigured.
 - `openaimaxchoices` -  Specify the maximum number of choices to generate when using the OpenAI API. Note that this option only applies when using your own API token. If you're using Wave's proxy, this value is predetermined.
+- `openaimaxtokens` - Set the maximum number of tokens to use when generating a response from the OpenAI API. Note that this option is only effective when using your own API token. If you're using Wave's proxy, the maxtokens value is preconfigured.
+- `openaimodel` - Choose the OpenAI language model to use for generating responses. Default is *gpt-3.5-turbo*.
+- `termfontfamily` - Update the font family used in the terminal. Wave supports *JetBrains Mono*, *Hack*, and *Fira Code* out of the box. You can also use any fixed-width font installed on your local machine by specifying its exact name. Be cautious when setting a custom font, as mistyping the font name or using a non-fixed-width font may result in visual inconsistencies.
+- `termfontsize` - Update the font size used in the terminal. You can set the font size from 8 to 15 pixels (px).
+
 
 **Note:** The `openaimaxtokens` and `openaimaxchoices` options are only applicable when using your own OpenAI API token. If you're using Wave's built-in proxy for API requests, these values are predetermined to ensure optimal performance and compatibility.
 
 ### /client:show
 
-This command displays various client settings and version information. It includes read-only values found in the client, settings made by the user in the UI, as well as settings set using the [/client:set](#client-set) command.
+This command displays various client settings and version information.
 
-Read Only:
+Returned Properties:
 
-- `userid` - Your unique user identifier.
-- `clientid` - The identifier for your specific Wave client instance.
-- `telemetry` - Indicates whether telemetry is enabled (on/off).
-- `releasecheck` - Shows if automatic release checks are active (on/off).
-- `db-version` - The version of the client's database.
-- `client-version` - The version number of your Wave client.
-- `server-version` - The version of the Wave server you're connected to.
 - `arch` - The architecture of your host system.
-
-Modifiable:
-- `termfontsize` - The current size of the terminal font.
-- `termfontfamily` - The font family currently used for your terminal text.
+- `client-version` - The version number of your Wave client.
+- `clientid` - The identifier for your specific Wave client instance.
+- `db-version` - The version of the client's database.
 - `openaiapitoken` - Your OpenAI API token.
-- `openaimodel` - OpenAI model name.
 - `openaibaseurl` - The URL used for sending OpenAI queries.
-- `openaimaxtokens` - The maximum number of tokens currently set for OpenAI queries.
 - `openaimaxchoices` - The maximum number of choices returned when querying OpenAI.
+- `openaimaxtokens` - The maximum number of tokens currently set for OpenAI queries.
+- `openaimodel` - OpenAI model name.
+- `releasecheck` - Shows if automatic release checks are active (on/off).
+- `server-version` - The version of the Wave server you're connected to.
+- `telemetry` - Indicates whether telemetry is enabled (on/off).
+- `termfontfamily` - The font family currently used for your terminal text.
+- `termfontsize` - The current size of the terminal font.
+- `userid` - Your unique user identifier.
 
 <Tip>
-See [client:set](#client-set) for more information on how to set and use some of these values.
+See [client:set](#client-set) for more information on how to set the user-modifiable settings.
 </Tip>
 
 ## /codeedit
