@@ -4,6 +4,34 @@ title: Release Notes
 
 Download the latest build here: https://waveterm.dev/download
 
+### v0.7.2 - 04/01/2024
+
+Minor release, focused on zsh improvements, keybinding support (beta), and more light mode cleanup.
+
+* Updated Shell Initialization Flow -- now when a new tab is created we reinitialize the shell in an interactive block.  This ensures a new tab is picking up current rc file changes, and it also allows for interactive input during initialization. Before, shell initialization in Wave might fail/hang if it required interactive input (e.g. "Do you want to update oh-my-zsh? (Y/n)").  This update fixes many types of shell initialization bugs that have been reported.
+* Many `zsh` fixes, including better zmodload support, better support for prompt variables, working on native prompts, fix accidental setting of readonly variables.
+* **Custom Keybinding Support** (beta) - currently implemented as a JSON file in ~/.waveterm/config/keybindings.json.  Working on documentation, please see us in Discord if you want to help test.
+* Tab settings is now a pull-down. It automatically closes whenever you run a command (press "return") in the cmdinput box.
+* Removed ability to click on "tab settings" for the non-active tab, now clicking anywhere on an inactive tab will switch to that tab.
+* Ordering and wording changes for initial "Welcome to Wave" modal.
+* Removed date picker from History (functionality was confusing, will return with better date range support)
+* Internal: shell state diff changes and improvements to handle new shell startup sequence
+* AI: bypass our cloudservers when an AI Base URL is set (allows for base URL support when no API key is specified)
+* AI: better prompt used for AI feature to be more compatible with Wave's UI rendering
+* UI: light mode cleanup, other small UI fixes
+* UI: Theme selector now offers "Light", "Dark", and "System".  System will automatically switch between light/dark mode based on your system settings.
+* Left Nav Improvements: Offset icons, new scrollbars, etc.
+* Keybindings: fix "Escape" key to close main views and modals everywhere.
+* Bug fix: Fixed segfault when known_hosts file doesn't exist or is empty
+* Bug fix: always create ~/.mshell/rcfiles directory on startup.  Prevents an issue where that directory might created and owned by root when the first command run was run as "sudo".
+* Bug fix: increased maximum size of AI Base URL to 200 characters
+* UI Bug fix: fixed some buttons which were still using the old button styles
+* Internal: tracking k8s context and namespace (will be added to custom Wave prompt in next release)
+* Internal: More flexible command input/output handling ("ephemeral" commands). Used to sync Wave's prompt in the background when switching tabs (e.g. when the git branch may have been changed by a command in a different tab)
+* Internal: Testing WebGL support for terminal rendering (working through issues with dispose handler preventing turning setting on more widely)
+* Other assorted internal fixups and code reorganization
+* Other assorted typos, bug fixes, and improvements.
+
 ### v0.7.1 - 03/15/2024
 
 Minor release, mostly focused on cleanup for bugs and quirks that came up in the v0.7.0 release. It also contains two new plugins `pdfview` and `mediaview` which allow you to preview PDF files and play audio/video files inline right inside the terminal.
@@ -17,6 +45,7 @@ Minor release, mostly focused on cleanup for bugs and quirks that came up in the
 * Bug fix: fix the Bookmarks view (layout was broken)
 * Bug fix: some modals / main screens weren't closing correctly when "ESC" was pressed
 * Bug fix: fix LANG environment variable on MacOS when user has a region selected
+* Bug fix: imageviewer now shows SVG images correctly
 * Other assorted typos, bug fixes, and improvements
 
 ### v0.7.0 - 03/7/2024
