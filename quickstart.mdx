@@ -7,14 +7,13 @@ description: 'Welcome to the Quickstart Guide for Wave! Here, you''ll find every
 <AccordionGroup>
   <Accordion icon="apple" title="MacOS">
     1. There are two ways to get Wave:
-       * [Download Wave](https://www.commandline.dev/download) and drag it into your Application folder. 
+       * [Download Wave](https://www.waveterm.dev/download) and drag it into your Application folder.
        * For Homebrew users, run ```brew install -cask wave```
     2. If using brew, get brew commands to work by adding the shellenv command to your *.bashrc* or *.zshrc*, e.g. ```echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.bashrc```
   </Accordion>
   <Accordion icon="linux" title="Linux (.deb, .rpm, .pacman, .AppImage)">
-    1. [Download Wave](https://www.commandline.dev/download).
-    2. Install the appropriate package for your system.
-
+    1. [Download](https://www.waveterm.dev/download) the appropriate package for your system.
+    2. Install the package using one of the following methods.
 
       <Card title=".deb" icon="ubuntu">
          To install Wave Debian-based systems (Ubuntu, Debian, etc.), use one of the following commands.
@@ -54,11 +53,16 @@ description: 'Welcome to the Quickstart Guide for Wave! Here, you''ll find every
   </Accordion>
 
   <Accordion icon="linux" title="Linux (.zip)">
-    1. [Download Wave](https://www.commandline.dev/download) and extract the file
-    2. Change to the Wave directory ```cd waveterm-linux-* ```
+    1. [Download](https://www.waveterm.dev/download) the `.zip` Linux package for Wave.
+    2. In your terminal, navigate to the location where you want to install Wave. Then, run the following commands to create a folder and extract the contents of the `.zip` file.
+    ```
+    mkdir wave
+    unzip Waveterm-Linux.zip -d wave
+    ```
     3. Run the application:  ```./Wave```
  
-    Optionally, you can create a `.desktop` file, allowing you to launch Wave directly.
+    **Optional:**
+    You can create a `.desktop` file, allowing you to launch Wave directly.
     After doing the above steps, create a file named `Wave.desktop`, and add the following, modifying the `Exec` and `Icon` paths to point to your Wave installation:
 
     ```
@@ -76,11 +80,16 @@ description: 'Welcome to the Quickstart Guide for Wave! Here, you''ll find every
     The `.desktop` file scheme is supported by the most commonly used desktop environments such as GNOME, KDE, XFCE, etc. If you encounter issues, you can get help in our Discord or by opening an issue on Github.
   </Accordion>
   <Accordion icon="windows" title="WSL">
- .  Wave has support for WSL, tested on Ubuntu and Kali distros
-    1. [Download Wave for Linux](https://www.commandline.dev/download) and extract file 
-		* (on terminal, use ```curl -L "<DOWNLOAD URL>" > Waveterm-Linux.zip```)
-    2. Change to the Wave directory ```cd waveterm-linux-* ```
-    3. Run the application:  ```./Wave```
+    Wave has support for WSL, tested on Ubuntu and Kali distros
+    1. [Download](https://www.waveterm.dev/download) the `.zip` Linux package for Wave.
+        - In the terminal, use `wget <DOWNLOAD_URL>`
+    2. Navigate to the location where you want to install Wave. Then, run the following commands to create a folder and extract the contents of the `.zip` file.
+    ```
+    mkdir wave
+    unzip Waveterm-Linux.zip -d wave
+    ```
+    3. Change to the Wave directory ```cd wave```
+    4. Run the application:  ```./Wave```
 
     if you run into issues, try running the following 2 commands:
     ```
