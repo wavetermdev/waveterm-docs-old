@@ -30,7 +30,7 @@ This method is ideal for one-off queries or when you need a straightforward answ
 
 ## Customization
 
-Wave AI comes with default settings that work out of the box. However, you can customize your experience by modifying the following settings:
+Wave AI comes with default settings that work out of the box. However, you can customize your experience by modifying the following settings in the UI, or by using the [/client:set](/reference/slashcommands#client-set) command.
 
 - `openaiapitoken`: If you prefer to use your own OpenAI API key, you can set it up in the Wave settings. This allows you to have more control over your API usage and billing.
 - `openaimaxtokens`: This setting allows you to control the maximum number of tokens (words or word pieces) that the AI model will generate in a single response. 
@@ -39,8 +39,6 @@ Wave AI comes with default settings that work out of the box. However, you can c
 - `openaibaseurl`: If you want to use other 3rd party APIs compatible with the OpenAI API, you can change the base URL using the following command:
 
 In order to prevent abuse, [telemetry](/reference/telemetry) must be enabled to use the cloud servers. There is currently a rate limit of 200 requests per day.
-
-**Note:** These settings can be changed in the UI, or by using the [/client:set](/reference/slashcommands#client-set) command.
 
 ## Future Plans
 We're excited about the future of Wave AI and have plans to expand its capabilities. In the near future, we'll be introducing BYOLLM (Bring Your Own Large Language Model), which will enable users to connect Wave with any LLM they prefer. Possible integrations include Anthropic's Claude, Google's Gemini, or even local LLMs like OpenLLAMA. This reflects our commitment to user choice, allowing you to tailor your AI experience to your specific needs and concerns, whether they're related to privacy, ethics, or accessing the latest technology. 
