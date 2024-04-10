@@ -1,0 +1,48 @@
+---
+title: 'Ollama'
+description: 'Get Ollama up and running in Wave AI'
+---
+
+[Ollama](https://ollama.com/) is an open-source language model that offers a powerful and flexible alternative to proprietary LLMs, allowing you to run the model locally or on your own server infrastructure. Ollama provides high-quality language generation and understanding capabilities while giving you full control over your data and privacy.
+
+## Installation
+Please visit Ollama's [GitHub](https://github.com/ollama/ollama?tab=readme-ov-file) page for instructions on downloading and installing Ollama, as well as a quickstart guide and a full list of supported models.
+
+## Configuration
+After installing and configuring Ollama, you can start using it in Wave by setting two parameters: `openaibaseurl` and `openaimodel`. These parameters can be set either through the UI or from the command line, but please note that the parameter names are slightly different depending on the method you choose.
+
+### **Parameters**
+
+- **Base URL:** Set this parameter to the base URL or endpoint that Wave AI should query. For Ollama running locally, use http://localhost:11434/v1. Please note that the port number `11434` may be different depending on your specific installation. For remote Ollama instances, replace `localhost` with the appropriate hostname or IP address of the server where Ollama is running. If the port number is different from the default `11434`, update it accordingly in the URL.
+- **AI Model**: Specify the Ollama model you want to use. This can be any "pulled" model in Ollama and doesn't need to be actively running. To discover available models, use the `ollama list` command in your terminal.
+
+### Configuring via the UI
+To configure Ollama from the Wave AI user interface, navigate to the "Settings" menu and set the `AI Base URL` and `AI Model` parameters as described in the previous section.
+
+### Configuring via the CLI
+To configure Ollama using the command line, set the `openaibaseurl` and `openaimodel` parameters using the [/client:set](/reference/slashcommands#client-set) command, as shown in the example below. Replace the values with the appropriate `Base URL` and `AI Model` for your Ollama installation.
+
+```
+/client:set openaibaseurl=<your-ollama-base-url>
+/client:set openaimodel=<your-ollama-model-name>
+```
+
+## Usage
+Once you have installed and configured Ollama, you can start using it in Wave. There are two primary ways to interact with your newly configured LLM: [Interactive Mode](/features/waveAI#interactive) and by using the [/chat](/features/waveAI#chat-command) command.
+
+- **Interactive Mode:** To enter Interactive Mode, click the "Wave AI" button in the command box or use the `ctrl + space` shortcut. This will open an interactive chat session where you can have a continuous conversation with the AI assistant powered by your Ollama model.
+- **/chat:** Alternatively, you can use the [/chat](/features/waveAI#chat-command) command followed by your question to get a quick answer from your Ollama model directly in the terminal.
+
+## Reset Wave AI
+At any time if you find that you wish to return to the default Wave AI experience, you can reset the `openaibaseurl` and `openaimodel` parameters to their default state by using the following commands.
+
+```
+/client:set openaibaseurl=
+/client:set openaimodel=
+```
+**Note:** This can also be done in the UI just as described in previous steps.
+
+## Additional Resources
+* [Ollama Website](https://ollama.com/)
+* [Ollama GitHub Page](https://github.com/ollama/ollama?tab=readme-ov-file)
+* [Ollama Support (Discord)](https://discord.com/invite/ollama)
