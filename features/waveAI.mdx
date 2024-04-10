@@ -32,15 +32,15 @@ This method is ideal for one-off queries or when you need a straightforward answ
 
 ## Customization
 
-Wave AI comes with default settings that work out of the box. However, you can customize your experience by modifying the following settings in the UI, or by using the [/client:set](/reference/slashcommands#client-set) command.
+Wave AI comes with default settings that work out of the box. By default, Wave will proxy your requests through our cloud servers to OpenAI. However, you can customize your experience by modifying the following settings in the UI or by using the [/client:set](/reference/slashcommands#client-set) command:
 
-- `openaiapitoken`: If you prefer to use your own OpenAI API key, you can set it up in the Wave settings. This allows you to have more control over your API usage and billing.
+- `openaiapitoken`: Change this setting if you prefer to use your own OpenAI API key. You can also use this setting in conjunction with `openaibaseurl` to configure a different service altogether.
 - `openaimaxtokens`: This setting allows you to control the maximum number of tokens (words or word pieces) that the AI model will generate in a single response. 
 - `openaimaxchoices`: This option determines the number of different response variations the AI model will generate for each query. Increasing this value will provide more diverse responses, while decreasing it will make the model's output more focused and consistent.
-- `openaimodel`: Wave AI uses the ChatGPT *gpt-3.5-turbo* model by default, but you can choose a different model that suits your needs. Simply update the model settings in the Wave configuration.
-- `openaibaseurl`: If you want to use other 3rd party APIs compatible with the OpenAI API, you can change the base URL using the following command:
+- `openaimodel`: Wave AI uses the ChatGPT *gpt-3.5-turbo* model by default, but you can choose a different model that suits your needs. You will need to also set `openaiapitoken` if you choose to use another ChatGPT model. Also, when configuring other third-party services you will want to change this setting to the appropriate model.
+- `openaibaseurl`: If you want to use other 3rd party APIs compatible with the OpenAI API, you can change the base URL. You will also want to set your `openaiapitoken` in conjunction with the base url to use a different service.
 
-In order to prevent abuse, [telemetry](/reference/telemetry) must be enabled to use the cloud servers. There is currently a rate limit of 200 requests per day.
+**Note:** In order to prevent abuse, [telemetry](/reference/telemetry) must be enabled to use the cloud servers. There is currently a rate limit of 200 requests per day.
 
 ## Third-Party LLM Support
 Wave AI supports various third-party Large Language Models (LLMs), allowing you to choose the model that best suits your needs and preferences. This section provides a comprehensive list of the third-party LLMs compatible with Wave AI, enabling you to make an informed decision based on your specific needs and concerns.
