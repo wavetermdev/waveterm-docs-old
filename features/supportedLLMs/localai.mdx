@@ -1,0 +1,51 @@
+---
+title: 'LocalAI'
+description: 'Get LocalAI up and running in Wave AI'
+---
+
+[LocalAI](https://localai.io/) is a free, open-source alternative to OpenAI that allows users to run large language models (LLMs), generate images, audio, and more locally or on-premises using consumer-grade hardware. It acts as a drop-in replacement REST API compatible with OpenAI API specifications, enabling users to perform local inferencing. LocalAI supports multiple model families and architectures without requiring a GPU, giving users the power and flexibility to leverage AI while maintaining full control over their data and infrastructure.
+
+**Note:** At the moment, Wave's integration with LocalAI only supports their LLM features. Image generation, audio processing, speech to text, and other capabilities are not yet available but may be added in future updates.
+
+## Installation
+Please visit LocalAI's [quickstart](https://localai.io/basics/getting_started/) guide for instructions on downloading and installing LocalAI.
+
+## Configuration
+After installing and configuring LocalAI, you can start using it in Wave by setting two parameters: `openaibaseurl` and `openaimodel`. These parameters can be set either through the UI or from the command line, but please note that the parameter names are slightly different depending on the method you choose.
+
+### **Parameters**
+
+- **Base URL:** Set this parameter to the base URL or endpoint that Wave AI should query. For LocalAI running locally, use http://localhost:8080/v1. Please note that the port number `8080` may be different depending on your specific installation. For remote LocalAI instances, replace `localhost` with the appropriate hostname or IP address of the server where LocalAI is running. If the port number is different from the default `8080`, update it accordingly in the URL.
+- **AI Model**: Specify the LocalAI model you want to use. To discover available models, you can query the LocalAI endpoint, `/v1/models`.
+
+    Example: http://localhost:8080/v1/models.
+
+### Configuring via the UI
+To configure LocalAI from the Wave AI user interface, navigate to the "Settings" menu and set the `AI Base URL` and `AI Model` parameters as described in the previous section.
+
+### Configuring via the CLI
+To configure LocalAI using the command line, set the `openaibaseurl` and `openaimodel` parameters using the [/client:set](/reference/slashcommands#client-set) command, as shown in the example below. Replace the values with the appropriate `Base URL` and `AI Model` for your LocalAI installation.
+
+```
+/client:set openaibaseurl=<your-LocalAI-base-url>
+/client:set openaimodel=<your-LocalAI-model-name>
+```
+
+## Usage
+Once you have installed and configured LocalAI, you can start using it in Wave. There are two primary ways to interact with your newly configured LLM: [Interactive Mode](/features/waveAI#interactive) and by using the [/chat](/features/waveAI#chat-command) command.
+
+- **Interactive Mode:** To enter Interactive Mode, click the "Wave AI" button in the command box or use the `ctrl + space` shortcut. This will open an interactive chat session where you can have a continuous conversation with the AI assistant powered by your LocalAI model.
+- **/chat:** Alternatively, you can use the [/chat](/features/waveAI#chat-command) command followed by your question to get a quick answer from your LocalAI model directly in the terminal.
+
+## Reset Wave AI
+At any time if you find that you wish to return to the default Wave AI experience, you can reset the `openaibaseurl` and `openaimodel` parameters to their default state by using the following commands.
+
+```
+/client:set openaibaseurl=
+/client:set openaimodel=
+```
+**Note:** This can also be done in the UI just as described in previous steps.
+
+## Additional Resources
+* [LocalAI Website](https://localai.io/)
+* [LocalAI GitHub Page](https://github.com/mudler/LocalAI)
