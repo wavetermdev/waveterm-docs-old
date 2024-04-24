@@ -29,9 +29,9 @@ Each keybinding rule in the *keybindings.json* file consists of the following fi
 
 ### Key Code Support
 
-Wave supports [JavaScript key codes](https://www.toptal.com/developers/keycode/table), which are numerical values that correspond to specific keys on a keyboard, regardless of the keyboard layout or locale. By using key codes, you can create custom keyboard shortcuts that work consistently across different keyboards and languages. Wave specifically uses the `event.code` property.
+Wave supports [JavaScript key codes](https://www.toptal.com/developers/keycode/table), which are numerical values that correspond to specific keys on a keyboard, regardless of the keyboard layout or locale. By using key codes, you can create custom keyboard shortcuts that work consistently across different keyboards and languages. Wave specifically uses the `event.key` property.
 <Tip>
-Use [this]( https://www.toptal.com/developers/keycode) utility to determine the correct `event.code` for specific keys.
+Use [this]( https://www.toptal.com/developers/keycode) utility to determine the correct `event.key` for specific keys.
 </Tip>
 
 ## Usage
@@ -58,7 +58,7 @@ You can modify an existing keybinding to change the associated keys or behavior 
      ```json
      {
        "command": "system:toggleDeveloperTools",
-       "keys": ["Cmd:Option:i{KeyZ}"],
+       "keys": ["Cmd:Option:c{KeyZ}"],
        "info": "Opens the Chrome Developer Tools menu"
      }
      ```
