@@ -41,6 +41,18 @@ Once you have installed and configured LocalAI, you can start using it in Wave. 
 - **Interactive Mode:** To enter Interactive Mode, click the "Wave AI" button in the command box or use the `ctrl + space` shortcut. This will open an interactive chat session where you can have a continuous conversation with the AI assistant powered by your LocalAI model.
 - **/chat:** Alternatively, you can use the [/chat](/features/waveAI#chat-command) command followed by your question to get a quick answer from your LocalAI model directly in the terminal.
 
+## Troubleshooting
+If you encounter issues while using LocalAI with Wave AI, consider the following troubleshooting steps:
+
+- **Connection failures:** If Wave AI fails to connect to LocalAI or returns an error message, [verify that LocalAI is running](https://localai.io/basics/getting_started/#text-generation) and accessible from the system where Wave is installed. Check the LocalAI logs for any error messages or indications of why the connection might be failing.
+- **Timeouts:** If you're unable to complete a query or incur frequent timeouts, try adjusting the [openaitimeout](/features/waveAI#customization) parameter to a higher value. This will give LocalAI more time to process and respond to your requests, especially if you are running it on a system with limited hardware resources.
+- **Incorrect base URL or port:** Ensure that the [openaibaseurl](/features/waveAI#customization) parameter points to the correct URL and port number where LocalAI is running. If you have changed the default port or are running LocalAI on a remote server, update the URL accordingly.
+- **Incorrect model selection:** If you have multiple LocalAI models installed, make sure to set the [openaimodel](/features/waveAI#customization) parameter to the specific model you want to use. You can list available models using the LocalAI list command in your terminal.
+- **Unexpected behavior or inconsistent results:** If you encounter unexpected behavior or inconsistent results when using LocalAI with Wave AI, try [resetting](#reset-wave-ai) the openaibaseurl and openaimodel parameters to their default values and reconfiguring LocalAI from scratch. This can help rule out any configuration issues that might be causing problems.
+
+If you continue to face issues after trying these troubleshooting steps, please see the [Additional Resources](#additional-resources) section below for further assistance.
+
+
 ## Reset Wave AI
 At any time if you find that you wish to return to the default Wave AI experience, you can reset the `openaibaseurl` and `openaimodel` parameters to their default state by using the following commands.
 
