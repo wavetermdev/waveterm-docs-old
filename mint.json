@@ -69,6 +69,7 @@
          "group":"Reference",
          "pages":[
             "reference/faq",
+            "reference/customKeybindings",
             "reference/keyboard",
             "reference/slashcommands",
             "reference/telemetry",

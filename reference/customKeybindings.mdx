@@ -1,0 +1,149 @@
+---
+title: Custom Keybindings
+---
+Custom keybindings in Wave allow you to personalize and streamline your workflow by creating shortcuts tailored to your preferences and needs. By customizing keybindings, you can execute commands, trigger actions, and navigate within the Wave terminal more efficiently.
+
+## Basics
+
+All keyboard shortcuts in Wave can be customized by editing the `keybindings.json` file located in `~/.waveterm/config`. User-defined shortcuts declared in this file will override the default system keybindings.
+
+## Anatomy of a Keybinding
+
+Each keybinding rule in the *keybindings.json* file consists of the following fields:
+
+    ```json
+    {
+      "command": "app:openBookmarksView",
+      "keys": ["Cmd:b"],
+      "commandStr": ["/bookmarks:show"],
+      "info": "Show all bookmarks"
+    },
+    ```
+
+- `command` (required): Contains the identifier of the command to execute. It is not advised to edit these commands as they are internal Wave commands. Please see the [usage](#usage) section for details on adding your own custom commands.
+- `keys` (required): An array of strings representing the keys pressed that trigger the command.
+- `commandStr` (optional): An array of strings that is executed when the specified keys are pressed. This field accepts Wave [slash commands](/reference/slashcommands) and shell commands.
+- `info` (optional): A human-readable description of the keybinding's purpose or functionality.
+
+**Note:** When choosing *keys* for custom keybindings, it's important to consider potential conflicts with existing system or application shortcuts, special character input, accessibility, and cross-platform compatibility. For this reason we recommend avoiding using the `Option` key.
+
+### Key Code Support
+
+Wave supports [JavaScript key codes](https://www.toptal.com/developers/keycode/table), which are numerical values that correspond to specific keys on a keyboard, regardless of the keyboard layout or locale. By using key codes, you can create custom keyboard shortcuts that work consistently across different keyboards and languages. Wave specifically uses the `event.code` property.
+<Tip>
+Use [this]( https://www.toptal.com/developers/keycode) utility to determine the correct `event.code` for specific keys.
+</Tip>
+
+## Usage
+
+There are *four* main ways to utilize custom keybindings in Wave.
+
+<AccordionGroup>
+  <Accordion title="1. Edit a default keybinding">
+You can modify an existing keybinding to change the associated keys or behavior by editing the *keys* field with the desired key combination.
+      ```json
+     {
+       "command": "app:restartCommand",
+       "keys": ["Cmd:x"],
+       "info": "Restarts the command running in the current selected line"
+     }
+     ```
+ **Note:** The original keybinding for *app:restartCommand* was *Cmd:r*.
+  </Accordion>
+</AccordionGroup>
+
+<AccordionGroup>
+  <Accordion title="2. Add key code support to a keybinding">
+  You can add JavaScript key codes to create keybindings that work consistently across different keyboards and languages.
+     ```json
+     {
+       "command": "system:toggleDeveloperTools",
+       "keys": ["Cmd:Option:i{KeyZ}"],
+       "info": "Opens the Chrome Developer Tools menu"
+     }
+     ```
+
+The `{KeyZ}` keycode will ensure that The *Z* key is used for this keybinding, regardless of the user's keyboard layout.
+  </Accordion>
+</AccordionGroup>
+
+<AccordionGroup>
+  <Accordion title="3. Create a custom command">
+  Wave allows you to create your own custom commands by modifying the *command* and *commandStr* fields.
+  - In the *command* field, use the `custom:` prefix, along with your command name, to add a custom command name.
+  - In the *commandStr field*, add a custom command using a [slash command](/reference/slashcommands), or a shell command.
+
+     ```json
+     {
+       "command": "custom:ShowClientSettings",
+       "keys": ["Cmd:Option:x"],
+       "commandStr": ["/client:show"],
+       "info": "Shows all client settings"
+     }
+     ```
+  </Accordion>
+</AccordionGroup>
+
+<AccordionGroup>
+  <Accordion title="4. Create a custom command (with multiple commands)">
+   Wave also allows you to string multiple commands together in the *commandStr* array to create powerful custom workflows that automate complex tasks with a single keybinding.
+
+  ```json
+  {
+    "command": "custom:debugWorkflow",
+    "keys": ["Cmd:y"],
+    "commandStr": ["/session:open","/session:set name=Debug","/screen:set name=Main tabcolor=red tabicon=bug","/sleep 200","cd ~/Project && npm run debug","/screen:open","/screen:set name='Server Logs' tabcolor=yellow tabicon=page","/sleep 200","cd ~/Project && tail -f server.log"],
+    "info": "Open debug workflow"
+  }
+  ```
+  **Note:**  This example utilizes the [/sleep](/reference/slashcommands#sleep) command, which may be necessary between other commands to ensure they execute in the correct order, as the keybinding frontend code doesn't yet detect when commands have finished.
+
+   To better understand this example, let's take a look at the individual commands in the *commandStr* array:
+     ```bash
+     # Create a new workspace and set its name to "Debug."
+     /session:open
+     /session:set name=Debug
+
+    # By default, creating a new workspace also creates a new tab.
+     # Set the new tab's name, color, and icon
+     /screen:set name=Main tabcolor=red tabicon=bug
+     # Set sleep time of 200 ms to ensure the workspace is set up before continuing
+     /sleep 200
+     # cd to the project repo and start npm debug in the new tab
+     cd ~/Project && npm run debug
+
+     # Create a new tab, set its name, color, and icon
+     /screen:open
+     /screen:set name='Server Logs' tabcolor=yellow tabicon=page
+     # Set sleep time of 200 ms to ensure the workspace is set up before continuing
+     /sleep 200
+     # Change directory to the project repo and tail server logs in the new tab
+     cd ~/Project && tail -f server.log
+     ```
+
+   **Extra:** Here's a complementary keybinding example that demonstrates how you would tear down the debug environment — which is as simple as deleting the workspace:
+  ```json
+  {
+    "command": "custom:closeDebugWorkflow",
+    "keys": ["Cmd:z"],
+    "commandStr": ["/session:delete Debug"],
+    "info": "Close debug workflow"
+  }
+  ```
+  </Accordion>
+</AccordionGroup>
+
+## Getting Started
+
+Getting started with custom keybindings in Wave is an easy and straightforward process.
+
+**1.** Start by copying the [default-keybindings](https://github.com/wavetermdev/waveterm/blob/main/assets/default-keybindings.json) file from our repo into your local config, or simply use it as a reference.
+  ```
+    curl -o ~/.waveterm/config/keybindings.json https://raw.githubusercontent.com/wavetermdev/waveterm/main/assets/default-keybindings.json
+  ```
+
+**2.** Edit the keybindings to your liking or add your own keybindings for various use cases and tasks, then *save* the file.
+
+**3.** Reload the current Wave session using `Option + R` to start using your custom keybindings.
+
+    **Note:** Currently, Wave does not automatically pick up changes in the custom keybindings file. You need to reload the current Wave session as described above or by clicking the "View" tab in the menu bar and then clicking "Reload."

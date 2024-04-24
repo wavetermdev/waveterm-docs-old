@@ -638,6 +638,14 @@ You can also specify a signal by number like this:
 
 /signal [line-arg] 9
 ```
+## /sleep
+Pauses the execution of the next command for a specified duration in milliseconds.
+
+```
+Usage:
+/sleep 500
+```
+This command is largely used for debugging, but should be used in lieu of your systems *sleep* when creating [custom keybindings](/reference/customKeybindings) that contain multiple commands in Wave. This is due to the fact that in it's current implementation, the keybinding frontend code doesn't have a built-in mechanism to determine when a command has finished executing. As a result, if commands are executed in rapid succession without any delay, it may lead to unexpected behavior or commands being executed out of order.
 
 ## /telemetry
 
