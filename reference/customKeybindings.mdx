@@ -71,16 +71,19 @@ The `{KeyZ}` keycode will ensure that The *Z* key is used for this keybinding, r
   <Accordion title="3. Create a custom command">
   Wave allows you to create your own custom commands by modifying the *command* and *commandStr* fields.
   - In the *command* field, use the `custom:` prefix, along with your command name, to add a custom command name.
-  - In the *commandStr field*, add a custom command using a [slash command](/reference/slashcommands), or a shell command.
+  - In the *commandStr field*, add a custom command using a [slash command](/reference/slashcommands), shell command, or a combination of both.
 
      ```json
-     {
-       "command": "custom:ShowClientSettings",
-       "keys": ["Cmd:Option:x"],
-       "commandStr": ["/client:show"],
-       "info": "Shows all client settings"
-     }
+    {
+      "command": "custom:EditZshrc",
+      "keys": ["Cmd:z"],
+      "commandStr": ["[minimap=0 lang=shell] /codeedit ~/.zshrc"],
+      "info": "Opens ~/.zshrc in codeedit"
+    }
      ```
+
+    **Note:**  This example utilizes the [/codeedit](/reference/slashcommands#codeedit) command to open my `.zshrc` config file for quick editing.
+
   </Accordion>
 </AccordionGroup>
 
@@ -133,6 +136,35 @@ The `{KeyZ}` keycode will ensure that The *Z* key is used for this keybinding, r
   </Accordion>
 </AccordionGroup>
 
+
+**Note:** If you want to use a keybinding that is already occupied by a system command, you will first need to assign a new keybinding to the system command. Once you have freed up the desired keybinding, you can then assign it to your custom command in the `keybindings.json` file.
+
+<AccordionGroup>
+  <Accordion title="Example">
+To reassign the `Cmd+b` keybinding to your custom command, you would need to:
+
+1. Add the default "Open Bookmarks View" command in the `keybindings.json` file and asign it a different keybinding, such as `Cmd+Shift+b`:
+```json
+{
+  "command": "app:openBookmarksView",
+  "keys": ["Cmd+Shift+b"],
+  "commandStr": ["/bookmarks:show"]
+}
+```
+2. Add a new entry in the `keybindings.json` file for your custom command, assigning it the `Cmd+b` keybinding that was previously occupied by the "Open Bookmarks View" command:
+
+```json
+{
+  "command": "custom:openFolder",
+  "keys": ["Cmd+b"],
+  "commandStr": ["cd ~/Projects/MyFolder"]
+}
+```
+Now, when you press `Cmd+b`, it will execute your custom command. Also, the "Open Bookmarks View" command will still be available, but it will be triggered by the new keybinding `Cmd+Shift+b`.
+
+  </Accordion>
+</AccordionGroup>
+
 ## Getting Started
 
 Getting started with custom keybindings in Wave is an easy and straightforward process.
@@ -141,7 +173,6 @@ Getting started with custom keybindings in Wave is an easy and straightforward p
   ```
     curl -o ~/.waveterm/config/keybindings.json https://raw.githubusercontent.com/wavetermdev/waveterm/main/assets/default-keybindings.json
   ```
-
 **2.** Edit the keybindings to your liking or add your own keybindings for various use cases and tasks, then *save* the file.
 
 **3.** Reload the current Wave session using `Option + R` to start using your custom keybindings.
