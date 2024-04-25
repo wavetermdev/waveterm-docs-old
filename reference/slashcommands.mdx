@@ -5,6 +5,36 @@ title: SlashCommand Reference
 Welcome to our Slash Command Reference Guide, a comprehensive resource designed to streamline your workflow in Wave using intuitive commands.
 Here, you'll find detailed explanations on how to manage various settings and configurations in Wave related to sessions and windows, client settings, editing and viewing files inline, and much more.
 
+## Basic Usage
+Slash commands are special commands that begin with a forward slash (`/`), used to perform specific actions or access certain features within Wave. These commands can be executed *with* or *without* the leading slash.
+
+The basic structure of a slash command is as follows:
+
+```
+[meta-command] /command [options]
+```
+### Meta-Commands
+Meta-commands are *optional*, special instructions that modify the behavior or appearance of the command they precede. You can think of meta-commands as flags or parameters that fine-tune the functionality of a command.
+
+<AccordionGroup>
+    <Accordion title = "Using Meta-Commands">
+Meta-commands should always be enclosed in square brackets (`[]`), whether you're using a single meta-command or multiple ones.
+
+When using a *single* meta-command, simply enclose it in square brackets before the main command:
+
+```
+[lang=json] /codeedit file.json
+```
+When using *multiple* meta-commands, include them within the same pair of square brackets, separated by a space:
+
+```
+[lang=json minimap=0] /codeedit file.json
+```
+</Accordion>
+</AccordionGroup>
+
+## Available SlashCommands
+---
 ## /bookmarks
 Commands related to managing bookmarks.
 
@@ -44,7 +74,7 @@ This command is used to update client settings.
 Usage:
 /client:set [openaiapitoken=token] [openaibaseurl=url] [openaimaxchoices=choices] [openaimaxtokens=tokens] [openaimodel=modelname] [termfontfamily=fontfamily] [termfontsize=fontsize]
 ```
-Options:
+**Options:**
 
 - `openaiapitoken` - Set your OpenAI API token to use the OpenAI API directly instead of the Wave cloud servers.
 - `openaibaseurl` - Set the base URL for the OpenAI API if you want to use a different endpoint or a third-party API compatible with the OpenAI API.
@@ -61,7 +91,7 @@ Options:
 
 This command displays various client settings and version information.
 
-Returned Properties:
+**Properties:**
 
 - `arch` - The architecture of your host system.
 - `client-version` - The version number of your Wave client.
@@ -91,12 +121,20 @@ View and edit files inline using rich native UI. Includes syntax highlighting, c
 Usage:
 /codeedit [filename]
 
-[lang=javascript] codeedit [filename]
-[lang=json] codeedit hello.json
-```
-The option `filename` resolves against the current remote and current working directory.
+[lang=language] /codeedit [filename]
+[minimap=0] /codeedit [filename]
 
-Shortcuts:
+[lang=language minimap=0] /codeedit [filename]
+```
+
+**Options:**
+- `filename` - Name of the file you'd like to edit. Filename resolves against the current remote and current working directory.
+
+[Meta-commands:](#meta-commands)
+- `lang` - Sets the syntax highlighting language.
+- `minimap` - Controls the visibility of the minimap in the scrollbar. Set to `0` to disable.
+
+**Shortcuts:**
 
 - `Cmd-S` - Saves current file
 - `Cmd-D` - Closes the editor. Note, this will prevent future saves (and shrink the editor to fit the current size of the content).
@@ -115,11 +153,19 @@ View a text file inline using rich native UI. Includes syntax highlighting and c
 ```
 Usage:
 /codeview [filename]
-[lang=javascript] /codeview [filename]
-[lang=json] /codeview hello.json
+
+[lang=language] /codeview [filename]
+[minimap=0] /codeview [filename]
+
+[lang=language minimap=0] /codeview [filename]
 ```
 
-The option `filename` resolves against resolves against the current remote and current working directory.
+**Options:**
+- `filename` - Name of the file you'd like to edit. Filename resolves against the current remote and current working directory.
+
+[Meta-commands:](#meta-commands)
+- `lang` - Sets the syntax highlighting language.
+- `minimap` - Controls the visibility of the minimap in the scrollbar. Set to `0` to disable.
 
 <Tip>
 See [codeedit](#codeedit) to edit files using the same native UI.
@@ -355,7 +401,7 @@ Usage:
 /remote:new [user@host] [visual=1] [sudo=1] [port=portnum] [alias=alias] [connectmode=connectmode] [autoinstall=1] [key=ssh-key-file] [password=ssh-password]
 ```
 
-Options:
+**Options:**
 
 - `host` - Specifies the remote username and hostname or IP address to connect to.
 - `visual` - Determines whether or not a remote info window is displayed (bool)
@@ -394,7 +440,7 @@ Usage:
 /remote:set [alias] [key] [password] [autoinstall=1]
 ```
 
-Options:
+**Options:**
 
 - `alias` - Sets a short name or alias for the remote connection, for easier reference.
 - `key` - Specifies the path to the SSH key file to use for authentication.
@@ -499,13 +545,13 @@ Usage:
 /screen:set [name=name] [tabcolor=color] [tabicon=icon] [anchor=anchor] [focus=focus] [line=line]
 ```
 
-Options:
+**Options:**
 
 - `name` - set the name of the screen in the tab bar
 - `tabcolor` - set the color of the tab
 - `tabicon` - set the icon of the tab. See [fontawesome](https://fontawesome.com/search?o=r&s=solid&f=sharp) for a full list of supported icons. Note that we use the "Sharp" and "Solid" set of icons.
 - `anchor` - sets the current scroll anchor position (used by client)
-- `focus` - sets the focus type for the screen (used by client) (Options: `input` or `cmd`)
+- `focus` - sets the focus type for the screen (used by client) (options: `input` or `cmd`)
 - `line` - sets the currently selected line
 
 ### /screen:showall
