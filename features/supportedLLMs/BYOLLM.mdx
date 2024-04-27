@@ -41,9 +41,9 @@ Once you have installed and configured your own LLM provider, you can start usin
 If you encounter issues while using your own LLM provider with Wave AI, consider the following troubleshooting steps:
 
 - **Connection failures:** If Wave AI fails to connect to your own LLM provider or returns an error message, verify that your own LLM provider is running.
-- **Timeouts:** If you're unable to complete a query or incur frequent timeouts, try adjusting the [aitimeout](/features/waveAI#customization) parameter to a higher value. This will give your own LLM provider more time to process and respond to your requests, especially if you are running it on a system with limited hardware resources.
-- **Incorrect base URL or port:** Ensure that the [aibaseurl](/features/waveAI#customization) parameter points to the correct URL and port number where your own LLM provider is running. If you have changed the default port or are running your own LLM provider on a remote server, update the URL accordingly.
-- **Incorrect model selection:** If you have multiple LLMs installed, make sure to set the [aimodel](/features/waveAI#customization) parameter to the specific model you want to use.
+- **Timeouts:** If you're unable to complete a query or incur frequent timeouts, try adjusting the `aitimeout` parameter to a higher value. This will give your own LLM provider more time to process and respond to your requests, especially if you are running it on a system with limited hardware resources.
+- **Incorrect base URL or port:** Ensure that the `[aibaseurl` parameter points to the correct URL and port number where your own LLM provider is running. If you have changed the default port or are running your own LLM provider on a remote server, update the URL accordingly.
+- **Incorrect model selection:** If you have multiple LLMs installed, make sure to set the `aimodel` parameter to the specific model you want to use.
 - **Unexpected behavior or inconsistent results:** If you encounter unexpected behavior or inconsistent results when using your own LLM provider with Wave AI, try [resetting](#reset-wave-ai) the `aibaseurl` and `aimodel` parameters to their default values and reconfiguring your LLM provider from scratch. This can help rule out any configuration issues that might be causing problems.
 
 ## Reset Wave AI
