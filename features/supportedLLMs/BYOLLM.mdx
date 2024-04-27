@@ -1,0 +1,56 @@
+---
+title: 'BYOLLM'
+description: 'Get up and running with your own LLM'
+---
+
+Wave AI supports the integration of any LLM provider that uses the same [OpenAI Chat Completions API](https://platform.openai.com/docs/api-reference/chat). This feature allows you to bring your own compatible LLM provider and seamlessly integrate it into your workflow. 
+
+<Tip>
+To see a full list of supported LLM providers, please visit the [Third-Party LLM Support](/features/waveAI#third-party-llm-support) section in the Wave AI features page.
+</Tip>
+
+
+## Configuration
+After installing and configuring your own LLM provider, you can start using it in Wave by setting two parameters: `aibaseurl` and `aimodel`. These parameters can be set either through the UI or from the command line, but please note that the parameter names are slightly different depending on the method you choose.
+
+### **Parameters**
+
+- **AI Base URL:** Set this parameter to the base URL or endpoint that Wave AI should query.
+- **AI Model**: Specify the model name that you want to use.
+
+**Note:** If the provided URL (e.g., `http://localhost:8080/v1/chat/completions`) doesn't work, try removing the `/chat/completions` directories from the end of the URL or using just the hostname and port (e.g., `http://localhost:8080`). This often resolves compatibility issues and allows Wave AI to communicate with your LLM provider successfully.
+
+### Configuring via the UI
+To configure your own LLM provider from the Wave AI user interface, navigate to the "Settings" menu and set the `AI Base URL` and `AI Model` parameters as described in the previous section.
+
+### Configuring via the CLI
+To configure your own LLM provider using the command line, set the `aibaseurl` and `aimodel` parameters using the [/client:set](/reference/slashcommands#client-set) command, as shown in the example below.
+
+```
+/client:set aibaseurl=<your-base-url>
+/client:set aimodel=<your-model-name>
+```
+
+## Usage
+Once you have installed and configured your own LLM provider, you can start using it in Wave. There are two primary ways to interact with your newly configured LLM: [Interactive Mode](/features/waveAI#interactive) and by using the [/chat](/features/waveAI#chat-command) command.
+
+- **Interactive Mode:** To enter Interactive Mode, click the "Wave AI" button in the command box or use the `ctrl + space` shortcut. This will open an interactive chat session where you can have a continuous conversation with the AI assistant powered by your own LLM provider model.
+- **/chat:** Alternatively, you can use the [/chat](/features/waveAI#chat-command) command followed by your question to get a quick answer from your own LLM provider model directly in the terminal.
+
+## Troubleshooting
+If you encounter issues while using your own LLM provider with Wave AI, consider the following troubleshooting steps:
+
+- **Connection failures:** If Wave AI fails to connect to your own LLM provider or returns an error message, verify that your own LLM provider is running.
+- **Timeouts:** If you're unable to complete a query or incur frequent timeouts, try adjusting the [aitimeout](/features/waveAI#customization) parameter to a higher value. This will give your own LLM provider more time to process and respond to your requests, especially if you are running it on a system with limited hardware resources.
+- **Incorrect base URL or port:** Ensure that the [aibaseurl](/features/waveAI#customization) parameter points to the correct URL and port number where your own LLM provider is running. If you have changed the default port or are running your own LLM provider on a remote server, update the URL accordingly.
+- **Incorrect model selection:** If you have multiple LLMs installed, make sure to set the [aimodel](/features/waveAI#customization) parameter to the specific model you want to use.
+- **Unexpected behavior or inconsistent results:** If you encounter unexpected behavior or inconsistent results when using your own LLM provider with Wave AI, try [resetting](#reset-wave-ai) the `aibaseurl` and `aimodel` parameters to their default values and reconfiguring your LLM provider from scratch. This can help rule out any configuration issues that might be causing problems.
+
+## Reset Wave AI
+At any time if you find that you wish to return to the default Wave AI experience, you can reset the `aibaseurl` and `aimodel` parameters to their default state by using the following commands.
+
+```
+/client:set aibaseurl=
+/client:set aimodel=
+```
+**Note:** This can also be done in the UI just as described in previous steps.

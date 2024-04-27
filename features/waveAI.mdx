@@ -6,7 +6,7 @@ icon: 'robot'
 
 Wave AI is our native ChatGPT integration that allows you to ask questions and receive answers directly from your terminal. This feature streamlines your workflow by providing AI assistance without the need to switch between multiple tools or applications.
 
-Wave AI also supports the use of third party LLM's, allowing you to tailor your AI experience to your specific needs and concerns, whether they're related to privacy, ethics, or accessing the latest technologies. See the [Third-Party LLM Support](#third-party-llm-support) section for a full list of supported LLMs.
+Wave AI also supports the use of third party LLM providers, allowing you to tailor your AI experience to your specific needs and concerns, whether they're related to privacy, ethics, or accessing the latest technologies. See the [Third-Party LLM Support](#third-party-llm-support) section for a full list of supported LLM providers.
 
 ## Using Wave AI
 ​There are currently two ways to use Wave AI: *interactively*, and via the [/chat](/reference/slashcommands#chat) command.
@@ -21,7 +21,7 @@ In the interactive mode, you can ask follow-up questions, provide additional con
 
 ### Chat command
 Alternatively, you can use the [/chat](/reference/slashcommands#chat) command followed by your question to get a quick answer from the terminal.
-```
+```x
 Usage:
 /chat How do I resolve a merge conflict?
 ```
@@ -34,29 +34,30 @@ This method is ideal for one-off queries or when you need a straightforward answ
 
 Wave AI comes with default settings that work out of the box. By default, Wave will proxy your requests through our cloud servers to OpenAI. However, you can customize your experience by modifying the following settings in the UI or by using the [/client:set](/reference/slashcommands#client-set) command:
 
-- `openaiapitoken:` Set your own OpenAI API key if you prefer not to use Wave's default configuration. Note that your API token will never be sent to Wave's cloud servers. When you provide your own API key, all future requests will be sent directly to OpenAI or any other endpoint you specify using `openaibaseurl`.
-- `openaibaseurl:` If you want to use other 3rd party APIs compatible with the OpenAI API, you can change the base URL. You will also want to set your `openaiapitoken` in conjunction with the base url to use a different service.
-- `openaimaxchoices:` This option determines the number of different response variations the AI model will generate for each query. Increasing this value will provide more diverse responses, while decreasing it will make the model's output more focused and consistent.
-- `openaimaxtokens:` This setting allows you to control the maximum number of tokens (words or word pieces) that the AI model will generate in a single response.
-- `openaimodel:` Wave AI uses the ChatGPT *gpt-3.5-turbo* model by default, but you can choose a different model that suits your needs. You will need to also set `openaiapitoken` if you choose to use another ChatGPT model. Also, when configuring other third-party services you will want to change this setting to the appropriate model.
-- `openaitimeout:` Specify the maximum time (in milliseconds) to wait for a response from the AI service before timing out. The default value is 10000 (10 seconds). This setting is particularly useful when configuring and troubleshooting local LLMs, as response times can vary significantly depending on the hardware constraints of the system running the model.
+- `aiapitoken:` Set your own OpenAI API key if you prefer not to use Wave's default configuration. Note that your API token will never be sent to Wave's cloud servers. When you provide your own API key, all future requests will be sent directly to OpenAI or any other endpoint you specify using `aibaseurl`.
+- `aibaseurl:` If you want to use other 3rd party APIs compatible with the OpenAI API, you can change the base URL. You will also want to set your `aiapitoken` in conjunction with the base url to use a different service.
+- `aimaxchoices:` This option determines the number of different response variations the AI model will generate for each query. Increasing this value will provide more diverse responses, while decreasing it will make the model's output more focused and consistent.
+- `aimaxtokens:` This setting allows you to control the maximum number of tokens (words or word pieces) that the AI model will generate in a single response.
+- `aimodel:` Wave AI uses the ChatGPT *gpt-3.5-turbo* model by default, but you can choose a different model that suits your needs. You will need to also set `aiapitoken` if you choose to use another ChatGPT model. Also, when configuring other third-party services you will want to change this setting to the appropriate model.
+- `aitimeout:` Specify the maximum time (in milliseconds) to wait for a response from the AI service before timing out. The default value is 10000 (10 seconds). This setting is particularly useful when configuring and troubleshooting LLM providers, as response times can vary significantly depending on the hardware constraints of the system running the model.
 
 **Note:** In order to prevent abuse, [telemetry](/reference/telemetry) must be enabled to use the cloud servers. There is currently a rate limit of 200 requests per day.
 
 ## Third-Party LLM Support
-Wave AI supports various third-party Large Language Models (LLMs), allowing you to choose the model that best suits your needs and preferences. This section provides a comprehensive list of the third-party LLMs compatible with Wave AI, enabling you to make an informed decision based on your specific needs and concerns.
+Wave AI supports various third-party Large Language Model providers, allowing you to choose the model that best suits your needs and preferences. This section provides a comprehensive list of the third-party LLM providers that are compatible with Wave AI, enabling you to make an informed decision based on your specific needs and concerns.
 
-To get started with a specific integration, simply click on the integration to access the setup instructions and configuration details for that particular LLM.
+To get started with a specific integration, simply click on the integration to access the setup instructions and configuration details for that particular LLM provider.
 
-### Supported LLM's:
+### Supported LLM Providers:
 * [Ollama](/features/supportedLLMs/ollama)
 * [LocalAI](/features/supportedLLMs/localai)
+* [BYOLLM (Bring Your Own LLM)](/features/supportedLLMs/BYOLLM)
 
-**Note:** Currently, Wave's third-party LLM integration supports language models that are compatible with OpenAI's [Chat Completions API](https://platform.openai.com/docs/api-reference/chat). We are actively working on expanding our integrations to support a wider range of LLMs and API formats in the near future.
+**Note:** Currently, Wave's third-party LLM integration supports language models that are compatible with [OpenAI's Chat Completions API](https://platform.openai.com/docs/api-reference/chat). We are actively working on expanding our integrations to support a wider range of LLM providers and API formats in the near future.
 
 ## Disabling Wave AI
 
 Wave AI functionality can be disabled by simply turning telemetry off. This can be done in the UI under "Settings", or by issuing the [/telemetry:off](/reference/slashcommands#telemetry-off) command.
 
 ## Future Plans
-We're excited about the future of Wave AI and have plans to expand its capabilities. In the near future, we'll be expanding our BYOLLM (Bring Your Own Large Language Model) offerings to include more integrations around popular cloud-based models like Anthropic's Claude, Google's Gemini, and more.
+We're excited about the future of Wave AI and have plans to expand its capabilities. In the near future, we'll be expanding our third-party offerings to include more integrations around popular cloud-based models like Anthropic's Claude, Google's Gemini, and more.
