@@ -4,6 +4,35 @@ title: Release Notes
 
 Download the latest build here: https://waveterm.dev/download
 
+### v0.7.3 - 05/01/2024
+
+New sudo support, better theming and keybinding support, with a ton of performance and usability updates (almost 70 PRs have gone into this patch release).
+
+* **Sudo Support** - Seamless sudo support (configurable in settings) for local/remote machines. (will follow-up with detailed documentation)
+* Multi-level terminal theming support -- global, workspace, and per tab terminal themes (will follow-up with more detailed documentation)
+* Keybinding updates -- including ability to register custom commands
+* Light mode fixes and cleanup
+* k8s namespace/context added to the prompt
+* Block context menu with easy access to copy command and/or output, or easily minimize, delete, or restart commands
+* AI: customizable timeouts for AI connections
+* AI: cleaned up labels/names now that our AI integration is not tied to Chat-GPT (BYOLLM support)
+* UI: light mode fixes and cleanup
+* UI: restyled command input box (removed background color / outline)
+* UI: restyled some of the command input auxillary views to be more consistent
+* UI: new labels for dropdowns, correctly truncates longer values
+* UI: new native context menus for blocks and tabs for quicker access to some functionality
+* Internal: Ephemeral Command support to help drive background updates for the command prompt and future use for completions
+* Updated telemetry (fixed bug related to computer sleep, cut send time to 4-hours, added some additional metrics -- docs will be updated)
+* Bug fix: git branch now updates correctly for zsh users when running "git checkout" or "git switch"
+* Bug fix: known_hosts bug fixes
+* Bug fix: codeedit keybindings
+* Bug fix: fix inline text edit check/confirm button to correctly save input
+* Bug fix: no longer showing spurious ptmx error
+* Bug fix: fixed app crash on long command input
+* Performance: return new blocks faster to the UI cutting down on render latency
+* Updated Electron to v30 (and other dependency updates)
+* Other assorted bug fixes, cleanup, and performance improvements
+
 ### v0.7.2 - 04/01/2024
 
 Minor release, focused on zsh improvements, keybinding support (beta), and more light mode cleanup.
