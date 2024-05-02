@@ -4,6 +4,12 @@ title: Release Notes
 
 Download the latest build here: https://waveterm.dev/download
 
+### v0.7.4 - 05/01/2024
+
+Quick patch release to remove k8s context/namespace from prompt. Fixes a performance issue where the k8s context command might take multiple seconds to run (causing state altering commands to hang for that amount of time)
+
+See v0.7.3 release notes.
+
 ### v0.7.3 - 05/01/2024
 
 New sudo support, better theming and keybinding support, with a ton of performance and usability updates (almost 70 PRs have gone into this patch release).
