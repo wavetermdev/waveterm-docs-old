@@ -4,6 +4,12 @@ title: Release Notes
 
 Download the latest build here: https://waveterm.dev/download
 
+### v0.7.5 - 05/02/2024
+
+Quick patch release to fix a regression in v0.7.3 where when the completion info window popped up, the cmdinput lost focus (so you couldn't actually complete files/directories).  Similar regression which did not allow you to submit a command when the "info" window was open.
+
+See v0.7.3 release notes.
+
 ### v0.7.4 - 05/01/2024
 
 Quick patch release to remove k8s context/namespace from prompt. Fixes a performance issue where the k8s context command might take multiple seconds to run (causing state altering commands to hang for that amount of time)
