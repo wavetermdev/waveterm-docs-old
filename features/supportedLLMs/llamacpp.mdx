@@ -1,0 +1,63 @@
+---
+title: 'llama.cpp'
+description: 'Get llama.cpp up and running in Wave AI'
+---
+
+[llama.cpp](https://github.com/ggerganov/llama.cpp) is an open-source project that enables efficient inference of Meta's LLaMA and other compatible models using pure C/C++, with the main goal of enabling LLM inference with minimal setup and state-of-the-art performance on a wide variety of hardware. It offers optimizations for various architectures, supports integer quantization for faster inference and reduced memory usage, and includes custom CUDA kernels, Vulkan, SYCL, and OpenCL backend support.
+
+Wave specifically supports the [llama.cpp HTTP Server](https://github.com/ggerganov/llama.cpp/tree/master/examples/server#llamacpp-http-server), which makes the models available locally to run from other applications like Wave.
+
+<Tip>
+To see a full list of supported LLM providers, please visit the [Third-Party LLM Support](/features/waveAI#third-party-llm-support) section in the Wave AI features page.
+</Tip>
+
+## Installation
+Please visit llama.cpp's [GitHub](https://github.com/ggerganov/llama.cpp) page for instructions on downloading and installing llama.cpp, as well as a full list of supported models.
+
+<Tip>
+For Mac users, you can easily install llama.cpp using Homebrew by running `brew install ggerganov/ggerganov/llama.cpp`. This command will install two tools: `llama-cli` for command-line interaction and `llama-server` for running the llama.cpp HTTP server — both of which use the same options and syntax as the manually built llama.cpp.
+</Tip>
+
+## Configuration
+After installing and configuring the llama.cpp server, you can start using it in Wave by setting a single parameter: `aibaseurl`. This parameter can be set either through the UI or from the command line, but please note that the parameter names are slightly different depending on the method you choose.
+
+### **Parameters**
+
+- **AI Base URL:** Set this parameter to the base URL or endpoint that Wave AI should query. For llama.cpp servers running locally, use http://localhost:8080. Please note that the port number `8080` may be different depending on your specific installation. For remote llama.cpp server instances, replace `localhost` with the appropriate hostname or IP address of the server where llama.cpp is running. If the port number is different from the default `8080`, update it accordingly in the URL.
+
+### Configuring via the UI
+To configure llama.cpp from the Wave AI user interface, navigate to the "Settings" menu and set the `AI Base URL` parameter as described in the previous section.
+
+### Configuring via the CLI
+To configure llama.cpp using the command line, set the `aibaseurl` parameter using the [/client:set](/reference/slashcommands#client-set) command, as shown in the example below.
+
+```
+/client:set aibaseurl=<your-llama.cpp-base-url>
+```
+
+## Usage
+Once you have installed and configured your llama.cpp server, you can start using it in Wave. There are two primary ways to interact with your newly configured LLM: [Interactive Mode](/features/waveAI#interactive) and by using the [/chat](/features/waveAI#chat-command) command.
+
+- **Interactive Mode:** To enter Interactive Mode, click the "Wave AI" button in the command box or use the `ctrl + space` shortcut. This will open an interactive chat session where you can have a continuous conversation with the AI assistant powered by your llama.cpp model.
+- **/chat:** Alternatively, you can use the [/chat](/features/waveAI#chat-command) command followed by your question to get a quick answer from your llama.cpp model directly in the terminal.
+
+## Troubleshooting
+If you encounter issues while using llama.cpp with Wave AI, consider the following troubleshooting steps:
+
+- **Connection failures:** If Wave AI fails to connect to your llama.cpp server or returns an error message, [verify](https://github.com/ggerganov/llama.cpp/tree/master/examples/server#testing-with-curl) that the llama.cpp server is running is running and accessible from the system where Wave is installed. Check the llama.cpp logs for any error messages or indications of why the connection might be failing.
+- **Timeouts:** If you're unable to complete a query or incur frequent timeouts, try adjusting the `aitimeout` parameter to a higher value. This will give your llama.cpp server more time to process and respond to your requests, especially if you are running it on a system with limited hardware resources.
+- **Incorrect base URL or port:** Ensure that the `aibaseurl` parameter points to the correct URL and port number where the llama.cpp server is running. If you have changed the default port or are running llama.cpp on a remote server, update the URL accordingly.
+- **Unexpected behavior or inconsistent results:** If you encounter unexpected behavior or inconsistent results when using the llama.cpp server with Wave AI, try [resetting](#reset-wave-ai) the `aibaseurl` and `aimodel` parameters to their default values and reconfiguring llama.cpp from scratch. This can help rule out any configuration issues that might be causing problems.
+
+<Tip>
+If you continue to face issues after trying these troubleshooting steps, feel free to reach out to us on [Discord](https://discord.gg/XfvZ334gwU).
+</Tip>
+
+## Reset Wave AI
+At any time if you find that you wish to return to the default Wave AI experience, you can reset the `aibaseurl` and `aimodel` parameters to their default state by using the following commands.
+
+```
+/client:set aibaseurl=
+/client:set aimodel=
+```
+**Note:** This can also be done in the UI just as described in previous steps.
