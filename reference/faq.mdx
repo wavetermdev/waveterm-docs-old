@@ -59,3 +59,7 @@ Yes (must have Wave v0.6.0 or later). If you run `/reset shell=zsh` or `/reset s
 When building v0.6.0 we noticed some irregularities in how we were storing bash shell state.  Specifically if your rcfiles produced any spurious output (invalid aliases was a common culprit), the shell state might be saved, but in a broken way.  While migrating to v0.6.0 we flagged any of these invalid states and show this message.
 
 Clicking "*reset shell state*" (or running the slash command `/reset`) will force Wave to re-read your bash config files and produce a new valid state.  Note that after running the reset, your cwd and environment will be reset as if this was a new session.
+
+## How is Waveterm managing to share my sudo password between PTY sessions?
+
+By default, sharing a sudo password between PTY sessions is not allowed by your operating system. This can be a frustration when using Waveterm because every command is treated as a separate PTY session. To get around this, Waveterm will cache your sudo password in local memory (not written to disk) and share it with a session when provided. This cache can be configured to time out after a set period of time (5 minutes by default) without a sudo command. It also can be cleared automatically when your computer falls asleep regardless of the timer (this feature is on by default). Lastly, if you are uncomfortable with your password being cached, you can disable this feature altogether.
