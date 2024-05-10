@@ -1,0 +1,66 @@
+---
+title: 'LM Studio'
+description: 'Get LM Studio up and running in Wave AI'
+---
+
+[LM Studio](https://lmstudio.ai/) is a desktop application that allows users to discover, download, and run Large Language Models (LLMs) offline on their personal computers. It supports ggml-compatible models from Hugging Face, including Llama, MPT, and StarCoder. LM Studio provides a user-friendly Chat UI for engaging with the models and an OpenAI-compatible local server for seamless integration with other tools and applications.
+
+Wave specifically supports the [LM Studio Server](https://lmstudio.ai/docs/local-server), which makes the models available locally to run from other applications like Wave.
+
+<Tip>
+To see a full list of supported LLM providers, please visit the [Third-Party LLM Support](/features/waveAI#third-party-llm-support) section in the Wave AI features page.
+</Tip>
+
+## Installation
+Please visit LM Studio's [Website](https://lmstudio.ai/) to download and install LM Studio.
+
+## Configuration
+After downloading and installing LM Studio, you need to configure and start the [LM Studio server](https://lmstudio.ai/docs/local-server#using-the-local-server). Once you've started the LM Studio server, you can start using it in Wave by setting a single parameter: `aibaseurl`. This parameter can be set either through the UI or from the command line, but please note that the parameter names are slightly different depending on the method you choose.
+
+### **Parameters**
+
+- **AI Base URL:** Set this parameter to the base URL or endpoint that Wave AI should query. If you've started the server using the default configuration, use http://localhost:1234/v1 as your base url. Otherwise, if you've changed the port, please update this example to use the appropriate port number.
+
+### Configuring via the UI
+To configure LM Studio from Wave's user interface, navigate to the "Settings" menu and set the `AI Base URL` parameter as described in the previous section.
+
+### Configuring via the CLI
+To configure LM Studio using the command line, set the `aibaseurl` parameter using the [/client:set](/reference/slashcommands#client-set) command, as shown in the example below.
+
+```
+/client:set aibaseurl=<your-LM Studio-base-url>
+```
+
+## Usage
+Once you have configured the LM Studio server for Wave you can begin using it. There are two primary ways to interact with your newly configured LLM: [Interactive Mode](/features/waveAI#interactive) and by using the [/chat](/features/waveAI#chat-command) command.
+
+- **Interactive Mode:** To enter Interactive Mode, click the "Wave AI" button in the command box or use the `ctrl + space` shortcut. This will open an interactive chat session where you can have a continuous conversation with the AI assistant powered by your LM Studio model.
+- **/chat:** Alternatively, you can use the [/chat](/features/waveAI#chat-command) command followed by your question to get a quick answer from your LM Studio model directly in the terminal.
+
+## Troubleshooting
+If you encounter issues while using LM Studio with Wave AI, consider the following troubleshooting steps:
+
+- **Connection failures:** If Wave AI fails to connect to your LM Studio server or returns an error message, [verify](https://lmstudio.ai/docs/local-server#make-an-inferencing-request-using-openais-chat-completions-format) that the LM Studio server is running is running and accessible from the system where Wave is installed. Check the LM Studio logs for any error messages or indications of why the connection might be failing.
+- **Timeouts:** If you're unable to complete a query or incur frequent timeouts, try adjusting the `aitimeout` parameter to a higher value. This will give your LM Studio server more time to process and respond to your requests, especially if you are running it on a system with limited hardware resources.
+- **Incorrect base URL or port:** Ensure that the `aibaseurl` parameter points to the correct URL and port number where the LM Studio server is running. If you have changed the default port or are running LM Studio on a remote server, update the URL accordingly.
+- **Unexpected behavior or inconsistent results:** If you encounter unexpected behavior or inconsistent results when using the LM Studio server with Wave AI, try [resetting](#reset-wave-ai) the `aibaseurl` and `aimodel` parameters to their default values and reconfiguring LM Studio from scratch. This can help rule out any configuration issues that might be causing problems.
+
+<Tip>
+If you continue to face issues after trying these troubleshooting steps, please see the [Additional Resources](#additional-resources) section below for further assistance, or feel free to reach out to us on [Discord](https://discord.gg/XfvZ334gwU).
+</Tip>
+
+## Reset Wave AI
+At any time if you find that you wish to return to the default Wave AI experience, you can reset the `aibaseurl` and `aimodel` parameters to their default state by using the following commands.
+
+```
+/client:set aibaseurl=
+/client:set aimodel=
+```
+**Note:** This can also be done in the UI just as described in previous steps.
+
+## Additional Resources
+* [LM Studio Website](https://lmstudio.ai/)
+* [LM Studio Docs](https://lmstudio.ai/docs/welcome)
+* [LM Studio GitHub Page](https://github.com/lmstudio-ai)
+* [LM Studio Discord Server](https://discord.com/invite/aPQfnNkxGC)
+* [LM Studio Twitter](https://twitter.com/lmstudioai)

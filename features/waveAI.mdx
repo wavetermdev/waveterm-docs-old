@@ -44,15 +44,26 @@ By default, Wave will proxy your requests through our cloud servers to OpenAI. H
 **Note:** In order to prevent abuse, [telemetry](/reference/telemetry) must be enabled to use the cloud servers. There is currently a rate limit of 200 requests per day.
 
 ## Third-Party LLM Support
-Wave AI supports various third-party Large Language Model providers, allowing you to choose the model that best suits your needs and preferences. This section provides a comprehensive list of the third-party LLM providers that are compatible with Wave AI, enabling you to make an informed decision based on your specific needs and concerns.
+Wave AI supports various third-party Large Language Model providers, allowing you to choose the model that best suits your needs and preferences. This section provides a comprehensive list of providers that are compatible with Wave AI, enabling you to make an informed decision based on your specific needs and concerns.
 
 To get started with a specific integration, simply click on the integration to access the setup instructions and configuration details for that particular LLM provider.
 
 ### Supported LLM Providers:
-* [llamap.cpp](/features/supportedLLMs/llamacpp)
-* [LocalAI](/features/supportedLLMs/localai)
-* [Ollama](/features/supportedLLMs/ollama)
-* [BYOLLM (Bring Your Own LLM)](/features/supportedLLMs/BYOLLM)
+<AccordionGroup>
+  <Accordion title="Local LLM Providers">
+    - [llama.cpp](/features/supportedLLMs/llamacpp)
+    - [LM Studio](/features/supportedLLMs/lmstudio)
+    - [LocalAI](/features/supportedLLMs/localai)
+    - [Ollama](/features/supportedLLMs/ollama)
+    - [BYOLLM (Bring Your Own LLM)](/features/supportedLLMs/byollm)
+  </Accordion>
+</AccordionGroup>
+
+<AccordionGroup>
+  <Accordion title="Cloud-based LLM Providers">
+  </Accordion>
+</AccordionGroup>
+
 
 **Note:** Currently, Wave's third-party LLM integration supports language models that are compatible with [OpenAI's Chat Completions API](https://platform.openai.com/docs/api-reference/chat). We are actively working on expanding our integrations to support a wider range of LLM providers and API formats in the near future.
 
