@@ -1,6 +1,6 @@
 ---
 title: Telemetry
-description: As of v0.7.1
+description: As of v0.7.5
 ---
 
 Wave Terminal collects telemetry data to help us track feature use, direct future product efforts, and generate aggregate metrics on Wave's popularity and usage.  We do not collect or store any PII (personal identifiable information) and all metric data is only associated with and aggregated using your randomly generated _ClientId_.  You may opt out of collection at any time.
@@ -10,7 +10,7 @@ If you would like to turn telemetry on or off, the first opportunity is a button
 ---
 
 ## Sending Telemetry
-Provided that telemetry is enabled, it is sent 30 seconds after Waveterm is first booted and then again every 8 hours thereafter. It can also be sent in response to a few special cases listed below. When telemetry is sent, it is grouped into individual days as determined by your time zone. Any data from a previous day is marked as `Uploaded` so it will not need to be sent again.
+Provided that telemetry is enabled, it is sent 30 seconds after Waveterm is first booted and then again every 4 hours thereafter. It can also be sent in response to a few special cases listed below. When telemetry is sent, it is grouped into individual days as determined by your time zone. Any data from a previous day is marked as `Uploaded` so it will not need to be sent again.
 
 ### Sending via Manual Command
 Telemetry can be sent manually with the `/telemetry:send` command if telemetry is active. If telemetry is deactivated, it is still possible to manually send it, but it must be done with the `/telemetry:send force=1` command instead. This does not reset the usual timer for telemetry sends.
@@ -38,10 +38,16 @@ When telemetry is active, we collect the following data. It is stored in the `ss
 | FgMinutes | The number of minutes that Waveterm has been in the foreground on a given day. This requires the terminal window to be in focus regardless of user interaction.|
 | OpenMinutes |The number of minutes that Waveterm has been open on a given day. This only requires that the terminal is open, even if the window is out of focus.|
 | ClickShared | See [Deprecated Telemetry References](#deprecated-telemetry-references) |
-| HistoryView | The number of times the user has used the _History_ command on a given day. This count includes uses from both the GUI and command line. |
+| HistoryView | The number of times the user has used the _History_ command on a given day. It specifically refers to the history feature located in the sidebar that opens its own gui. |
 | BookmarksView | The number of times the user has used the _Bookmarks_ command on a given day. |
 | NumConns | The total number of connections created on this Waveterm installation. This count includes connections that have been deleted and includes all of the various ways a user can make a connection. Unlike the other data, this always includes the total number of connections that have been created&mdash;not just the ones created each day. |
-| WebShareLimit | See [Deprecated Telemetry References](#deprecated-telemetry-references) |
+| NumWorkspaces | The number of workspaces open on a given day. |
+| NumTabs | The number of existing tabs open on a given day. |
+| NewTab | The number of new tabs opened on a given day. |
+| NumStartup | The number of times waveterm has been started on a given day. |
+| NumShutdown | The number of times waveterm has been shut down on a given day. |
+| NumAIChatOpen | The number of times AI chat has been opened on a given day. |
+| NumHistoryOpen | The number of times the user has used the CmdInput History feature. This is located in the input prompt at the bottom of the screen and opens up the history in a dedicated box above the prompt. |
 | ReinitBashErrors | The number of re-initialization errors that have happened in a bash shell on a given day. |
 | ReinitZshErrors | The number of re-initialization errors that have happened in a zsh shell on a given day. |
 
