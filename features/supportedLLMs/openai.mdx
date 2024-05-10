@@ -1,0 +1,60 @@
+---
+title: 'OpenAI'
+description: 'Get up and running with a different model in OpenAI'
+---
+
+By default, Wave AI proxies your requests through our cloud servers to OpenAI using the _gpt-3.5-turbo_ model. However, users can use their own _API key_ and _model_ for additional flexibility, privacy, and to bypass our current rate limit of 200 requests per day to OpenAI, which was implemented to prevent abuse.
+
+<Tip>
+To see a full list of supported LLM providers, please visit the [Third-Party LLM Support](/features/waveAI#third-party-llm-support) section in the Wave AI features page.
+</Tip>
+
+
+## Configuration
+
+To use your own API token and preferred model in OpenAI, simply set the `aiapitoken` and `aimodel` parameters.
+
+### Parameters
+
+- **AI Token:** Set this parameter to your OpenAI [API key](https://platform.openai.com/docs/api-reference/authentication).
+- **AI Model**: Specify the model name that you want to use. See [supported models](https://platform.openai.com/docs/models).
+
+These parameters can be set either through the UI or from the command line, but please note that the parameter names are slightly different depending on the method you choose.
+
+### Configuring via the UI
+To configure custom OpenAI settings from the Wave AI user interface, navigate to the "Settings" menu and set the `AI Token`, and `AI Model` parameters as described in the previous section.
+
+### Configuring via the CLI
+To configure custom OpenAI settings  using the command line, set the `aiapitoken` and `aimodel` parameters using the [/client:set](/reference/slashcommands#client-set) command, as shown in the example below.
+
+```
+/client:set aiapitoken=<your-token>
+/client:set aimodel=<your-model-name>
+```
+
+## Usage
+Once you have configured your custom OpenAI settings, you can start using it in Wave. There are two primary ways to interact with Wave AI: [Interactive Mode](/features/waveAI#interactive) and by using the [/chat](/features/waveAI#chat-command) command.
+
+- **Interactive Mode:** To enter Interactive Mode, click the "Wave AI" button in the command box or use the `ctrl + space` shortcut. This will open an interactive chat session where you can have a continuous conversation with the AI assistant.
+- **/chat:** Alternatively, you can use the [/chat](/features/waveAI#chat-command) command followed by your question to get a quick answer from the AI assistant directly in the terminal.
+
+## Troubleshooting
+If you encounter issues while using your custom OpenAI configuration, consider the following troubleshooting steps:
+
+- **Authentication errors:** Ensure that the `aiapitoken` parameter is set to use the correct API token for the configured service.
+- **Incorrect model selection:** Make sure to set the `aimodel` parameter to one of the supported OpenAI models [listed here](https://platform.openai.com/docs/models).
+- **Unexpected behavior or inconsistent results:** If you encounter unexpected behavior or inconsistent results when using your custom OpenAI settings with Wave AI, try [resetting](#reset-wave-ai) the `aibaseurl`, `aimodel`, and `aiapitoken` parameters to their default values and reconfiguring from scratch.
+
+<Tip>
+If you continue to face issues after trying these troubleshooting steps, feel free to reach out to us on [Discord](https://discord.gg/XfvZ334gwU).
+</Tip>
+
+## Reset Wave AI
+At any time if you find that you wish to return to the default Wave AI experience, you can reset the `aibaseurl`, `aimodel`, and `aiapitoken` parameters to their default state by using the following commands.
+
+```
+/client:set aibaseurl=
+/client:set aimodel=
+/client:set aiapitoken=
+```
+**Note:** This can also be done in the UI just as described in previous steps.
