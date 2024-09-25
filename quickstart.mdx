@@ -1,95 +1,94 @@
 ---
 title: 'Quickstart'
-description: 'Welcome to the Quickstart Guide for Wave! Here, you''ll find everything you need to get Wave installed on your system, set up your environment, and dive into the basics of using Wave to enhance your command line experience.'
+description: 'Welcome to the Quickstart Guide for WaveLegacy! Here, you''ll find everything you need to get WaveLegacy installed on your system, set up your environment, and dive into the basics of using WaveLegacy to enhance your command line experience.'
 ---
 
 ## Installation
 <AccordionGroup>
   <Accordion icon="apple" title="MacOS">
-    1. There are two ways to get Wave:
-       * [Download Wave](https://www.waveterm.dev/download) and drag it into your Application folder.
-       * For Homebrew users, run ```brew install --cask wave```
+    1. There are two ways to get WaveLegacy:
+       * [Download WaveLegacy](https://www.waveterm.dev/download-legacy) and drag it into your Application folder.
     2. If using brew, get brew commands to work by adding the shellenv command to your *.bashrc* or *.zshrc*, e.g. ```echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.bashrc```
   </Accordion>
   <Accordion icon="linux" title="Linux (.deb, .rpm, .pacman, .AppImage)">
-    1. [Download](https://www.waveterm.dev/download) the appropriate package for your system.
+    1. [Download](https://www.waveterm.dev/download-legacy) the appropriate package for your system.
     2. Install the package using one of the following methods.
 
       <Card title=".deb" icon="ubuntu">
-         To install Wave Debian-based systems (Ubuntu, Debian, etc.), use one of the following commands.
+         To install WaveLegacy Debian-based systems (Ubuntu, Debian, etc.), use one of the following commands.
 
-        `sudo apt install ./Wave-linux-amd64-<version>.deb`
+        `sudo apt install ./WaveLegacy-linux-amd64-<version>.deb`
 
         or
 
-        `sudo dpkg -i Wave-linux-amd64-<version>.deb`
+        `sudo dpkg -i WaveLegacy-linux-amd64-<version>.deb`
        </Card>
       <Card title=".rpm" icon="fedora">
-        On RPM-based Linux distributions (Fedora, CentOS, etc.), Wave can be installed using the `rpm` command (or `dnf` in Fedora).
+        On RPM-based Linux distributions (Fedora, CentOS, etc.), WaveLegacy can be installed using the `rpm` command (or `dnf` in Fedora).
 
-        `sudo rpm -i Wave-linux-x86_64-<version>.rpm`
+        `sudo rpm -i WaveLegacy-linux-x86_64-<version>.rpm`
     
           or
 
-        `sudo dnf install Wave-linux-x86_64-<version>.rpm`
+        `sudo dnf install WaveLegacy-linux-x86_64-<version>.rpm`
 
        </Card>
       <Card title=".pacman" icon="linux">
-        For Arch Linux and derivatives, Wave can be installed using the pacman package manager.
+        For Arch Linux and derivatives, WaveLegacy can be installed using the pacman package manager.
 
-        `sudo pacman -U Wave-linux-<arch>-<version>.pacman`
+        `sudo pacman -U WaveLegacy-linux-<arch>-<version>.pacman`
 
        </Card>
       <Card title=".AppImage" icon="linux">
-        AppImage allows you to run the Wave application on any Linux distribution without installing it. 
+        AppImage allows you to run the WaveLegacy application on any Linux distribution without installing it. 
     
         First, make the AppImage file executable
-        `chmod +x Wave-linux-x86_64-<version>.AppImage`
+        `chmod +x WaveLegacy-linux-x86_64-<version>.AppImage`
 
-        2. Next, Run Wave
-        `./Wave-linux-x86_64-<version>.AppImage`
+        2. Next, Run WaveLegacy
+        `./WaveLegacy-linux-x86_64-<version>.AppImage`
        </Card>
 
   </Accordion>
 
   <Accordion icon="linux" title="Linux (.zip)">
-    1. [Download](https://www.waveterm.dev/download) the `.zip` Linux package for Wave.
-    2. In your terminal, navigate to the location where you want to install Wave. Then, run the following commands to create a folder and extract the contents of the `.zip` file.
+    1. [Download](https://www.waveterm.dev/download-legacy) the `.zip` Linux package for WaveLegacy.
+    2. In your terminal, navigate to the location where you want to install WaveLegacy. Then, run the following commands to create a folder and extract the contents of the `.zip` file.
     ```
-    mkdir wave
-    unzip Waveterm-Linux.zip -d wave
+    mkdir wavelegacy
+    unzip WaveLegacy-Linux-*.zip -d wavelegacy
     ```
-    3. Run the application:  ```./Wave```
+    3. Run the application:  ```./WaveLegacy```
  
     **Optional:**
-    You can create a `.desktop` file, allowing you to launch Wave directly.
-    After doing the above steps, create a file named `Wave.desktop`, and add the following, modifying the `Exec` and `Icon` paths to point to your Wave installation:
+    You can create a `.desktop` file, allowing you to launch WaveLegacy directly.
+    After doing the above steps, create a file named `WaveLegacy.desktop`, and add the following, modifying the `Exec` and `Icon` paths to point to your WaveLegacy installation:
 
     ```
     [Desktop Entry]
     Type=Application
-    Name=Wave
-    Icon= /path/to/Wave-linux-*/resources/app/public/waveterm.icns
-    Exec=/path/to/Wave-linux-*/Wave
-    # setting this to true will launch an extra terminal to run the Wave command
+    Name=WaveLegacy
+    Icon= /path/to/WaveLegacy-linux-*/resources/app/public/waveterm.icns
+    Exec=/path/to/WaveLegacy-linux-*/WaveLegacy
+    # setting this to true will launch an extra terminal to run the WaveLegacy command
     Terminal=false
     ```
 
-    Run `desktop-file-validate Wave.desktop` to validate that the desktop entry is correct, then run `sudo cp Wave.desktop ~/.local/share/applications/Wave.desktop` to copy the entry into your application list.
-    After restarting your desktop environment (or your computer), Wave should be visible in your desktop application list. You can now launch Wave directly from your desktop environment.
+    Run `desktop-file-validate WaveLegacy.desktop` to validate that the desktop entry is correct, then run `sudo cp WaveLegacy.desktop ~/.local/share/applications/WaveLegacy.desktop` to copy the entry into your application list.
+    After restarting your desktop environment (or your computer), WaveLegacy should be visible in your desktop application list. You can now launch WaveLegacy directly from your desktop environment.
     The `.desktop` file scheme is supported by the most commonly used desktop environments such as GNOME, KDE, XFCE, etc. If you encounter issues, you can get help in our Discord or by opening an issue on Github.
   </Accordion>
   <Accordion icon="windows" title="WSL">
-    Wave has support for WSL, tested on Ubuntu and Kali distros
-    1. [Download](https://www.waveterm.dev/download) the `.zip` Linux package for Wave.
+    WaveLegacy has support for WSL, tested on Ubuntu and Kali distros
+    1. [Download](https://www.waveterm.dev/download-legacy) the `.zip` Linux package for WaveLegacy.
         - In the terminal, use `wget <DOWNLOAD_URL>`
-    2. Navigate to the location where you want to install Wave. Then, run the following commands to create a folder and extract the contents of the `.zip` file.
+    2. Navigate to the location where you want to install WaveLegacy. Then, run the following commands to create a folder and extract the contents of the `.zip` file.
     ```
-    mkdir wave
-    unzip Waveterm-Linux.zip -d wave
+    mkdir wavelegacy
+    unzip WaveLegacy-linux-*.zip -d wavelegacy
     ```
-    3. Change to the Wave directory ```cd wave```
-    4. Run the application:  ```./Wave```
+    3. Change to the WaveLegacy directory ```cd wavelegacy```
+    4. Run the application:  ```./WaveLegacy```
 
     if you run into issues, try running the following 2 commands:
     ```
@@ -129,8 +128,8 @@ You type commands into the input box at the bottom of the screen like normal, an
   So far we've been working in one tab. You can easily create a new tab by clicking the “+” in the tab bar, or by pressing “Cmd-T”. Switching between tabs can be done with the mouse or by using “Cmd-[digit]” to switch to the nth tab. Cmd-LeftArrow and Cmd-RightArrow will also work to change tabs.
 </Accordion>
 <Accordion icon="rocket" title="Create New Workspace">
-  Wave also has the concept of workspaces. A workspace is just a set of tabs. You can see your workspaces listed in the left column of the UI. You start with 1 workspace named “default”. You can easily create a new workspace by clicking on the "+" left bar next to the label "Workspaces" or by using a “slash-command” (we’ll discuss those later). Each workspace is independent from the others. You can use workspaces to set up custom sets of tabs for different projects, common configurations, or different remote machines. In the future, Wave will support sharing workspaces with your team or having a joint shared workspace that everyone can view and contribute to.
+  WaveLegacy also has the concept of workspaces. A workspace is just a set of tabs. You can see your workspaces listed in the left column of the UI. You start with 1 workspace named “default”. You can easily create a new workspace by clicking on the "+" left bar next to the label "Workspaces" or by using a “slash-command” (we’ll discuss those later). Each workspace is independent from the others. You can use workspaces to set up custom sets of tabs for different projects, common configurations, or different remote machines. In the future, WaveLegacy will support sharing workspaces with your team or having a joint shared workspace that everyone can view and contribute to.
 
-Workspaces and tabs are persistent. The history and state of each tab is preserved across reboots, network disconnections, remote machine reboots, and time. Any command you’ve ever run in Wave will be remembered (unless of course you choose to delete it).
+Workspaces and tabs are persistent. The history and state of each tab is preserved across reboots, network disconnections, remote machine reboots, and time. Any command you’ve ever run in WaveLegacy will be remembered (unless of course you choose to delete it).
   </Accordion>
 </AccordionGroup>
