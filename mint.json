@@ -1,6 +1,6 @@
 {
    "$schema":"https://mintlify.com/schema.json",
-   "name":"Wave Terminal",
+   "name":"WaveLegacy Documentation",
    "logo":{
       "dark":"/logo/wave-dark.png",
       "light":"/logo/wave-light.png"
@@ -23,7 +23,7 @@
    ],
    "topbarCtaButton":{
       "name":"Download Wave",
-      "url":"https://www.waveterm.dev/download"
+      "url":"https://www.waveterm.dev/download-legacy"
    },
    "tabs":[
       

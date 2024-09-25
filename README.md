@@ -1,6 +1,6 @@
 # WaveLegacy Documentation
 
-This repo contains the WaveLegacy Documentation, which is hosted at [legacy.waveterm.dev](https://legacydocs.waveterm.dev/).
+This repo contains the WaveLegacy Documentation, which is hosted at [legacydocs.waveterm.dev](https://legacydocs.waveterm.dev/).
 
 ## Contributing
 
